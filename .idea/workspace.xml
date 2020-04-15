@@ -145,10 +145,10 @@
       <screen x="0" y="23" width="1629" height="1027" />
     </state>
     <state x="555" y="346" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1629.1027@0.23.1629.1027" timestamp="1586964026334" />
-    <state x="408" y="139" key="CommitChangelistDialog2" timestamp="1586965750230">
-      <screen x="0" y="23" width="1629" height="1027" />
+    <state x="407" y="139" key="CommitChangelistDialog2" timestamp="1586969156901">
+      <screen x="0" y="23" width="1627" height="1027" />
     </state>
-    <state x="407" y="139" key="CommitChangelistDialog2/0.23.1627.1027@0.23.1627.1027" timestamp="1586963295140" />
+    <state x="407" y="139" key="CommitChangelistDialog2/0.23.1627.1027@0.23.1627.1027" timestamp="1586969156901" />
     <state x="408" y="139" key="CommitChangelistDialog2/0.23.1629.1027@0.23.1629.1027" timestamp="1586965750230" />
     <state width="1585" height="355" key="GridCell.Tab.0.bottom" timestamp="1586969148918">
       <screen x="0" y="23" width="1627" height="1027" />
@@ -191,10 +191,10 @@
     </state>
     <state x="322" y="175" key="SettingsEditor/0.23.1627.1027@0.23.1627.1027" timestamp="1586968240955" />
     <state x="322" y="175" key="SettingsEditor/0.23.1629.1027@0.23.1629.1027" timestamp="1586966994965" />
-    <state x="414" y="276" key="Vcs.Push.Dialog.v2" timestamp="1586965774188">
-      <screen x="0" y="23" width="1629" height="1027" />
+    <state x="413" y="276" key="Vcs.Push.Dialog.v2" timestamp="1586969202323">
+      <screen x="0" y="23" width="1627" height="1027" />
     </state>
-    <state x="413" y="276" key="Vcs.Push.Dialog.v2/0.23.1627.1027@0.23.1627.1027" timestamp="1586963342486" />
+    <state x="413" y="276" key="Vcs.Push.Dialog.v2/0.23.1627.1027@0.23.1627.1027" timestamp="1586969202323" />
     <state x="414" y="276" key="Vcs.Push.Dialog.v2/0.23.1629.1027@0.23.1629.1027" timestamp="1586965774188" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
