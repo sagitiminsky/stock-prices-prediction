@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6c2ad31-683a-4c7a-9a53-59289a453324" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/stocks_RNN_.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/stocks_RNN_.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/stock_rnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/stock_rnn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/get_stock_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/get_stock_info.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +61,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/apps" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -96,7 +99,10 @@
       <option name="presentableId" value="Default" />
       <updated>1586963029797</updated>
       <workItem from="1586963035142" duration="1826000" />
-      <workItem from="1586965187504" duration="382000" />
+      <workItem from="1586965187504" duration="1726000" />
+      <workItem from="1586967183506" duration="664000" />
+      <workItem from="1586967865856" duration="272000" />
+      <workItem from="1586968149905" duration="603000" />
     </task>
     <task id="LOCAL-00001" summary="create price stock reader">
       <created>1586963295381</created>
@@ -112,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586965488598</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="create price stock reader">
+      <created>1586965754685</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1586965754685</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,46 +136,69 @@
     <option name="LAST_COMMIT_MESSAGE" value="create price stock reader" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="278" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586964153316">
-      <screen x="0" y="23" width="1629" height="1027" />
+    <state x="278" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586968023847">
+      <screen x="0" y="23" width="1627" height="1027" />
     </state>
-    <state x="278" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1629.1027@0.23.1629.1027" timestamp="1586964153316" />
+    <state x="278" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1627.1027@0.23.1627.1027" timestamp="1586968023847" />
+    <state x="278" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1629.1027@0.23.1629.1027" timestamp="1586967063577" />
     <state x="555" y="346" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586964026334">
       <screen x="0" y="23" width="1629" height="1027" />
     </state>
     <state x="555" y="346" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1629.1027@0.23.1629.1027" timestamp="1586964026334" />
-    <state x="408" y="139" key="CommitChangelistDialog2" timestamp="1586965488401">
+    <state x="408" y="139" key="CommitChangelistDialog2" timestamp="1586965750230">
       <screen x="0" y="23" width="1629" height="1027" />
     </state>
     <state x="407" y="139" key="CommitChangelistDialog2/0.23.1627.1027@0.23.1627.1027" timestamp="1586963295140" />
-    <state x="408" y="139" key="CommitChangelistDialog2/0.23.1629.1027@0.23.1629.1027" timestamp="1586965488401" />
-    <state width="1585" height="280" key="GridCell.Tab.0.bottom" timestamp="1586964037082">
-      <screen x="0" y="23" width="1629" height="1027" />
+    <state x="408" y="139" key="CommitChangelistDialog2/0.23.1629.1027@0.23.1629.1027" timestamp="1586965750230" />
+    <state width="1585" height="355" key="GridCell.Tab.0.bottom" timestamp="1586969148918">
+      <screen x="0" y="23" width="1627" height="1027" />
     </state>
-    <state width="1585" height="280" key="GridCell.Tab.0.bottom/0.23.1629.1027@0.23.1629.1027" timestamp="1586964037082" />
-    <state width="1585" height="280" key="GridCell.Tab.0.center" timestamp="1586964037082">
-      <screen x="0" y="23" width="1629" height="1027" />
+    <state width="1585" height="355" key="GridCell.Tab.0.bottom/0.23.1627.1027@0.23.1627.1027" timestamp="1586969148918" />
+    <state width="1585" height="280" key="GridCell.Tab.0.bottom/0.23.1629.1027@0.23.1629.1027" timestamp="1586967161764" />
+    <state width="1585" height="355" key="GridCell.Tab.0.center" timestamp="1586969148917">
+      <screen x="0" y="23" width="1627" height="1027" />
     </state>
-    <state width="1585" height="280" key="GridCell.Tab.0.center/0.23.1629.1027@0.23.1629.1027" timestamp="1586964037082" />
-    <state width="1585" height="280" key="GridCell.Tab.0.left" timestamp="1586964037082">
-      <screen x="0" y="23" width="1629" height="1027" />
+    <state width="1585" height="355" key="GridCell.Tab.0.center/0.23.1627.1027@0.23.1627.1027" timestamp="1586969148917" />
+    <state width="1585" height="280" key="GridCell.Tab.0.center/0.23.1629.1027@0.23.1629.1027" timestamp="1586967161763" />
+    <state width="1585" height="355" key="GridCell.Tab.0.left" timestamp="1586969148916">
+      <screen x="0" y="23" width="1627" height="1027" />
     </state>
-    <state width="1585" height="280" key="GridCell.Tab.0.left/0.23.1629.1027@0.23.1629.1027" timestamp="1586964037082" />
-    <state width="1585" height="280" key="GridCell.Tab.0.right" timestamp="1586964037082">
-      <screen x="0" y="23" width="1629" height="1027" />
+    <state width="1585" height="355" key="GridCell.Tab.0.left/0.23.1627.1027@0.23.1627.1027" timestamp="1586969148916" />
+    <state width="1585" height="280" key="GridCell.Tab.0.left/0.23.1629.1027@0.23.1629.1027" timestamp="1586967161763" />
+    <state width="1585" height="355" key="GridCell.Tab.0.right" timestamp="1586969148917">
+      <screen x="0" y="23" width="1627" height="1027" />
     </state>
-    <state width="1585" height="280" key="GridCell.Tab.0.right/0.23.1629.1027@0.23.1629.1027" timestamp="1586964037082" />
-    <state x="322" y="175" key="SettingsEditor" timestamp="1586963973456">
-      <screen x="0" y="23" width="1629" height="1027" />
+    <state width="1585" height="355" key="GridCell.Tab.0.right/0.23.1627.1027@0.23.1627.1027" timestamp="1586969148917" />
+    <state width="1585" height="280" key="GridCell.Tab.0.right/0.23.1629.1027@0.23.1629.1027" timestamp="1586967161764" />
+    <state width="1585" height="345" key="GridCell.Tab.1.bottom" timestamp="1586967849407">
+      <screen x="0" y="23" width="1627" height="1027" />
     </state>
-    <state x="322" y="175" key="SettingsEditor/0.23.1629.1027@0.23.1629.1027" timestamp="1586963973456" />
-    <state x="414" y="276" key="Vcs.Push.Dialog.v2" timestamp="1586965492439">
+    <state width="1585" height="345" key="GridCell.Tab.1.bottom/0.23.1627.1027@0.23.1627.1027" timestamp="1586967849407" />
+    <state width="1585" height="345" key="GridCell.Tab.1.center" timestamp="1586967849407">
+      <screen x="0" y="23" width="1627" height="1027" />
+    </state>
+    <state width="1585" height="345" key="GridCell.Tab.1.center/0.23.1627.1027@0.23.1627.1027" timestamp="1586967849407" />
+    <state width="1585" height="345" key="GridCell.Tab.1.left" timestamp="1586967849407">
+      <screen x="0" y="23" width="1627" height="1027" />
+    </state>
+    <state width="1585" height="345" key="GridCell.Tab.1.left/0.23.1627.1027@0.23.1627.1027" timestamp="1586967849407" />
+    <state width="1585" height="345" key="GridCell.Tab.1.right" timestamp="1586967849407">
+      <screen x="0" y="23" width="1627" height="1027" />
+    </state>
+    <state width="1585" height="345" key="GridCell.Tab.1.right/0.23.1627.1027@0.23.1627.1027" timestamp="1586967849407" />
+    <state x="322" y="175" key="SettingsEditor" timestamp="1586968240955">
+      <screen x="0" y="23" width="1627" height="1027" />
+    </state>
+    <state x="322" y="175" key="SettingsEditor/0.23.1627.1027@0.23.1627.1027" timestamp="1586968240955" />
+    <state x="322" y="175" key="SettingsEditor/0.23.1629.1027@0.23.1629.1027" timestamp="1586966994965" />
+    <state x="414" y="276" key="Vcs.Push.Dialog.v2" timestamp="1586965774188">
       <screen x="0" y="23" width="1629" height="1027" />
     </state>
     <state x="413" y="276" key="Vcs.Push.Dialog.v2/0.23.1627.1027@0.23.1627.1027" timestamp="1586963342486" />
-    <state x="414" y="276" key="Vcs.Push.Dialog.v2/0.23.1629.1027@0.23.1629.1027" timestamp="1586965492439" />
+    <state x="414" y="276" key="Vcs.Push.Dialog.v2/0.23.1629.1027@0.23.1629.1027" timestamp="1586965774188" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/stocks_RNN_$stock_rnn.coverage" NAME="stock_rnn Coverage Results" MODIFIED="1586963927507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps" />
+    <SUITE FILE_PATH="coverage/stocks_RNN$stock_rnn.coverage" NAME="stock_rnn Coverage Results" MODIFIED="1586968307603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

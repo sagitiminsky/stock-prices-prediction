@@ -2,6 +2,8 @@ import neptune
 from libs.get_stock_info import GetStockInfo
 
 
+
+
 # The init() function called this way assumes that
 # NEPTUNE_API_TOKEN environment variable is defined.
 
