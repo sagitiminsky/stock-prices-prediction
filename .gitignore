@@ -1,2 +1,6 @@
 # ignore an entire directory
 /ml-class/
+/venv/
+
+# ignore a single file
+keys
