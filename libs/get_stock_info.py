@@ -15,4 +15,3 @@ class GetStockInfo:
             r=requests.get(self.stocks[stock_name]['link'])
             soup=bs4.BeautifulSoup(r.text,"lxml")
             self.stocks[stock_name]['values'].enqueue(float(soup.find_all('div',{'class':'My(6px) Pos(r) smartphone_Mt(6px)'})[0].find('span').text))
-            
