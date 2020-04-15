@@ -1,1 +1,1 @@
-sdd
+Stock prediction using RNN
