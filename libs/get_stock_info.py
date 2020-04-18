@@ -17,7 +17,7 @@ class GetStockInfo:
             soup=BeautifulSoup(r.text,"lxml")
             value=float(soup.find_all('div',{'class':'My(6px) Pos(r) smartphone_Mt(6px)'})[0].find('span').text)
             queueObj=self.stocks[stock_name]['queueObj']
-            queueObj.enqueue(value) #this step adds both value to _queue, and normalized_value to _norm_queue
+            queueObj.enqueue(value) #this step adds value to _queue, normalized_value to _norm_queue and sets max and min values in queueObj
 
 
 
