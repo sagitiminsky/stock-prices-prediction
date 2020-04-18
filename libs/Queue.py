@@ -62,4 +62,9 @@ class Queue():
         IndexError
             If this queue is empty.
         '''
-        return self._queue.pop()
+
+        ret=self._queue.pop()
+        self._maxValue = max([x for x in self._queue])
+        self._minValue = min([x for x in self._queue])
+
+        return ret
