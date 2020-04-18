@@ -20,23 +20,9 @@ class Queue():
 
         self._queue = deque(maxlen=max_size)
         self._norm_queue = deque(maxlen=max_size)
-        self._maxlen=max_size
-        self._maxValue = None
-        self._minValue = None
+        self._max = None
+        self._min = None
 
-    def normalize(self,queue,max,min):
-        '''
-        Normaliaze the window data between 0 and 1
-        :return: Normalized window
-        '''
-        norm=[]
-        for x in queue:
-            try:
-                norm.append((x-min)/(max-min))
-            except ZeroDivisionError:
-                norm.append(0)
-
-        return deque(norm,maxlen=self._maxlen)
 
 
     def enqueue(self, item):
@@ -49,11 +35,15 @@ class Queue():
         queued.
         '''
 
-        self._queue.append(item)
-        self._maxValue = max([x for x in self._queue])
-        self._minValue = min([x for x in self._queue])
 
-        self._norm_queue=self.normalize(self._queue,max=self._maxValue,min=self._minValue)
+        self._queue.append(item)
+        self._max=max(self._queue)
+        self._min=min(self._queue)
+
+        try:
+            self._norm_queue.append((item-self._min)/(self._max-self._min))
+        except ZeroDivisionError:
+            self._norm_queue.append(0)
 
     def dequeue(self):
         '''
@@ -66,8 +56,5 @@ class Queue():
             If this queue is empty.
         '''
 
-        ret=self._queue.pop()
-        self._maxValue = max([x for x in self._queue])
-        self._minValue = min([x for x in self._queue])
-
-        return ret
+        self._queue.pop()
+        self._norm_queue.pop()
