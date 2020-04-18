@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6c2ad31-683a-4c7a-9a53-59289a453324" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/stocks_RNN_.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/stocks_RNN_.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/stock_rnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/stock_rnn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/Queue.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/Queue.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/get_stock_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/get_stock_info.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,6 +49,7 @@
     <property name="TF_FMT" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager">
@@ -102,7 +102,7 @@
       <workItem from="1586965187504" duration="1726000" />
       <workItem from="1586967183506" duration="664000" />
       <workItem from="1586967865856" duration="272000" />
-      <workItem from="1586968149905" duration="603000" />
+      <workItem from="1586968149905" duration="6810000" />
     </task>
     <task id="LOCAL-00001" summary="create price stock reader">
       <created>1586963295381</created>
@@ -125,7 +125,21 @@
       <option name="project" value="LOCAL" />
       <updated>1586965754685</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="create price stock reader">
+      <created>1586969159285</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1586969159285</updated>
+    </task>
+    <task id="LOCAL-00005" summary="create price stock reader">
+      <created>1586969287904</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1586969287904</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,60 +159,80 @@
       <screen x="0" y="23" width="1629" height="1027" />
     </state>
     <state x="555" y="346" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1629.1027@0.23.1629.1027" timestamp="1586964026334" />
-    <state x="407" y="139" key="CommitChangelistDialog2" timestamp="1586969156901">
+    <state x="407" y="139" key="CommitChangelistDialog2" timestamp="1586969285836">
       <screen x="0" y="23" width="1627" height="1027" />
     </state>
-    <state x="407" y="139" key="CommitChangelistDialog2/0.23.1627.1027@0.23.1627.1027" timestamp="1586969156901" />
+    <state x="407" y="139" key="CommitChangelistDialog2/0.23.1627.1027@0.23.1627.1027" timestamp="1586969285836" />
     <state x="408" y="139" key="CommitChangelistDialog2/0.23.1629.1027@0.23.1629.1027" timestamp="1586965750230" />
-    <state width="1585" height="355" key="GridCell.Tab.0.bottom" timestamp="1586969148918">
+    <state width="1585" height="277" key="GridCell.Tab.0.bottom" timestamp="1587207880207">
       <screen x="0" y="23" width="1627" height="1027" />
     </state>
-    <state width="1585" height="355" key="GridCell.Tab.0.bottom/0.23.1627.1027@0.23.1627.1027" timestamp="1586969148918" />
+    <state width="1585" height="277" key="GridCell.Tab.0.bottom/0.23.1627.1027@0.23.1627.1027" timestamp="1587207880207" />
     <state width="1585" height="280" key="GridCell.Tab.0.bottom/0.23.1629.1027@0.23.1629.1027" timestamp="1586967161764" />
-    <state width="1585" height="355" key="GridCell.Tab.0.center" timestamp="1586969148917">
+    <state width="1585" height="277" key="GridCell.Tab.0.center" timestamp="1587207880206">
       <screen x="0" y="23" width="1627" height="1027" />
     </state>
-    <state width="1585" height="355" key="GridCell.Tab.0.center/0.23.1627.1027@0.23.1627.1027" timestamp="1586969148917" />
+    <state width="1585" height="277" key="GridCell.Tab.0.center/0.23.1627.1027@0.23.1627.1027" timestamp="1587207880206" />
     <state width="1585" height="280" key="GridCell.Tab.0.center/0.23.1629.1027@0.23.1629.1027" timestamp="1586967161763" />
-    <state width="1585" height="355" key="GridCell.Tab.0.left" timestamp="1586969148916">
+    <state width="1585" height="277" key="GridCell.Tab.0.left" timestamp="1587207880206">
       <screen x="0" y="23" width="1627" height="1027" />
     </state>
-    <state width="1585" height="355" key="GridCell.Tab.0.left/0.23.1627.1027@0.23.1627.1027" timestamp="1586969148916" />
+    <state width="1585" height="277" key="GridCell.Tab.0.left/0.23.1627.1027@0.23.1627.1027" timestamp="1587207880206" />
     <state width="1585" height="280" key="GridCell.Tab.0.left/0.23.1629.1027@0.23.1629.1027" timestamp="1586967161763" />
-    <state width="1585" height="355" key="GridCell.Tab.0.right" timestamp="1586969148917">
+    <state width="1585" height="277" key="GridCell.Tab.0.right" timestamp="1587207880207">
       <screen x="0" y="23" width="1627" height="1027" />
     </state>
-    <state width="1585" height="355" key="GridCell.Tab.0.right/0.23.1627.1027@0.23.1627.1027" timestamp="1586969148917" />
+    <state width="1585" height="277" key="GridCell.Tab.0.right/0.23.1627.1027@0.23.1627.1027" timestamp="1587207880207" />
     <state width="1585" height="280" key="GridCell.Tab.0.right/0.23.1629.1027@0.23.1629.1027" timestamp="1586967161764" />
-    <state width="1585" height="345" key="GridCell.Tab.1.bottom" timestamp="1586967849407">
+    <state width="1585" height="345" key="GridCell.Tab.1.bottom" timestamp="1587207834897">
       <screen x="0" y="23" width="1627" height="1027" />
     </state>
-    <state width="1585" height="345" key="GridCell.Tab.1.bottom/0.23.1627.1027@0.23.1627.1027" timestamp="1586967849407" />
-    <state width="1585" height="345" key="GridCell.Tab.1.center" timestamp="1586967849407">
+    <state width="1585" height="345" key="GridCell.Tab.1.bottom/0.23.1627.1027@0.23.1627.1027" timestamp="1587207834897" />
+    <state width="1585" height="345" key="GridCell.Tab.1.center" timestamp="1587207834897">
       <screen x="0" y="23" width="1627" height="1027" />
     </state>
-    <state width="1585" height="345" key="GridCell.Tab.1.center/0.23.1627.1027@0.23.1627.1027" timestamp="1586967849407" />
-    <state width="1585" height="345" key="GridCell.Tab.1.left" timestamp="1586967849407">
+    <state width="1585" height="345" key="GridCell.Tab.1.center/0.23.1627.1027@0.23.1627.1027" timestamp="1587207834897" />
+    <state width="1585" height="345" key="GridCell.Tab.1.left" timestamp="1587207834896">
       <screen x="0" y="23" width="1627" height="1027" />
     </state>
-    <state width="1585" height="345" key="GridCell.Tab.1.left/0.23.1627.1027@0.23.1627.1027" timestamp="1586967849407" />
-    <state width="1585" height="345" key="GridCell.Tab.1.right" timestamp="1586967849407">
+    <state width="1585" height="345" key="GridCell.Tab.1.left/0.23.1627.1027@0.23.1627.1027" timestamp="1587207834896" />
+    <state width="1585" height="345" key="GridCell.Tab.1.right" timestamp="1587207834897">
       <screen x="0" y="23" width="1627" height="1027" />
     </state>
-    <state width="1585" height="345" key="GridCell.Tab.1.right/0.23.1627.1027@0.23.1627.1027" timestamp="1586967849407" />
+    <state width="1585" height="345" key="GridCell.Tab.1.right/0.23.1627.1027@0.23.1627.1027" timestamp="1587207834897" />
     <state x="322" y="175" key="SettingsEditor" timestamp="1586968240955">
       <screen x="0" y="23" width="1627" height="1027" />
     </state>
     <state x="322" y="175" key="SettingsEditor/0.23.1627.1027@0.23.1627.1027" timestamp="1586968240955" />
     <state x="322" y="175" key="SettingsEditor/0.23.1629.1027@0.23.1629.1027" timestamp="1586966994965" />
-    <state x="413" y="276" key="Vcs.Push.Dialog.v2" timestamp="1586969202323">
+    <state x="413" y="276" key="Vcs.Push.Dialog.v2" timestamp="1586969289324">
       <screen x="0" y="23" width="1627" height="1027" />
     </state>
-    <state x="413" y="276" key="Vcs.Push.Dialog.v2/0.23.1627.1027@0.23.1627.1027" timestamp="1586969202323" />
+    <state x="413" y="276" key="Vcs.Push.Dialog.v2/0.23.1627.1027@0.23.1627.1027" timestamp="1586969289324" />
     <state x="414" y="276" key="Vcs.Push.Dialog.v2/0.23.1629.1027@0.23.1629.1027" timestamp="1586965774188" />
+    <state x="478" y="250" width="670" height="676" key="search.everywhere.popup" timestamp="1587205765349">
+      <screen x="0" y="23" width="1627" height="1027" />
+    </state>
+    <state x="478" y="250" width="670" height="676" key="search.everywhere.popup/0.23.1627.1027@0.23.1627.1027" timestamp="1587205765349" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/libs/get_stock_info.py</url>
+          <line>21</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="queue" language="Python" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/stocks_RNN_$stock_rnn.coverage" NAME="stock_rnn Coverage Results" MODIFIED="1586963927507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps" />
-    <SUITE FILE_PATH="coverage/stocks_RNN$stock_rnn.coverage" NAME="stock_rnn Coverage Results" MODIFIED="1586968307603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/stocks_RNN$stock_rnn.coverage" NAME="stock_rnn Coverage Results" MODIFIED="1587207880197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

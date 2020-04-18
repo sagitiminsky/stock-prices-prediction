@@ -7,6 +7,7 @@ class Queue():
     '''
 
 
+
     def __init__(self, max_size = 10):
         '''
         Initialize this queue to the empty queue.
@@ -18,6 +19,23 @@ class Queue():
         '''
 
         self._queue = deque(maxlen=max_size)
+        self._maxlen=max_size
+        self._maxValue = None
+        self._minValue = None
+
+    def normalize(self,queue,min,max):
+        '''
+        Normaliaze the window data between 0 and 1
+        :return: Normalized window
+        '''
+        norm=[]
+        for x in queue:
+            try:
+                norm.append((x-min)/(max-min))
+            except ZeroDivisionError:
+                norm.append(0)
+
+        self._queue=deque(norm,maxlen=self._maxlen)
 
 
     def enqueue(self, item):
@@ -31,7 +49,8 @@ class Queue():
         '''
 
         self._queue.append(item)
-
+        self._maxValue = max([x for x in self._queue])
+        self._minValue = min([x for x in self._queue])
 
     def dequeue(self):
         '''
@@ -43,5 +62,4 @@ class Queue():
         IndexError
             If this queue is empty.
         '''
-
         return self._queue.pop()

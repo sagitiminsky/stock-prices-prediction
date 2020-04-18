@@ -17,11 +17,16 @@ from libs.get_stock_info import GetStockInfo
 # neptune.create_experiment (name='example_with_parameters',
 #                           params=PARAMS)
 
-stocks=['FB','WMT']
-stocksObj=GetStockInfo(stocks)
+stocks=['FB']
+window_size=10
+stocksObj=GetStockInfo(window_size,stocks)
 
 
 for i in range(15):
-    stocksObj.measure_stock()
+    stocksObj.measure_stock(norm=i>=window_size)
     for stock_name in stocks:
-        print(stock_name , stocksObj.stocks[stock_name]['values'].__dict__)
+        print('values',stock_name , stocksObj.stocks[stock_name]['values'].__dict__)
+        if i>=window_size:
+            print('norm_values',stock_name , stocksObj.stocks[stock_name]['norm_values'].__dict__)
+
+
