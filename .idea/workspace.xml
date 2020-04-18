@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e6c2ad31-683a-4c7a-9a53-59289a453324" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/Queue.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/Queue.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +100,7 @@
       <workItem from="1586965187504" duration="1726000" />
       <workItem from="1586967183506" duration="664000" />
       <workItem from="1586967865856" duration="272000" />
-      <workItem from="1586968149905" duration="13193000" />
+      <workItem from="1586968149905" duration="13460000" />
     </task>
     <task id="LOCAL-00001" summary="create price stock reader">
       <created>1586963295381</created>
@@ -171,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587234568219</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="create normalization between 0 and 1 for stock prices">
+      <created>1587234819746</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1587234819746</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,11 +200,11 @@
       <screen x="0" y="23" width="1629" height="1027" />
     </state>
     <state x="555" y="346" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1629.1027@0.23.1629.1027" timestamp="1586964026334" />
-    <state x="408" y="139" key="CommitChangelistDialog2" timestamp="1587234565390">
+    <state x="408" y="139" key="CommitChangelistDialog2" timestamp="1587234816834">
       <screen x="0" y="23" width="1629" height="1027" />
     </state>
     <state x="407" y="139" key="CommitChangelistDialog2/0.23.1627.1027@0.23.1627.1027" timestamp="1587212492653" />
-    <state x="408" y="139" key="CommitChangelistDialog2/0.23.1629.1027@0.23.1629.1027" timestamp="1587234565390" />
+    <state x="408" y="139" key="CommitChangelistDialog2/0.23.1629.1027@0.23.1629.1027" timestamp="1587234816834" />
     <state width="1585" height="210" key="GridCell.Tab.0.bottom" timestamp="1587234323520">
       <screen x="0" y="23" width="1629" height="1027" />
     </state>
@@ -242,11 +250,11 @@
     </state>
     <state x="322" y="175" key="SettingsEditor/0.23.1627.1027@0.23.1627.1027" timestamp="1586968240955" />
     <state x="322" y="175" key="SettingsEditor/0.23.1629.1027@0.23.1629.1027" timestamp="1586966994965" />
-    <state x="414" y="276" key="Vcs.Push.Dialog.v2" timestamp="1587234569688">
+    <state x="414" y="276" key="Vcs.Push.Dialog.v2" timestamp="1587234823541">
       <screen x="0" y="23" width="1629" height="1027" />
     </state>
     <state x="413" y="276" key="Vcs.Push.Dialog.v2/0.23.1627.1027@0.23.1627.1027" timestamp="1587212496510" />
-    <state x="414" y="276" key="Vcs.Push.Dialog.v2/0.23.1629.1027@0.23.1629.1027" timestamp="1587234569688" />
+    <state x="414" y="276" key="Vcs.Push.Dialog.v2/0.23.1629.1027@0.23.1629.1027" timestamp="1587234823541" />
     <state x="479" y="250" width="671" height="676" key="search.everywhere.popup" timestamp="1587228326256">
       <screen x="0" y="23" width="1629" height="1027" />
     </state>

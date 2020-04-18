@@ -48,7 +48,7 @@ class Queue():
     def dequeue(self):
         '''
         Dequeues (i.e., removes) the item at the head of this queue *and*
-        returns this item.
+        returns this item from _queue and _norm_queue
 
         Raises
         ----------
@@ -56,5 +56,5 @@ class Queue():
             If this queue is empty.
         '''
 
-        self._queue.pop()
-        self._norm_queue.pop()
+        return (self._queue.pop(),self._norm_queue.pop())
+
