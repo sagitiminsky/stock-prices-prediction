@@ -19,11 +19,12 @@ class Queue():
         '''
 
         self._queue = deque(maxlen=max_size)
+        self._norm_queue = deque(maxlen=max_size)
         self._maxlen=max_size
         self._maxValue = None
         self._minValue = None
 
-    def normalize(self,queue,min,max):
+    def normalize(self,queue,max,min):
         '''
         Normaliaze the window data between 0 and 1
         :return: Normalized window
@@ -35,7 +36,7 @@ class Queue():
             except ZeroDivisionError:
                 norm.append(0)
 
-        self._queue=deque(norm,maxlen=self._maxlen)
+        return deque(norm,maxlen=self._maxlen)
 
 
     def enqueue(self, item):
@@ -51,6 +52,8 @@ class Queue():
         self._queue.append(item)
         self._maxValue = max([x for x in self._queue])
         self._minValue = min([x for x in self._queue])
+
+        self._norm_queue=self.normalize(self._queue,max=self._maxValue,min=self._minValue)
 
     def dequeue(self):
         '''

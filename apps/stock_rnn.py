@@ -25,6 +25,6 @@ stocksObj=GetStockInfo(window_size,stocks)
 for i in range(15):
     stocksObj.measure_stock()
     for stock_name in stocks:
-        print('norm_values',stock_name , stocksObj.stocks[stock_name]['norm_values'].__dict__)
+        print('norm_values',stock_name , stocksObj.stocks[stock_name]['queueObj']._norm_queue)
 
 
