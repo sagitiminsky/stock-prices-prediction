@@ -27,6 +27,8 @@ from keras.callbacks import LambdaCallback
 ##### wandb #####
 import wandb
 from wandb.keras import WandbCallback
+from libs.plotutil import PlotCallback
+
 wandb.init()
 
 stocks=['FB']
@@ -36,9 +38,9 @@ window_size=20
 stocksObj=GetStockInfo(window_size,stocks)
 
 #model
-split=int(window_size*0.7)
+split=int(window_size*0.5)
 model = Sequential(name="Perceptron_stock_prediction")
-model.add(Flatten(input_shape=(int(split*0.7),1 ),name="input"))
+model.add(Flatten(input_shape=(int(split*0.7),1 )))
 model.add(Dense(int(split*0.3),name="output"))
 model.compile(loss='mse', optimizer='adam')
 
@@ -67,9 +69,10 @@ def pre_process(norm_queue):
 
 for i in range(25):
     batch=get_batch()
+    print(len(batch))
     if len(batch)==window_size:
         trainX, trainY, testX, testY=pre_process(batch)
-        model.fit(trainX, trainY, epochs=2, batch_size=10,callbacks=[WandbCallback()])
+        model.fit(trainX, trainY, epochs=2, batch_size=10,validation_data=(testX, testY),callbacks=[WandbCallback(),PlotCallback(model,trainX, trainY, testX, testY,window_size)])
 
 
 
