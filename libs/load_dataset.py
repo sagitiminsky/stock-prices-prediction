@@ -1,8 +1,9 @@
 import numpy as np
-def load_dataset(dataset,dataset_window=10):
+def load_dataset(dataset,dataset_window):
     dataX, dataY = [], []
-    for i in range(len(dataset)-dataset_window-1):
-        a = dataset[i:(i+dataset_window)]
-        dataX.append(a)
-        dataY.append(dataset[i + dataset_window + 1])
+    first_values=int(dataset_window*0.7)
+    last_values=-int(dataset_window*0.3)
+    a = dataset[:first_values]
+    dataX.append(a)
+    dataY.append(dataset[last_values:])
     return np.array(dataX), np.array(dataY)
