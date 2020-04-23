@@ -54,13 +54,14 @@ class PlotCallback(keras.callbacks.Callback):
         else:
             preds = self.model.predict(self.testX)
 
-        # Generate a figure with matplotlib</font>
+        # Generate a figure with matplotlib
         figure = matplotlib.pyplot.figure(figsize=(10, 10))
         plot = figure.add_subplot(111)
 
-        plot.plot(self.trainY)
-        plot.plot(np.append(np.empty_like(self.trainY) * np.nan, self.testY))
-        plot.plot(np.append(np.empty_like(self.trainY) * np.nan, preds))
+        plot.plot(self.trainY,color='blue')
+        plot.plot(np.append(np.empty_like(self.trainY) * np.nan, self.testY),color='red')
+        plot.plot(np.append(np.empty_like(self.trainY) * np.nan, preds),color='green')
+
 
         data = fig2data(figure)
         matplotlib.pyplot.close(figure)

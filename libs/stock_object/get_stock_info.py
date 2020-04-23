@@ -1,4 +1,4 @@
-from libs.Queue import Queue
+from libs.stock_object.Queue import Queue
 import requests
 from bs4 import BeautifulSoup
 
@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 
 class GetStockInfo:
     def __init__(self,window_size,stock_names=['FB']):
+        self.stock_names=stock_names
         self.stocks={}
         for stock_name in stock_names:
             self.stocks[stock_name]={'link':'https://finance.yahoo.com/quote/FB?p='+stock_name,'queueObj':Queue(max_size=window_size)}
@@ -27,5 +28,6 @@ class GetStockInfo:
                 queueObj.enqueue(mock)
 
             return True
+
 
 
