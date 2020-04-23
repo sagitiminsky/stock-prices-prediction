@@ -44,6 +44,8 @@ class Queue():
             self._norm_queue.append((item-self._min)/(self._max-self._min))
         except ZeroDivisionError:
             self._norm_queue.append(0)
+        except TypeError: # item=Mock() object from unittest
+            self._norm_queue.append(item)
 
     def dequeue(self):
         '''

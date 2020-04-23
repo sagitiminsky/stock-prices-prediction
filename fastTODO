@@ -1,2 +1,2 @@
-pytests
 create onnx learner (import export)
+miltiple stocks as input to DL model. May be some correlation between different stocks
