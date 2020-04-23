@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6c2ad31-683a-4c7a-9a53-59289a453324" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/apps/stock_rnn_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastTODO" beforeDir="false" afterPath="$PROJECT_DIR$/fastTODO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/Queue.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/Queue.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/get_stock_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/get_stock_info.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +135,7 @@
       <workItem from="1586965187504" duration="1726000" />
       <workItem from="1586967183506" duration="664000" />
       <workItem from="1586967865856" duration="272000" />
-      <workItem from="1586968149905" duration="36646000" />
+      <workItem from="1586968149905" duration="36898000" />
     </task>
     <task id="LOCAL-00001" summary="create price stock reader">
       <created>1586963295381</created>
@@ -267,7 +263,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587640296296</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="create stock_rnn_test">
+      <created>1587657666673</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1587657666673</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -289,7 +292,8 @@
     <MESSAGE value="create normalization between 0 and 1 for stock prices" />
     <MESSAGE value="split to train and test data" />
     <MESSAGE value="add perceptron model" />
-    <option name="LAST_COMMIT_MESSAGE" value="add perceptron model" />
+    <MESSAGE value="create stock_rnn_test" />
+    <option name="LAST_COMMIT_MESSAGE" value="create stock_rnn_test" />
   </component>
   <component name="WindowStateProjectService">
     <state x="278" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587652168255">
@@ -301,11 +305,11 @@
       <screen x="0" y="23" width="1629" height="1027" />
     </state>
     <state x="555" y="346" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1629.1027@0.23.1629.1027" timestamp="1587640267300" />
-    <state x="408" y="139" key="CommitChangelistDialog2" timestamp="1587640292572">
-      <screen x="0" y="23" width="1629" height="1027" />
+    <state x="407" y="139" key="CommitChangelistDialog2" timestamp="1587657663583">
+      <screen x="0" y="23" width="1627" height="1027" />
     </state>
     <state x="407" y="139" key="CommitChangelistDialog2/0.23.1625.1027@0.23.1625.1027" timestamp="1587284741001" />
-    <state x="407" y="139" key="CommitChangelistDialog2/0.23.1627.1027@0.23.1627.1027" timestamp="1587212492653" />
+    <state x="407" y="139" key="CommitChangelistDialog2/0.23.1627.1027@0.23.1627.1027" timestamp="1587657663583" />
     <state x="408" y="139" key="CommitChangelistDialog2/0.23.1629.1027@0.23.1629.1027" timestamp="1587640292572" />
     <state width="1585" height="282" key="GridCell.Tab.0.bottom" timestamp="1587657493857">
       <screen x="0" y="23" width="1627" height="1027" />
@@ -361,11 +365,11 @@
     <state x="293" y="186" key="SettingsEditor/0.23.1625.1027@0.23.1625.1027" timestamp="1587297292850" />
     <state x="322" y="175" key="SettingsEditor/0.23.1627.1027@0.23.1627.1027" timestamp="1587657370881" />
     <state x="322" y="175" key="SettingsEditor/0.23.1629.1027@0.23.1629.1027" timestamp="1586966994965" />
-    <state x="414" y="276" key="Vcs.Push.Dialog.v2" timestamp="1587640310152">
-      <screen x="0" y="23" width="1629" height="1027" />
+    <state x="413" y="276" key="Vcs.Push.Dialog.v2" timestamp="1587657668961">
+      <screen x="0" y="23" width="1627" height="1027" />
     </state>
     <state x="413" y="276" key="Vcs.Push.Dialog.v2/0.23.1625.1027@0.23.1625.1027" timestamp="1587284745718" />
-    <state x="413" y="276" key="Vcs.Push.Dialog.v2/0.23.1627.1027@0.23.1627.1027" timestamp="1587212496510" />
+    <state x="413" y="276" key="Vcs.Push.Dialog.v2/0.23.1627.1027@0.23.1627.1027" timestamp="1587657668961" />
     <state x="414" y="276" key="Vcs.Push.Dialog.v2/0.23.1629.1027@0.23.1629.1027" timestamp="1587640310152" />
     <state x="480" y="293" width="667" height="486" key="find.popup" timestamp="1587551970259">
       <screen x="0" y="23" width="1629" height="1027" />
