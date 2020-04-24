@@ -29,6 +29,10 @@ wandb.init()
 stock_names=['FB']
 window_size=20
 
+
+config={'perceptron':{'lib':'Keras','path2model':'libs/dl_models/models_lib/perceptron/model','version':'v_1',
+                      'path2onnx_model':'libs/dl_models/models_lib/perceptron/onnx'}}
+
 stocksObj=GetStockInfo(window_size,stock_names)
 dl_models=DLModels(window_size)
 

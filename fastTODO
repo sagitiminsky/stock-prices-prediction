@@ -1,4 +1,4 @@
-create onnx learner (import export)
+create onnx learner test (import export)
+plotutil needs to save history on plot (with a predefined window size)
 miltiple stocks as input to DL model. May be some correlation between different stocks
 find optimal window_size (hyper parameter)
-plotutil needs to save history on plot (with a predefined window size)
