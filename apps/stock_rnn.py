@@ -39,7 +39,7 @@ for i in range(35):
     print(len(batch))
     if len(batch)==window_size:
         trainX, trainY, testX, testY=pre_process(batch,dl_models.split)
-        dl_models.perceptron.fit(trainX, trainY, epochs=2, batch_size=10,validation_data=(testX, testY),callbacks=[WandbCallback(),PlotCallback(dl_models.perceptron,trainX, trainY, testX, testY,window_size)])
+        dl_models.perceptron.model.fit(trainX, trainY, epochs=2, batch_size=10,validation_data=(testX, testY),callbacks=[WandbCallback(),PlotCallback(dl_models.perceptron.model,trainX, trainY, testX, testY,window_size)])
 
 
 
