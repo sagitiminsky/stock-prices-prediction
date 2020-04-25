@@ -1,3 +1,5 @@
 /keys/
 /ml-class/
 /wandb/
+
+*.pyc
