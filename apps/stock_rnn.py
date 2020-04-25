@@ -33,13 +33,13 @@ window_size=20
 config={'perceptron':{'lib':'Keras','path2model':'libs/dl_models/models_lib/perceptron/model','version':'v_1',
                       'path2onnx_model':'libs/dl_models/models_lib/perceptron/onnx'}}
 
-stocksObj=GetStockInfo(window_size,stock_names)
+stocks_obj=GetStockInfo(window_size,stock_names)
 dl_models=DLModels(window_size)
 
 
 for i in range(35):
-    stocksObj.measure_stock()
-    batch=stocksObj.stocks[stock_names[0]]['queueObj']._norm_queue
+    stocks_obj.measure_stock()
+    batch=stocks_obj.stocks[stock_names[0]]['queueObj']._norm_queue
     print(len(batch))
     if len(batch)==window_size:
         trainX, trainY, testX, testY=pre_process(batch,dl_models.split)
