@@ -1,4 +1,5 @@
-plotutil needs to save history on plot (with a predefined window size)
 miltiple stocks as input to DL model. May be some correlation between different stocks
 find optimal window_size (hyper parameter)
+plotutil needs to save history on plot (with a predefined window size)
 create third party test for callback_test
+create dataset_test.py

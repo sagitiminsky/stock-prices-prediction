@@ -7,7 +7,7 @@ from libs.callback.callback import CallBack
 
 
 
-stock_names=['FB']
+stock_names=['FB','WMT']
 window_size=20
 
 
