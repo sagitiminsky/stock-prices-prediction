@@ -10,3 +10,18 @@ class CallBack:
 
     def plot_callback(self,model, trainX, trainY, testX, testY, window_size):
         return PlotCallback(model, trainX, trainY, testX, testY, window_size)
+
+
+# The init() function called this way assumes that
+# NEPTUNE_API_TOKEN environment variable is defined.
+
+
+# Define parameters
+# PARAMS = {'decay_factor' : 0.5,
+#           'n_iterations' : 117}
+
+# Create experiment with defined parameters
+# neptune.init('sagit/stocks_rnn')
+# neptune.create_experiment (name='example_with_parameters',
+#                           params=PARAMS)
+

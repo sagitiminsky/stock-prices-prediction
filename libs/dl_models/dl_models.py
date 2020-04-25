@@ -1,8 +1,7 @@
 from keras.models import Sequential
 from keras.layers import Dense, Flatten
 from .dl_model import DLModel
-
-from libs.callback.callback import CallBack
+from unittest.mock import MagicMock
 
 class DLModels:
     def __init__(self,window_size,config):
@@ -20,5 +19,7 @@ class DLModels:
 
     def fit(self,trainX,trainY,testX,testY,callback):
         self.perceptron.model.fit(trainX, trainY, epochs=2, batch_size=10, validation_data=(testX, testY),
-                                       callbacks=[callback.wandb,
-                                                    callback.plot_callback(self.perceptron.model, trainX, trainY, testX, testY,self.window_size)])
+                                  callbacks=[callback.wandb,
+                                             callback.plot_callback(self.perceptron.model, trainX, trainY, testX,
+                                                                    testY, self.window_size)])
+

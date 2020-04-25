@@ -5,26 +5,7 @@ from libs.callback.callback import CallBack
 
 
 
-# The init() function called this way assumes that
-# NEPTUNE_API_TOKEN environment variable is defined.
 
-
-# Define parameters
-# PARAMS = {'decay_factor' : 0.5,
-#           'n_iterations' : 117}
-
-# Create experiment with defined parameters
-# neptune.init('sagit/stocks_rnn')
-# neptune.create_experiment (name='example_with_parameters',
-#                           params=PARAMS)
-
-
-##### wandb #####
-
-
-
-
-wandb.init()
 
 stock_names=['FB']
 window_size=20
@@ -34,7 +15,7 @@ config={'perceptron':{'lib':'Keras','path2model':'libs/dl_models/models_lib/perc
                       'path2onnx_model':'libs/dl_models/models_lib/perceptron/onnx'}}
 
 stocks_obj=GetStockInfo(window_size,stock_names)
-dl_models=DLModels(window_size)
+dl_models=DLModels(window_size=window_size,config=config)
 callback=CallBack()
 
 
