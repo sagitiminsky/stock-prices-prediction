@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6c2ad31-683a-4c7a-9a53-59289a453324" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/libs/dl_models/models_lib/dl_models_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/run_tests.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/callback/callback.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/callback/callback_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/stock_rnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/stock_rnn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/dl_models/dl_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/dl_models/dl_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/dl_models/dl_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/dl_models/dl_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/dl_models/models_lib/dl_models_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/dl_models/dl_models_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/run_tests.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/run_tests.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +62,7 @@
       <recent name="$PROJECT_DIR$/libs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/libs/dl_models" />
       <recent name="$PROJECT_DIR$/libs/stock_object" />
       <recent name="$PROJECT_DIR$/libs/callback" />
       <recent name="$PROJECT_DIR$/libs/dataset" />
@@ -141,7 +146,7 @@
       <workItem from="1586967183506" duration="664000" />
       <workItem from="1586967865856" duration="272000" />
       <workItem from="1586968149905" duration="37480000" />
-      <workItem from="1587658496836" duration="8193000" />
+      <workItem from="1587658496836" duration="12032000" />
     </task>
     <task id="LOCAL-00001" summary="create price stock reader">
       <created>1586963295381</created>
@@ -304,7 +309,21 @@
       <option name="project" value="LOCAL" />
       <updated>1587743264667</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="create scripts">
+      <created>1587819715570</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1587819715570</updated>
+    </task>
+    <task id="LOCAL-00025" summary="create scripts">
+      <created>1587819810600</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1587819810600</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,12 +348,14 @@
     <MESSAGE value="split to train and test data" />
     <MESSAGE value="add perceptron model" />
     <MESSAGE value="create stock_rnn_test" />
-    <option name="LAST_COMMIT_MESSAGE" value="create stock_rnn_test" />
+    <MESSAGE value="create scripts" />
+    <option name="LAST_COMMIT_MESSAGE" value="create scripts" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="278" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587652168255">
-      <screen x="0" y="23" width="1627" height="1027" />
+    <state x="287" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587824713410">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state x="287" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1587824713410" />
     <state x="278" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1627.1027@0.23.1627.1027" timestamp="1587652168255" />
     <state x="278" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1629.1027@0.23.1629.1027" timestamp="1586967063577" />
     <state x="554" y="346" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587737931515">
@@ -342,10 +363,10 @@
     </state>
     <state x="554" y="346" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1627.1027@0.23.1627.1027" timestamp="1587737931515" />
     <state x="555" y="346" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1629.1027@0.23.1629.1027" timestamp="1587640267300" />
-    <state x="420" y="119" key="CommitChangelistDialog2" timestamp="1587819711120">
+    <state x="420" y="119" key="CommitChangelistDialog2" timestamp="1587819807977">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="420" y="119" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1587819711120" />
+    <state x="420" y="119" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1587819807977" />
     <state x="407" y="139" key="CommitChangelistDialog2/0.23.1625.1027@0.23.1625.1027" timestamp="1587284741001" />
     <state x="407" y="139" key="CommitChangelistDialog2/0.23.1627.1027@0.23.1627.1027" timestamp="1587743261666" />
     <state x="408" y="139" key="CommitChangelistDialog2/0.23.1629.1027@0.23.1629.1027" timestamp="1587640292572" />
