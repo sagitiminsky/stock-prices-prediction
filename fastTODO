@@ -1,5 +1,5 @@
-create many to many
-create many to one
+test create many to many
+test create many to one
 find optimal window_size (hyper parameter)
 plotutil needs to save history on plot (with a predefined window size)
 create third party test for callback_test
