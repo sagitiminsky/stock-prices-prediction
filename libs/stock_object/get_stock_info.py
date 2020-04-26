@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 
 
-class GetStockInfo:
+class GetStocksInfo:
     def __init__(self,window_size,stock_names=['FB']):
         self.stock_names=stock_names
         self.stocks={}

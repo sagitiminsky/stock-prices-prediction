@@ -1,5 +1,5 @@
 import unittest
-from libs.stock_object.get_stock_info import GetStockInfo
+from libs.stock_object.get_stock_info import GetStocksInfo
 from unittest.mock import Mock
 
 
@@ -14,7 +14,7 @@ class StockRnnUnitTests(unittest.TestCase):
 
         Creates an GetStockInfo object, and test it creation of obejct is successful
         """
-        self.assertTrue(GetStockInfo(self.window_size, self.stock))
+        self.assertTrue(GetStocksInfo(self.window_size, self.stock))
 
 
     def test_measure_stock(self):
@@ -24,7 +24,7 @@ class StockRnnUnitTests(unittest.TestCase):
         - Use mock to imitate reading from stock prices DB and test measure_stock
         """
 
-        stockObj=GetStockInfo(self.window_size, self.stock)
+        stockObj=GetStocksInfo(self.window_size, self.stock)
         self.assertTrue(stockObj.measure_stock(mock=Mock()))
 
 
