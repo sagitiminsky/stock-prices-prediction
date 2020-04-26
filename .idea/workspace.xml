@@ -3,11 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e6c2ad31-683a-4c7a-9a53-59289a453324" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastTODO" beforeDir="false" afterPath="$PROJECT_DIR$/fastTODO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/dl_models/dl_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/dl_models/dl_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/dataset/dataset_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/dataset/load_dataset_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/dl_models/dl_models_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/dl_models/dl_models_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/dl_models/many_2_x/many_2_x.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/stock_object/get_stock_info_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/stock_object/get_stock_info_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/run_tests.sh" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +194,7 @@
       <workItem from="1587828702069" duration="295000" />
       <workItem from="1587829022245" duration="1101000" />
       <workItem from="1587830238724" duration="5313000" />
-      <workItem from="1587886146667" duration="6731000" />
+      <workItem from="1587886146667" duration="9715000" />
     </task>
     <task id="LOCAL-00001" summary="create price stock reader">
       <created>1586963295381</created>
@@ -406,7 +406,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587889754741</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="created tests for MANY2ONE and MANY2MANY">
+      <created>1587893175197</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1587893175197</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -435,7 +442,8 @@
     <MESSAGE value="create callback" />
     <MESSAGE value="created tests for dl_models" />
     <MESSAGE value="create many_2_x" />
-    <option name="LAST_COMMIT_MESSAGE" value="create many_2_x" />
+    <MESSAGE value="created tests for MANY2ONE and MANY2MANY" />
+    <option name="LAST_COMMIT_MESSAGE" value="created tests for MANY2ONE and MANY2MANY" />
   </component>
   <component name="WindowStateProjectService">
     <state x="278" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587833703793">
@@ -449,10 +457,10 @@
     </state>
     <state x="554" y="346" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1627.1027@0.23.1627.1027" timestamp="1587737931515" />
     <state x="555" y="346" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1629.1027@0.23.1629.1027" timestamp="1587640267300" />
-    <state x="420" y="119" key="CommitChangelistDialog2" timestamp="1587889748338">
+    <state x="420" y="119" key="CommitChangelistDialog2" timestamp="1587893171327">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="420" y="119" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1587889748338" />
+    <state x="420" y="119" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1587893171327" />
     <state x="407" y="139" key="CommitChangelistDialog2/0.23.1625.1027@0.23.1625.1027" timestamp="1587284741001" />
     <state x="407" y="139" key="CommitChangelistDialog2/0.23.1627.1027@0.23.1627.1027" timestamp="1587743261666" />
     <state x="408" y="139" key="CommitChangelistDialog2/0.23.1629.1027@0.23.1629.1027" timestamp="1587832758540" />
@@ -553,16 +561,6 @@
           <url>file://$PROJECT_DIR$/libs/callback/callback_test.py</url>
           <line>8</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/libs/dl_models/dl_models.py</url>
-          <line>40</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/libs/dl_models/dl_models_test.py</url>
-          <line>42</line>
-          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
