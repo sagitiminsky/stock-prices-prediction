@@ -1,13 +1,13 @@
 import unittest
 from libs.stock_object.get_stock_info import GetStocksInfo
 from unittest.mock import Mock
-import apps.config
+import apps.ai.config
 
 
 class StockRnnUnitTests(unittest.TestCase):
     def setUp(self):
-        self.stock_names=apps.config.stock_names
-        self.window_size = apps.config.window_size
+        self.stock_names= apps.ai.config.stock_names
+        self.window_size = apps.ai.config.window_size
 
     def test_create_GetStockInfo(self):
         """

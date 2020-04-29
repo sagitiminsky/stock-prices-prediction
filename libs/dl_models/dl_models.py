@@ -1,7 +1,7 @@
 from keras.models import Sequential
 from keras.layers import Dense, Flatten
 from .dl_model import DLModel
-import apps.config
+import apps.ai.config
 
 
 class DLModels:
@@ -30,7 +30,7 @@ class DLModels:
         #model
         model = Sequential(name="Perceptron_stock_prediction")
         model.add(Flatten(input_shape=(int(self.split * 0.7) * stocks_num, 1), name="perceptron"))
-        if self.prediction_type == apps.config.MANY2MANY: #MANY2MANY
+        if self.prediction_type == apps.ai.config.MANY2MANY: #MANY2MANY
             model.add(Dense(int(self.split * 0.3) * stocks_num, name="output"))
         else: #MANY2ONE
             model.add(Dense(int(self.split * 0.3), name="output"))
@@ -41,7 +41,7 @@ class DLModels:
 
     def fit(self,trainX,trainY,testX,testY,callback,i):
         epoches=10
-        if i%apps.config.callback==0:
+        if i% apps.ai.config.callback==0:
             self.perceptron.model.fit(trainX, trainY, epochs=epoches, batch_size=10, validation_data=(testX, testY),verbose=0,
                                       callbacks=[callback.wandb,
                                                  callback.plot_callback(self.perceptron.model, trainX, trainY, testX,testY, self.window_size)])
