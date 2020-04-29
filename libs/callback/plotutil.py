@@ -58,7 +58,7 @@ class PlotCallback(keras.callbacks.Callback):
         figure = matplotlib.pyplot.figure(figsize=(10, 10))
         plot = figure.add_subplot(111)
 
-        plot.plot(self.trainY,color='blue')
+        plot.plot(self.trainY)
         plot.plot(np.append(np.empty_like(self.trainY) * np.nan, self.testY),color='red')
         plot.plot(np.append(np.empty_like(self.trainY) * np.nan, preds),color='green')
 

@@ -26,7 +26,7 @@ class StockRnnUnitTests(unittest.TestCase):
         """
 
         stockObj=GetStocksInfo(self.window_size, self.stock_names)
-        self.assertTrue(stockObj.measure_stock(mock=Mock()))
+        self.assertTrue(stockObj.measure(mock=Mock()))
 
 
 if __name__ == '__main__':

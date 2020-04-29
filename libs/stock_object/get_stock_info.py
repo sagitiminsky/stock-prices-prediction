@@ -1,18 +1,18 @@
 from libs.stock_object.Queue import Queue
 import requests
 from bs4 import BeautifulSoup
-
+import apps.config
 
 
 class GetStocksInfo:
-    def __init__(self,window_size,stock_names=['FB']):
-        self.stock_names=stock_names
+    def __init__(self):
+        self.stock_names=apps.config.stock_names
         self.stocks={}
-        for stock_name in stock_names:
-            self.stocks[stock_name]={'link':'https://finance.yahoo.com/quote/FB?p='+stock_name,'queueObj':Queue(max_size=window_size)}
+        for stock_name in self.stock_names:
+            self.stocks[stock_name]={'link':'https://finance.yahoo.com/quote/FB?p='+stock_name,'queueObj':Queue(max_size=apps.config.window_size)}
 
 
-    def measure_stock(self,mock=None):
+    def measure(self,mock=None):
 
         if mock==None:
             for stock_name in self.stocks:

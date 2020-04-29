@@ -37,9 +37,11 @@ class DLModels:
 
 
 
-    def fit(self,trainX,trainY,testX,testY,callback):
-        self.perceptron.model.fit(trainX, trainY, epochs=2, batch_size=10, validation_data=(testX, testY),
-                                  callbacks=[callback.wandb,
-                                             callback.plot_callback(self.perceptron.model, trainX, trainY, testX,
-                                                                    testY, self.window_size)])
-
+    def fit(self,trainX,trainY,testX,testY,callback,i):
+        epoches=10
+        if i%apps.config.callback==0:
+            self.perceptron.model.fit(trainX, trainY, epochs=epoches, batch_size=10, validation_data=(testX, testY),verbose=0,
+                                      callbacks=[callback.wandb,
+                                                 callback.plot_callback(self.perceptron.model, trainX, trainY, testX,testY, self.window_size)])
+        else:
+            self.perceptron.model.fit(trainX, trainY, epochs=epoches, batch_size=10, validation_data=(testX, testY),verbose=0)
