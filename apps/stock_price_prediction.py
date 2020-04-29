@@ -52,6 +52,7 @@ for i in tqdm(range(apps.config.window_size+10**2)):
         dl_models.fit(trainX_s,trainY_s,testX_s,testY_s,callback,i)
 
 
+dl_models.save()
 
 
 

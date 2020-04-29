@@ -21,6 +21,8 @@ class DLModels:
 
         self.perceptron=DLModel(self.perceptron_init(),config['perceptron'])
 
+        self.models=[self.perceptron]
+
 
     def perceptron_init(self):
         stocks_num = len(self.stock_names)
@@ -45,3 +47,8 @@ class DLModels:
                                                  callback.plot_callback(self.perceptron.model, trainX, trainY, testX,testY, self.window_size)])
         else:
             self.perceptron.model.fit(trainX, trainY, epochs=epoches, batch_size=10, validation_data=(testX, testY),verbose=0)
+
+    def save(self):
+        for model in self.models:
+            model.export_model()
+            model.export_onnx_model()

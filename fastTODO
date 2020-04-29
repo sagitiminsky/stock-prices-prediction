@@ -1,6 +1,7 @@
 check out if perceptron MANY2ONE/MANY2MANY works
 add RNN MANY2ONE/MANY2MANY
-find optimal window_size (hyper parameter)
-plotutil needs to save history on plot (with a predefined window size)
+find optimal window_size (hyper parameter) - train the same model with various window_sizes and pick the one the reaches the minimal validation loss
+create platform that adds a prediction ot the stock prices
+add storage service to store the models
 create third party test for callback_test
 create dataset_test.py
