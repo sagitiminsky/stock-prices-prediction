@@ -44,7 +44,7 @@ for i in tqdm(range(apps.ai.config.window_size + 10 ** 2)):
                 trainX_s = np.hstack((trainX_s, trainX))
                 testX_s = np.hstack((testX_s, testX))
 
-                if apps.ai.config.prediction_type == 'MANY2MANY':
+                if prediction_type == apps.ai.config.MANY2MANY:
                     trainY_s = np.hstack((trainY_s, trainY))
                     testY_s = np.hstack((testY_s, testY))
 

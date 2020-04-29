@@ -1,4 +1,4 @@
-check out if perceptron MANY2ONE/MANY2MANY works
+check out if perceptron MANY2ONE/MANY2MANY works on real stocks
 add RNN MANY2ONE/MANY2MANY
 find optimal window_size (hyper parameter) - train the same model with various window_sizes and pick the one the reaches the minimal validation loss
 create platform that adds a prediction ot the stock prices
