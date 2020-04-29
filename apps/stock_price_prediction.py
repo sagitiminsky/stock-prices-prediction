@@ -21,7 +21,7 @@ callback=CallBack()
 
 for i in range(35):
     stocks_obj.measure_stock()
-    batch = stocks_obj.stocks[stock_names[-1]]['queueObj']._norm_queue
+    batch = stocks_obj.stocks[stock_names[0]]['queueObj']._norm_queue
     print(len(batch))
     if len(batch)==window_size:
         trainX_s, trainY_s, testX_s, testY_s=None,None,None,None
@@ -32,7 +32,7 @@ for i in range(35):
             if trainX_s is None:
                 trainX_s, trainY_s, testX_s, testY_s=trainX,trainY,testX,testY
 
-            else: # vstack
+            else: # hstack
                 trainX_s = np.hstack((trainX_s, trainX))
                 trainY_s = np.hstack((trainY_s, trainY))
                 testX_s = np.hstack((testX_s, testX))
