@@ -1,6 +1,7 @@
 from collections import deque
+from libs.stock_object.graphs.graphs import Graphs
 
-class Queue():
+class StockObj():
     '''
     Thread-safe, memory-efficient, maximally-sized queue supporting queueing and
     dequeueing in worst-case O(1) time.
@@ -8,7 +9,7 @@ class Queue():
 
 
 
-    def __init__(self, max_size = 10):
+    def __init__(self,stock_name, max_size = 20):
         '''
         Initialize this queue to the empty queue.
 
@@ -18,10 +19,16 @@ class Queue():
             Maximum number of items contained in this queue. Defaults to 10.
         '''
 
+
+        # sliding window - scraped stock values
         self._queue = deque(maxlen=max_size)
         self._norm_queue = deque(maxlen=max_size)
         self._max = None
         self._min = None
+
+        # graphs - scraped
+        self.graphs=Graphs(stock_name=stock_name)
+
 
 
 
