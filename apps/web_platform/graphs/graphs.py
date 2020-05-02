@@ -1,19 +1,19 @@
 import time
 import requests
-import libs.stock_object.graphs.config
+import graphs.config
 
 
 class Graphs:
     def __init__(self,stock_name,mock=None):
         self.stock_name=stock_name
         self.graphs={}
-        for time_scale in libs.stock_object.graphs.config.time_scales:
+        for time_scale in graphs.config.time_scales:
             self.graphs[time_scale]=self.get_quotes(stock_name,time_scale,mock)
 
 
     def get_quotes(self,stock_name,time_scale,mock=None):
-        TWO_MONTH=libs.stock_object.graphs.config.TWO_MONTH
-        A_WEEK=libs.stock_object.graphs.config.A_WEEK
+        TWO_MONTH= graphs.config.TWO_MONTH
+        A_WEEK= graphs.config.A_WEEK
 
         try: # try from begining of time
             json_response=self.get_json_response(0,time_scale)
@@ -30,7 +30,7 @@ class Graphs:
 
     def get_json_response(self,start_time,time_scale,mock=None):
         if mock==None:
-            url = libs.stock_object.graphs.config.url % (self.stock_name, self.stock_name, start_time, int(time.time()), time_scale)
+            url = graphs.config.url % (self.stock_name, self.stock_name, start_time, int(time.time()), time_scale)
             json_response = requests.get(url).json()['chart']['result'][0]['indicators']
         else:
             return mock
@@ -45,4 +45,4 @@ class Graphs:
 
 if __name__=="__main__":
     g=Graphs('FB')
-    g.get_quotes('FB','1m')
+    a=1

@@ -1,13 +1,13 @@
 import unittest
-from libs.stock_object.graphs.graphs import Graphs
-import libs.stock_object.graphs.config
+from apps.web_platform.graphs.graphs import Graphs
+import apps.web_platform.graphs.config
 from unittest.mock import Mock
 
 
 
 class StockRnnUnitTests(unittest.TestCase):
     def setUp(self):
-        self.time_scales=libs.stock_object.graphs.config.time_scales
+        self.time_scales= apps.web_platform.graphs.config.time_scales
         self.stock_name='FB'
 
     def test_create_Graphs(self):

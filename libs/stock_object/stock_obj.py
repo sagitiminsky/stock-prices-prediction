@@ -1,5 +1,5 @@
 from collections import deque
-from libs.stock_object.graphs.graphs import Graphs
+from apps.web_platform.graphs.graphs import Graphs
 
 class StockObj():
     '''
