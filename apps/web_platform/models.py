@@ -11,5 +11,5 @@ class Stock(Base):
     high = Column(String, unique=False, index=True)
     close = Column(String, unique=False, index=True)
     volume = Column(String, unique=False, index=True)
-    time_scale = Column(ARRAY(String), unique=False, index=True)
-    perceptron_most_recent_model_path=Column(String, unique=True, index=True)
+    time_scale = Column(String, unique=False, index=True)
+    perceptron_model_path=Column(String, unique=False, index=True)

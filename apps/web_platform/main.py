@@ -1,8 +1,6 @@
 from fastapi import FastAPI,Request,Depends,BackgroundTasks
 import uvicorn
 from fastapi.templating import Jinja2Templates
-app = FastAPI()
-templates=Jinja2Templates(directory="templates")
 import models
 from database import SessionLocal,engine
 from sqlalchemy.orm import Session
@@ -12,9 +10,12 @@ models.Base.metadata.create_all(bind=engine)
 import json
 from graphs.graphs import Graphs
 
+
+app = FastAPI()
+templates=Jinja2Templates(directory="templates")
+
 class StockRequest(BaseModel):
     symbol:str
-    time_scale:str
 
 def get_db():
     try:
@@ -32,14 +33,17 @@ def fetch_stock_data(id:int):
     db=SessionLocal()
     stock = db.query(Stock).filter(Stock.id == id).first()
     g=Graphs(stock.symbol)
-    stock.open=json.dumps(g.graphs[stock.time_scale]['open'])
-    stock.low=json.dumps(g.graphs[stock.time_scale]['low'])
-    stock.high=json.dumps(g.graphs[stock.time_scale]['high'])
-    stock.close=json.dumps(g.graphs[stock.time_scale]['close'])
-    stock.volume=json.dumps(g.graphs[stock.time_scale]['volume'])
 
-    db.add(stock)
-    db.commit()
+    for time_scale in ['1m','2m','5m','15m','30m','60m','90m','1h','1d','5d','1wk','1mo','3mo']:
+        stock.time_scale=time_scale
+        stock.open=json.dumps(g.graphs[time_scale]['open']) if 'open' in g.graphs[time_scale] else ""
+        stock.low=json.dumps(g.graphs[time_scale]['low']) if 'low' in g.graphs[time_scale] else ""
+        stock.high=json.dumps(g.graphs[time_scale]['high']) if 'high' in g.graphs[time_scale] else ""
+        stock.close=json.dumps(g.graphs[time_scale]['close']) if 'close' in g.graphs[time_scale] else ""
+        stock.volume=json.dumps(g.graphs[time_scale]['volume']) if 'volume' in g.graphs[time_scale] else ""
+        stock.perceptron_model_path=""
+        db.add(stock)
+        db.commit()
 
 
 @app.get("/")
@@ -58,7 +62,6 @@ async def create_stock(stock_request: StockRequest,background_tasks:BackgroundTa
     """
     stock=Stock()
     stock.symbol=stock_request.symbol
-    stock.time_scale=stock_request.time_scale
     db.add(stock)
     db.commit()
 

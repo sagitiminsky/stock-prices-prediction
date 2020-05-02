@@ -3,20 +3,46 @@
 
 <script>
     $(document).ready(function () {
-        $('.ui.modal').modal('show');
+        $("#add_stocks").click(function () {
+            $('.ui.modal').modal('show');
+        })
+
+        $("#save").click(function () {
+            var symbols = $("#symbols").val();
+            console.log(symbols)
+
+            var stockSymbols = symbols.split("\n")
+
+            console.log(stockSymbols)
+
+            for (var i = 0; i < stockSymbols.length; ++i) {
+                console.log(stockSymbols[i]);
+                $.ajax({
+                    url: '/stock',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({"symbol": stockSymbols[i]}),
+                    dataType: 'json'
+
+                })
+            }
+
+            $('.ui.modal').modal('hide');
+
+
+        })
     });
+
 </script>
 
 
 <h1 align="center">Stock Prediction Using Various DL Models</h1>
+<div align="Center">
+    <button id="add_stocks" class="ui button">
+        Add Stocks
+    </button>
+</div><br>
 <form align="center">
-
-    <div>
-        <button class="ui button">
-            Enter Stock Symbols
-        </button>
-    </div>
-    <br><br>
 
     <div id="controls" style="width: 100%; overflow: hidden;">
         <div style="float: none; margin-left: 15px;">
@@ -48,17 +74,19 @@
 <div class="ui modal">
     <i class="close icon"></i>
     <div class="header">
-        Profile Picture
+        Select Stock Symbols
     </div>
-    <div class="image content">
+    <div class="content">
+        <div class="ui form">
+            <div class="field">
 
+                <textarea id="symbols"></textarea>
+            </div>
+        </div>
     </div>
     <div class="actions">
-        <div class="ui black deny button">
-            Nope
-        </div>
-        <div class="ui positive right labeled icon button">
-            Yep, that's me
+        <div id="save" class="ui positive right labeled icon button">
+            Let's Go
             <i class="checkmark icon"></i>
         </div>
     </div>
