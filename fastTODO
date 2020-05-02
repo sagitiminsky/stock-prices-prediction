@@ -20,9 +20,7 @@ this has to be done for the following time scales:
     * 5 Y
     * MAX
 
-
-
 - create platform that adds a prediction ot the stock prices
-- add storage service to store the models
+- add storage service to store the models - already created train model API
 - create third party test for callback_test(wandb,neptune) and graphs(request.get())
 - create dataset_test.py
