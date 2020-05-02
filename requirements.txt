@@ -9,3 +9,11 @@ keras2onnx==1.6.1
 bs4==0.0.1
 lxml==4.5.0
 Pillow==7.1.2
+
+#web-platform
+fastapi
+uvicorn
+jinja2
+yfinance
+sqlalchemy
+databases
