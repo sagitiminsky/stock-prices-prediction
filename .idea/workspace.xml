@@ -2,12 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6c2ad31-683a-4c7a-9a53-59289a453324" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/libs/stocks/stock_object/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/stocks/stock_object/stock_obj.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/web_platform/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/web_platform/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/web_platform/graphs/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/web_platform/graphs/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/web_platform/graphs/graphs.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/web_platform/graphs/graphs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/web_platform/templates/modal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/stocks/queue/queue_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ai/stock_price_prediction.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ai/stock_price_prediction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/web_platform/graphs/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/stocks/graphs/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/web_platform/graphs/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/stocks/graphs/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/web_platform/graphs/graphs.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/stocks/graphs/graphs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/web_platform/graphs/graphs_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/stocks/graphs/graphs_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastTODO" beforeDir="false" afterPath="$PROJECT_DIR$/fastTODO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/dl_models/dl_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/dl_models/dl_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/dl_models/dl_models_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/dl_models/dl_models_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/signal_generator/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/signal_generator/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/signal_generator/signal_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/signal_generator/signal_generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/stock_object/get_stock_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/stocks/get_stock_info.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/stock_object/get_stock_info_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/stocks/get_stock_info_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/stock_object/stock_obj.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/stocks/queue/queue.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +44,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Python Script" />
         <option value="JavaScript File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -74,22 +86,24 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TF_FMT" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/apps/web-platform/ws" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/temp" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/apps/web-platform/ws" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/libs" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/libs/stocks/stock_object" />
+      <recent name="$PROJECT_DIR$/libs/stock_object" />
       <recent name="$PROJECT_DIR$/apps/web_platform" />
       <recent name="$PROJECT_DIR$/apps/web_platform/templates" />
       <recent name="$PROJECT_DIR$/apps/web_platform/static" />
-      <recent name="$PROJECT_DIR$/libs/stock_object/graph" />
-      <recent name="$PROJECT_DIR$/apps/web-platform" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/temp" />
+      <recent name="$PROJECT_DIR$/temp/graphs" />
+      <recent name="$PROJECT_DIR$/temp/apps" />
+      <recent name="$PROJECT_DIR$/temp/libs" />
+      <recent name="$PROJECT_DIR$/libs/stock_object/queue" />
     </key>
   </component>
   <component name="RunManager" selected="Python.graphs">
@@ -317,7 +331,8 @@
       <workItem from="1587830238724" duration="5313000" />
       <workItem from="1587886146667" duration="9742000" />
       <workItem from="1587899708987" duration="2058000" />
-      <workItem from="1587967853672" duration="76202000" />
+      <workItem from="1587967853672" duration="83041000" />
+      <workItem from="1588520209921" duration="20044000" />
     </task>
     <task id="LOCAL-00001" summary="create price stock reader">
       <created>1586963295381</created>
@@ -613,7 +628,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588431246867</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="front connected to back - you can insert all the stocks that you want to the db">
+      <created>1588434282322</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1588434282322</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -681,62 +703,62 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="669" height="466" key="DebuggerActiveHint/0.0.1680.1050@0.0.1680.1050" timestamp="1587827098913" />
-    <state width="1638" height="241" key="GridCell.Tab.0.bottom" timestamp="1588432730110">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="1583" height="259" key="GridCell.Tab.0.bottom" timestamp="1588506099833">
+      <screen x="0" y="23" width="1629" height="1027" />
     </state>
     <state width="1638" height="241" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1588432730110" />
     <state width="1583" height="248" key="GridCell.Tab.0.bottom/0.23.1625.1027@0.23.1625.1027" timestamp="1588228673489" />
     <state width="1583" height="267" key="GridCell.Tab.0.bottom/0.23.1627.1027@0.23.1627.1027" timestamp="1588269077842" />
-    <state width="1583" height="248" key="GridCell.Tab.0.bottom/0.23.1629.1027@0.23.1629.1027" timestamp="1588409108126" />
-    <state width="1638" height="241" key="GridCell.Tab.0.center" timestamp="1588432730109">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="1583" height="259" key="GridCell.Tab.0.bottom/0.23.1629.1027@0.23.1629.1027" timestamp="1588506099833" />
+    <state width="1583" height="259" key="GridCell.Tab.0.center" timestamp="1588506099832">
+      <screen x="0" y="23" width="1629" height="1027" />
     </state>
     <state width="1638" height="241" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1588432730109" />
     <state width="1583" height="248" key="GridCell.Tab.0.center/0.23.1625.1027@0.23.1625.1027" timestamp="1588228673488" />
     <state width="1583" height="267" key="GridCell.Tab.0.center/0.23.1627.1027@0.23.1627.1027" timestamp="1588269077839" />
-    <state width="1583" height="248" key="GridCell.Tab.0.center/0.23.1629.1027@0.23.1629.1027" timestamp="1588409108125" />
-    <state width="1638" height="241" key="GridCell.Tab.0.left" timestamp="1588432730108">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="1583" height="259" key="GridCell.Tab.0.center/0.23.1629.1027@0.23.1629.1027" timestamp="1588506099832" />
+    <state width="1583" height="259" key="GridCell.Tab.0.left" timestamp="1588506099830">
+      <screen x="0" y="23" width="1629" height="1027" />
     </state>
     <state width="1638" height="241" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1588432730108" />
     <state width="1583" height="248" key="GridCell.Tab.0.left/0.23.1625.1027@0.23.1625.1027" timestamp="1588228673488" />
     <state width="1583" height="267" key="GridCell.Tab.0.left/0.23.1627.1027@0.23.1627.1027" timestamp="1588269077838" />
-    <state width="1583" height="248" key="GridCell.Tab.0.left/0.23.1629.1027@0.23.1629.1027" timestamp="1588409108124" />
-    <state width="1638" height="241" key="GridCell.Tab.0.right" timestamp="1588432730109">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="1583" height="259" key="GridCell.Tab.0.left/0.23.1629.1027@0.23.1629.1027" timestamp="1588506099830" />
+    <state width="1583" height="259" key="GridCell.Tab.0.right" timestamp="1588506099832">
+      <screen x="0" y="23" width="1629" height="1027" />
     </state>
     <state width="1638" height="241" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1588432730109" />
     <state width="1583" height="248" key="GridCell.Tab.0.right/0.23.1625.1027@0.23.1625.1027" timestamp="1588228673489" />
     <state width="1583" height="267" key="GridCell.Tab.0.right/0.23.1627.1027@0.23.1627.1027" timestamp="1588269077840" />
-    <state width="1583" height="248" key="GridCell.Tab.0.right/0.23.1629.1027@0.23.1629.1027" timestamp="1588409108125" />
-    <state width="1638" height="463" key="GridCell.Tab.1.bottom" timestamp="1588432741266">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="1583" height="259" key="GridCell.Tab.0.right/0.23.1629.1027@0.23.1629.1027" timestamp="1588506099832" />
+    <state width="1583" height="259" key="GridCell.Tab.1.bottom" timestamp="1588506099835">
+      <screen x="0" y="23" width="1629" height="1027" />
     </state>
     <state width="1638" height="463" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1588432741266" />
     <state width="1585" height="345" key="GridCell.Tab.1.bottom/0.23.1625.1027@0.23.1625.1027" timestamp="1587300713783" />
     <state width="1583" height="267" key="GridCell.Tab.1.bottom/0.23.1627.1027@0.23.1627.1027" timestamp="1588269080072" />
-    <state width="1583" height="485" key="GridCell.Tab.1.bottom/0.23.1629.1027@0.23.1629.1027" timestamp="1588339590654" />
-    <state width="1638" height="463" key="GridCell.Tab.1.center" timestamp="1588432741265">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="1583" height="259" key="GridCell.Tab.1.bottom/0.23.1629.1027@0.23.1629.1027" timestamp="1588506099835" />
+    <state width="1583" height="259" key="GridCell.Tab.1.center" timestamp="1588506099834">
+      <screen x="0" y="23" width="1629" height="1027" />
     </state>
     <state width="1638" height="463" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1588432741265" />
     <state width="1585" height="345" key="GridCell.Tab.1.center/0.23.1625.1027@0.23.1625.1027" timestamp="1587300713782" />
     <state width="1583" height="267" key="GridCell.Tab.1.center/0.23.1627.1027@0.23.1627.1027" timestamp="1588269080068" />
-    <state width="1583" height="485" key="GridCell.Tab.1.center/0.23.1629.1027@0.23.1629.1027" timestamp="1588339590654" />
-    <state width="1638" height="463" key="GridCell.Tab.1.left" timestamp="1588432741264">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="1583" height="259" key="GridCell.Tab.1.center/0.23.1629.1027@0.23.1629.1027" timestamp="1588506099834" />
+    <state width="1583" height="259" key="GridCell.Tab.1.left" timestamp="1588506099833">
+      <screen x="0" y="23" width="1629" height="1027" />
     </state>
     <state width="1638" height="463" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1588432741264" />
     <state width="1585" height="345" key="GridCell.Tab.1.left/0.23.1625.1027@0.23.1625.1027" timestamp="1587300713782" />
     <state width="1583" height="267" key="GridCell.Tab.1.left/0.23.1627.1027@0.23.1627.1027" timestamp="1588269080065" />
-    <state width="1583" height="485" key="GridCell.Tab.1.left/0.23.1629.1027@0.23.1629.1027" timestamp="1588339590653" />
-    <state width="1638" height="463" key="GridCell.Tab.1.right" timestamp="1588432741265">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="1583" height="259" key="GridCell.Tab.1.left/0.23.1629.1027@0.23.1629.1027" timestamp="1588506099833" />
+    <state width="1583" height="259" key="GridCell.Tab.1.right" timestamp="1588506099834">
+      <screen x="0" y="23" width="1629" height="1027" />
     </state>
     <state width="1638" height="463" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1588432741265" />
     <state width="1585" height="345" key="GridCell.Tab.1.right/0.23.1625.1027@0.23.1625.1027" timestamp="1587300713782" />
     <state width="1583" height="267" key="GridCell.Tab.1.right/0.23.1627.1027@0.23.1627.1027" timestamp="1588269080070" />
-    <state width="1583" height="485" key="GridCell.Tab.1.right/0.23.1629.1027@0.23.1629.1027" timestamp="1588339590654" />
+    <state width="1583" height="259" key="GridCell.Tab.1.right/0.23.1629.1027@0.23.1629.1027" timestamp="1588506099834" />
     <state width="234" height="457" key="HiddenNamespacesPopup" timestamp="1588415312522">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -748,13 +770,14 @@
     <state x="293" y="186" key="SettingsEditor/0.23.1625.1027@0.23.1625.1027" timestamp="1588228598433" />
     <state x="322" y="175" key="SettingsEditor/0.23.1627.1027@0.23.1627.1027" timestamp="1588265641300" />
     <state x="322" y="175" key="SettingsEditor/0.23.1629.1027@0.23.1629.1027" timestamp="1588405013900" />
-    <state x="426" y="259" key="Vcs.Push.Dialog.v2" timestamp="1588431249127">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="413" y="276" key="Vcs.Push.Dialog.v2" timestamp="1588434514614">
+      <screen x="0" y="23" width="1630" height="1027" />
     </state>
     <state x="426" y="259" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1588431249127" />
     <state x="413" y="276" key="Vcs.Push.Dialog.v2/0.23.1625.1027@0.23.1625.1027" timestamp="1587284745718" />
     <state x="413" y="276" key="Vcs.Push.Dialog.v2/0.23.1627.1027@0.23.1627.1027" timestamp="1588183684302" />
     <state x="414" y="276" key="Vcs.Push.Dialog.v2/0.23.1629.1027@0.23.1629.1027" timestamp="1588156405982" />
+    <state x="413" y="276" key="Vcs.Push.Dialog.v2/0.23.1630.1027@0.23.1630.1027" timestamp="1588434514614" />
     <state width="831" height="525" key="XDebugger.FullValuePopup" timestamp="1588354484683">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -769,13 +792,13 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="766" y="259" width="700" height="530" key="recent.locations.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1587819571216" />
-    <state x="494" y="232" width="692" height="692" key="search.everywhere.popup" timestamp="1588413705892">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="479" y="250" width="671" height="676" key="search.everywhere.popup" timestamp="1588671727128">
+      <screen x="0" y="23" width="1629" height="1027" />
     </state>
     <state x="494" y="232" width="692" height="692" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1588413705892" />
     <state x="478" y="250" width="670" height="676" key="search.everywhere.popup/0.23.1625.1027@0.23.1625.1027" timestamp="1587283559415" />
     <state x="478" y="250" width="670" height="676" key="search.everywhere.popup/0.23.1627.1027@0.23.1627.1027" timestamp="1587742310337" />
-    <state x="479" y="250" width="671" height="676" key="search.everywhere.popup/0.23.1629.1027@0.23.1629.1027" timestamp="1587538745025" />
+    <state x="479" y="250" width="671" height="676" key="search.everywhere.popup/0.23.1629.1027@0.23.1629.1027" timestamp="1588671727128" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -786,7 +809,7 @@
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/web_platform/graphs/graphs.py</url>
+          <url>file://$PROJECT_DIR$/libs/stocks/graphs/graphs.py</url>
           <line>47</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>

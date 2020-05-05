@@ -1,9 +1,9 @@
-from libs.stock_object.get_stock_info import GetStocksInfo
+from libs.stocks.get_stock_info import GetStocksInfo
 from libs.dataset.load_dataset import *
 from libs.dl_models.dl_models import DLModels
 from libs.callback.callback import CallBack
 from libs.signal_generator.signal_generator import SignalGenerator
-import apps.ai.config
+import apps
 import libs.signal_generator.config
 from tqdm import tqdm
 

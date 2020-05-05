@@ -1,7 +1,8 @@
-from libs.stock_object.stock_obj import StockObj
+from libs.stocks.stock_object.stock_obj import StockObj
 import requests
 from bs4 import BeautifulSoup
-import apps.ai.config
+import apps
+import yfinance as yf
 
 
 class GetStocksInfo:
@@ -9,8 +10,7 @@ class GetStocksInfo:
         self.stock_names= apps.ai.config.stock_names
         self.stocks={}
         for stock_name in self.stock_names:
-            self.stocks[stock_name]={'link':'https://finance.yahoo.com/quote/FB?p='+stock_name,'stock_obj':StockObj(max_size=apps.ai.config.window_size,stock_name=stock_name)}
-
+            self.stocks[stock_name]={'link':'https://finance.yahoo.com/quote/FB?p='+stock_name,'stock_obj':StockObj(max_size=apps.ai.config.window_size, stock_name=stock_name)}
 
     def measure(self,mock=None):
 
@@ -31,3 +31,4 @@ class GetStocksInfo:
 
 
 
+yf.Ticker()

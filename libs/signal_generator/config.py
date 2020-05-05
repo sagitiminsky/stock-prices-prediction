@@ -1,4 +1,4 @@
-import apps.ai.config
+import apps
 
 window_size= apps.ai.config.window_size
 signals_names=['sin','cos']

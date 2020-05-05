@@ -1,26 +1,11 @@
 - check out if perceptron MANY2ONE/MANY2MANY works on real stocks
 - add RNN MANY2ONE/MANY2MANY
-- find optimal window_size (hyper parameter) - train the same model with various window_sizes and pick the one the reaches the minimal validation loss
-this has to be done for the following time scales:
-    * tick
-    * 1 minute
-    * 5 minutes
-    * 10 minutes
-    * 15 minutes
-    * 30 minutes
-    * 1 H
-    * 1 D
-    * 5 D
-    * 1 W
-    * 1 M
-    * 3 M
-    * 6 M
-    * 1 Y
-    * 2 Y
-    * 5 Y
-    * MAX
-
-- create platform that adds a prediction ot the stock prices
+- think about a smarter way to save values in queue - not just 'close' value
+- chage the beautifulsoup method to yfinance - it's easier and (open,low,high,close,volume) are avalible.
+- create 5 model predictions (open,low,high,close, volume) for each time frame (1m,2m,5m,...) for a given window_size - save 1 model, vector of five elements.
+- find optimal window_size (hyper parameter) - train the same model with various window_sizes and pick the one the reaches the minimal validation loss for each time frame (1m,2m,5m,...)
+- create platform that adds a prediction to the stock prices
 - add storage service to store the models - already created train model API
 - create third party test for callback_test(wandb,neptune) and graphs(request.get())
-- create dataset_test.py
+- create dataset_test.pybuild_nodes_small.sh
+run_nodes_small.sh

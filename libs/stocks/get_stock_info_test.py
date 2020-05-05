@@ -1,7 +1,7 @@
 import unittest
-from libs.stock_object.get_stock_info import GetStocksInfo
+from libs.stocks.get_stock_info import GetStocksInfo
 from unittest.mock import Mock
-import apps.ai.config
+import apps
 
 
 class StockRnnUnitTests(unittest.TestCase):

@@ -2,7 +2,8 @@ import unittest
 from unittest.mock import Mock
 from libs.dl_models.dl_models import DLModels
 import numpy as np
-import apps.ai.config
+import apps
+
 
 def get_tets_dataset(prediction_type):
     if prediction_type== apps.ai.config.MANY2ONE:

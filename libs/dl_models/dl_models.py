@@ -1,7 +1,7 @@
 from keras.models import Sequential
 from keras.layers import Dense, Flatten
 from .dl_model import DLModel
-import apps.ai.config
+import apps
 
 
 class DLModels:
