@@ -1,4 +1,4 @@
-from libs.stocks.Queue import Queue
+from libs.stocks.queue.queue import Queue
 import libs.signal_generator.config
 import numpy as np
 from itertools import cycle

@@ -1,5 +1,5 @@
 import unittest
-from libs.stocks.graphs.graphs import Graphs
+from libs.stocks.graphs.graphs import Graphs_Obj
 from unittest.mock import Mock
 import libs.stocks.graphs.config
 
@@ -10,7 +10,7 @@ class GraphsTest(unittest.TestCase):
         self.stock_name='FB'
 
     def test_create_Graphs(self):
-        self.assertTrue(Graphs(stock_name=self.stock_name,mock=Mock()))
+        self.assertTrue(Graphs_Obj(stock_name=self.stock_name,mock=Mock()))
 
 
 

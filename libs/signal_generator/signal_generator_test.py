@@ -24,10 +24,10 @@ class StockRnnUnitTests(unittest.TestCase):
 
 
         #show signals
-        plt.plot(list(sg.stocks['sin']['x']._queue),list(sg.stocks['sin']['y']._queue),'ro')
-        plt.xlabel('x')
-        plt.ylabel('sin(x)')
-        plt.show()
+        # plt.plot(list(sg.stocks['sin']['x']._queue),list(sg.stocks['sin']['y']._queue),'ro')
+        # plt.xlabel('x')
+        # plt.ylabel('sin(x)')
+        # plt.show()
 
 
 if __name__ == '__main__':

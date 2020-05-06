@@ -42,14 +42,14 @@ class StockRnnUnitTests(unittest.TestCase):
         self.config['prediction_type'] = apps.ai.config.MANY2ONE
         dl_models=DLModels(window_size=self.window_size, config=self.config)
         trainX, trainY, testX, testY=get_tets_dataset(apps.ai.config.MANY2ONE)
-        dl_models.fit(trainX=trainX,trainY=trainY,testX=testX,testY=testY,callback=Mock())
+        dl_models.fit(trainX=trainX,trainY=trainY,testX=testX,testY=testY,callback=Mock(),i=10)
 
 
     def test_fit_many_2_many(self):
         self.config['prediction_type'] = apps.ai.config.MANY2MANY
         dl_models=DLModels(window_size=self.window_size, config=self.config)
         trainX, trainY, testX, testY=get_tets_dataset(apps.ai.config.MANY2MANY)
-        dl_models.fit(trainX=trainX,trainY=trainY,testX=testX,testY=testY,callback=Mock())
+        dl_models.fit(trainX=trainX,trainY=trainY,testX=testX,testY=testY,callback=Mock(),i=10)
 
 
 

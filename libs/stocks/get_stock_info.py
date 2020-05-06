@@ -10,7 +10,7 @@ class GetStocksInfo:
         self.stock_names= apps.ai.config.stock_names
         self.stocks={}
         for stock_name in self.stock_names:
-            self.stocks[stock_name]={'link':'https://finance.yahoo.com/quote/FB?p='+stock_name,'stock_obj':StockObj(max_size=apps.ai.config.window_size, stock_name=stock_name)}
+            self.stocks[stock_name]={'link':'https://finance.yahoo.com/quote/FB?p='+stock_name,'stock_obj':StockObj(stock_name=stock_name)}
 
     def measure(self,mock=None):
 
@@ -30,5 +30,3 @@ class GetStocksInfo:
             return True
 
 
-
-yf.Ticker()

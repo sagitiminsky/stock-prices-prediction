@@ -25,9 +25,9 @@ class Queue():
 
 
         try :
-            self._max=max(self._queue)
-            self._min = min(self._queue)
-        except ValueError:
+            self._max=max(init_list)
+            self._min = min(init_list)
+        except (TypeError,ValueError):
             self._max=None
             self._min=None
 
@@ -49,7 +49,7 @@ class Queue():
         try :
             self._max=max(self._queue)
             self._min = min(self._queue)
-        except ValueError:
+        except (TypeError,ValueError):
             self._max=None
             self._min=None
 
@@ -60,7 +60,7 @@ class Queue():
             self._norm_queue.append((item-self._min)/(self._max-self._min))
         except ZeroDivisionError:
             self._norm_queue.append(0)
-        except TypeError: # item=Mock() object from unittest
+        except ValueError: # item=Mock() object from unittest
             self._norm_queue.append(item)
 
     def normalize(self, init_list, max, min):

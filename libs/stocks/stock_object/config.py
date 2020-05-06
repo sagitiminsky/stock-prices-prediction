@@ -14,7 +14,6 @@ max_window_size={
         '1mo':20,
         '3mo':20,
 }
-
 time_scale2seconds={
         '1s':1,
         '1m':60,
