@@ -19,13 +19,14 @@ class GetStocksInfo:
                 r=requests.get(self.stocks[stock_name]['link'])
                 soup=BeautifulSoup(r.text,"lxml")
                 value=float(soup.find_all('div',{'class':'My(6px) Pos(r) smartphone_Mt(6px)'})[0].find('span').text)
-                queueObj=self.stocks[stock_name]['stock_obj']
-                queueObj.enqueue(value) #this step adds value to _queue, normalized_value to _norm_queue and sets max and min values in queueObj
+                volume=yf.Ticker(stock_name).get_info()['volume']
+                stock_object=self.stocks[stock_name]['stock_obj']
+                stock_object.enqueue({'value':value,'volume':volume})
 
         else: #unittest
             for stock_name in self.stocks:
-                queueObj = self.stocks[stock_name]['stock_obj']
-                queueObj.enqueue(mock)
+                stock_object = self.stocks[stock_name]['stock_obj']
+                stock_object.enqueue(mock)
 
             return True
 

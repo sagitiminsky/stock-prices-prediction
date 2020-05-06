@@ -1,5 +1,5 @@
 import unittest
-from libs.stocks.queue.queue import Queue
+from libs.stocks.queues.queue.queue import Queue
 
 class TestQueue(unittest.TestCase):
     def setUp(self):

@@ -1,16 +1,16 @@
-from libs.stocks.queue.queue import Queue
-import libs.signal_generator.config
+from libs.stocks.queues.queue.queue import Queue
+import apps.ai.config as config
 import numpy as np
 from itertools import cycle
 
 
 class SignalGenerator:
     def __init__(self):
-        self.window_size=libs.signal_generator.config.window_size
-        self.delta=libs.signal_generator.config.delta
+        self.window_size=config.window_size
+        self.delta=config.delta
         self.time_stamps=cycle(np.arange(0,2*np.pi,self.delta))
         self.stocks={}
-        self.signals_names=libs.signal_generator.config.signals_names
+        self.signals_names=config.signals_names
 
         for signal_name in self.signals_names:
             self.stocks[signal_name] = {'x': Queue(max_size=self.window_size) , 'y':Queue(max_size=self.window_size)}

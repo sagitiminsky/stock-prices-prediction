@@ -1,16 +1,17 @@
 from fastapi import FastAPI,Request,Depends,BackgroundTasks
 import uvicorn
 from fastapi.templating import Jinja2Templates
-import models
-from database import SessionLocal,engine
+import apps.web_platform.models
+from apps.web_platform.models import Base
+from apps.web_platform.database import SessionLocal,engine
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
-from models import Stock
-models.Base.metadata.create_all(bind=engine)
+from apps.web_platform.models import Stock
+
 import json
-from graphs.graphs import Graphs
+from libs.stocks.graphs.graphs import Graphs_Obj
 
-
+apps.web_platform.models.Base.metadata.create_all(bind=engine)
 app = FastAPI()
 templates=Jinja2Templates(directory="templates")
 
@@ -32,7 +33,7 @@ def fetch_stock_data(id:int):
     """
     db=SessionLocal()
     stock = db.query(Stock).filter(Stock.id == id).first()
-    g=Graphs(stock.symbol)
+    g=Graphs_Obj(stock.symbol)
 
     for time_scale in ['1m','2m','5m','15m','30m','60m','90m','1h','1d','5d','1wk','1mo','3mo']:
         stock.time_scale=time_scale

@@ -1,7 +1,7 @@
 import unittest
 from libs.signal_generator.signal_generator import SignalGenerator
 import matplotlib.pyplot as plt
-import libs.signal_generator.config
+import apps.ai.config as config
 
 
 class StockRnnUnitTests(unittest.TestCase):
@@ -19,7 +19,7 @@ class StockRnnUnitTests(unittest.TestCase):
 
     def test_plot_graph(self):
         sg = SignalGenerator()
-        for i in range(libs.signal_generator.config.window_size+25):
+        for i in range(config.window_size+25):
             sg.measure()
 
 

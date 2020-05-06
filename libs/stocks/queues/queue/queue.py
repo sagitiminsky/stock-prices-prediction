@@ -9,20 +9,19 @@ class Queue():
 
 
 
-    def __init__(self,init_list=[],max_size = 20):
+    def __init__(self,init_list=[],max_size=20):
         '''
         Initialize this queue to the empty queue.
 
         Parameters
         ----------
         max_size : int
-            Maximum number of items contained in this queue. Defaults to 10.
+            Maximum number of items contained in this queue. Defaults to 20.
         '''
 
 
         # sliding window - scraped stock values
         self._queue = deque(init_list,maxlen=max_size)
-
 
         try :
             self._max=max(init_list)

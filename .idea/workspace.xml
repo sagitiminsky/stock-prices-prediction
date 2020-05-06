@@ -2,17 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6c2ad31-683a-4c7a-9a53-59289a453324" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/libs/stocks/queues/queue_obj/queue_obj.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/stocks/queues/queue_obj/queue_obj_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/ai/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ai/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ai/stock_price_prediction.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ai/stock_price_prediction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/web_platform/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/web_platform/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/web_platform/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/web_platform/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastTODO" beforeDir="false" afterPath="$PROJECT_DIR$/fastTODO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/dl_models/dl_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/dl_models/dl_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/dl_models/dl_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/dl_models/dl_models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/dl_models/dl_models_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/dl_models/dl_models_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/signal_generator/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/signal_generator/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/signal_generator/config.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/signal_generator/signal_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/signal_generator/signal_generator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/signal_generator/signal_generator_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/signal_generator/signal_generator_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/stocks/get_stock_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/stocks/get_stock_info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/stocks/get_stock_info_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/stocks/get_stock_info_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/stocks/graphs/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/stocks/graphs/graphs.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/stocks/graphs/graphs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/stocks/graphs/graphs_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/stocks/graphs/graphs_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/stocks/queue/queue.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/stocks/queue/queue.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/stocks/stock_object/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/stocks/stock_object/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/stocks/queue/queue.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/stocks/queues/queue/queue.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/stocks/queue/queue_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/stocks/queues/queue/queue_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/stocks/stock_object/config.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/stocks/stock_object/stock_obj.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/stocks/stock_object/stock_obj.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,15 +92,16 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/temp" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/libs/stocks/queues/queue" />
       <recent name="$PROJECT_DIR$/libs/stocks/stock_object" />
       <recent name="$PROJECT_DIR$/libs/stock_object" />
       <recent name="$PROJECT_DIR$/apps/web_platform" />
       <recent name="$PROJECT_DIR$/apps/web_platform/templates" />
-      <recent name="$PROJECT_DIR$/apps/web_platform/static" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/temp" />
@@ -349,7 +360,7 @@
       <workItem from="1587886146667" duration="9742000" />
       <workItem from="1587899708987" duration="2058000" />
       <workItem from="1587967853672" duration="83041000" />
-      <workItem from="1588520209921" duration="30906000" />
+      <workItem from="1588520209921" duration="44718000" />
     </task>
     <task id="LOCAL-00001" summary="create price stock reader">
       <created>1586963295381</created>
@@ -659,7 +670,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588683296581</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="tests pass for multiple Queues 1s,1m,2m,5m...">
+      <created>1588754621876</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1588754621876</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -698,7 +716,8 @@
     <MESSAGE value="try to create modal to send requset to populate database" />
     <MESSAGE value="front connected to back - you can insert all the stocks that you want to the db" />
     <MESSAGE value="add Queues for 1s,1m,2m,5m,..." />
-    <option name="LAST_COMMIT_MESSAGE" value="add Queues for 1s,1m,2m,5m,..." />
+    <MESSAGE value="tests pass for multiple Queues 1s,1m,2m,5m..." />
+    <option name="LAST_COMMIT_MESSAGE" value="tests pass for multiple Queues 1s,1m,2m,5m..." />
   </component>
   <component name="WindowStateProjectService">
     <state x="278" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588748398973">
@@ -717,6 +736,10 @@
       <screen x="0" y="23" width="1629" height="1027" />
     </state>
     <state x="590" y="222" key="#index.html/0.23.1629.1027@0.23.1629.1027" timestamp="1588341185034" />
+    <state x="560" y="399" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1588769647952">
+      <screen x="0" y="23" width="1629" height="1027" />
+    </state>
+    <state x="560" y="399" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1629.1027@0.23.1629.1027" timestamp="1588769647952" />
     <state x="408" y="139" key="CommitChangelistDialog2" timestamp="1588754614941">
       <screen x="0" y="23" width="1629" height="1027" />
     </state>
@@ -809,10 +832,10 @@
     <state width="831" height="525" key="XDebugger.FullValuePopup/0.0.1680.1050@0.0.1680.1050" timestamp="1588354484683" />
     <state width="804" height="513" key="XDebugger.FullValuePopup/0.23.1627.1027@0.23.1627.1027" timestamp="1588268544661" />
     <state width="805" height="513" key="XDebugger.FullValuePopup/0.23.1629.1027@0.23.1629.1027" timestamp="1588335891723" />
-    <state x="480" y="293" width="667" height="486" key="find.popup" timestamp="1588158487661">
+    <state x="480" y="293" width="667" height="486" key="find.popup" timestamp="1588756153851">
       <screen x="0" y="23" width="1629" height="1027" />
     </state>
-    <state x="480" y="293" width="667" height="486" key="find.popup/0.23.1629.1027@0.23.1629.1027" timestamp="1588158487661" />
+    <state x="480" y="293" width="667" height="486" key="find.popup/0.23.1629.1027@0.23.1629.1027" timestamp="1588756153851" />
     <state x="766" y="259" width="700" height="530" key="recent.locations.popup" timestamp="1587819571216">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -837,11 +860,6 @@
           <url>file://$PROJECT_DIR$/libs/stocks/graphs/graphs.py</url>
           <line>47</line>
           <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/libs/stocks/stock_object/stock_obj.py</url>
-          <line>52</line>
-          <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/libs/stocks/stock_object/stock_obj.py</url>
