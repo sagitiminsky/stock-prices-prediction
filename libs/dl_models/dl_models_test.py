@@ -5,8 +5,8 @@ import numpy as np
 import apps.ai.config as config
 
 
-def get_test_dataset(prediction_type):
-    if prediction_type== config.MANY2ONE:
+def get_test_dataset():
+    if config.prediction_type == config.MANY2ONE:
         trainX = np.array([[[0], [0], [0], [0], [0], [0], [0] , [0], [0], [0], [0], [0], [0], [0]]]) # FB + WMT
         trainY = np.array([[0, 0, 0]]) #FB ONLY
         testX = np.array([[[0], [0], [0], [0], [0], [0], [0] ,[0], [0], [0], [0], [0], [0], [0]]]) #FB + WMT
@@ -25,22 +25,22 @@ class StockRnnUnitTests(unittest.TestCase):
         self.window_size = 20 # if you change this, change trainX,...,testY accordingly
 
     def test_perceptron_many_2_one(self):
-        self.assertTrue(DLModels(window_size=self.window_size,prediction_type=config.MANY2ONE))
+        self.assertTrue(DLModels())
 
     def test_perceptron_many_2_many(self):
-        self.assertTrue(DLModels(window_size=self.window_size,prediction_type=config.MANY2MANY))
+        self.assertTrue(DLModels())
 
     def test_fit_many_2_one(self):
-        dl_models=DLModels(window_size=self.window_size,prediction_type=config.MANY2ONE)
-        trainX, trainY, testX, testY=get_test_dataset(config.MANY2ONE)
-        dl_models.fit(trainX=trainX,trainY=trainY,testX=testX,testY=testY,callback=Mock(),i=10)
+        dl_models=DLModels()
+        trainX, trainY, testX, testY=get_test_dataset()
+        [dl_models.fit(trainX=trainX,trainY=trainY,testX=testX,testY=testY,callback=Mock(),i=10,time_scale_index=time_scale_index) for time_scale_index in range(len(config.time_scales))]
         # dl_models.save()
 
 
     def test_fit_many_2_many(self):
-        dl_models=DLModels(window_size=self.window_size,prediction_type=config.MANY2MANY)
-        trainX, trainY, testX, testY=get_test_dataset(config.MANY2MANY)
-        dl_models.fit(trainX=trainX,trainY=trainY,testX=testX,testY=testY,callback=Mock(),i=10)
+        dl_models=DLModels()
+        trainX, trainY, testX, testY=get_test_dataset()
+        [dl_models.fit(trainX=trainX,trainY=trainY,testX=testX,testY=testY,callback=Mock(),i=10,time_scale_index=time_scale_index) for time_scale_index in range(len(config.time_scales))]
         # dl_models.save()
 
 

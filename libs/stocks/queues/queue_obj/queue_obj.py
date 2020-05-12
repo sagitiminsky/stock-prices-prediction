@@ -1,6 +1,6 @@
 from libs.stocks.queues.queue.queue import Queue
 import apps.ai.config as config
-
+import numpy as np
 
 
 class QueueObejct():
@@ -19,11 +19,11 @@ class QueueObejct():
             Maximum number of items contained in this queue. Defaults to 10.
         '''
 
-        self.open = Queue(init_list=init_dict['open'], max_size=config.max_window_size[time_scale])
-        self.low = Queue(init_list=init_dict['low'], max_size=config.max_window_size[time_scale])
-        self.high = Queue(init_list=init_dict['high'], max_size=config.max_window_size[time_scale])
-        self.close = Queue(init_list=init_dict['close'], max_size=config.max_window_size[time_scale])
-        self.volume = Queue(init_list=init_dict['volume'], max_size=config.max_window_size[time_scale])
+        self.open = Queue(init_list=init_dict['open'], maxlen=config.max_window_size[time_scale])
+        self.low = Queue(init_list=init_dict['low'], maxlen=config.max_window_size[time_scale])
+        self.high = Queue(init_list=init_dict['high'], maxlen=config.max_window_size[time_scale])
+        self.close = Queue(init_list=init_dict['close'], maxlen=config.max_window_size[time_scale])
+        self.volume = Queue(init_list=init_dict['volume'], maxlen=config.max_window_size[time_scale])
 
     def enqueue(self, item):
         '''
@@ -40,3 +40,8 @@ class QueueObejct():
         self.open.enqueue(item['high'])
         self.open.enqueue(item['close'])
         self.open.enqueue(item['volume'])
+
+    def get_vstacked_queues(self):
+        return np.vstack((np.array(list(self.open._norm_queue)), np.array(list(self.low._norm_queue)),
+                          np.array(list(self.high._norm_queue)), np.array(list(self.close._norm_queue)),
+                          np.array(list(self.volume._norm_queue))))

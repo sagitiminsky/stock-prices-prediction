@@ -5,15 +5,14 @@ class TestQueue(unittest.TestCase):
     def setUp(self):
         self.list=[1,2,3,4]
         self.insert_item=6
+        self.maxlen=4
 
-    def test_create_queue(self):
-        self.assertTrue(Queue())
 
     def test_initialized_queue(self):
-        self.assertTrue(Queue(init_list=self.list))
+        self.assertTrue(Queue(init_list=self.list,maxlen=self.maxlen))
 
     def test_enque(self):
-        q=Queue(init_list=self.list)
+        q=Queue(init_list=self.list,maxlen=self.maxlen)
         q.enqueue(self.insert_item)
         self.assertTrue(q)
 

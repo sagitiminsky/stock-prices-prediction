@@ -14,7 +14,7 @@ class StocksTest(unittest.TestCase):
 
         Creates an GetStockInfo object, and test it creation of obejct is successful
         """
-        self.assertTrue(GetStocksInfo())
+        self.assertTrue(GetStocksInfo(mock=MagicMock())) #magic mock for graph_objj
 
 
     def test_measure_stock(self):
@@ -24,8 +24,8 @@ class StocksTest(unittest.TestCase):
         - Use mock to imitate reading from stock prices DB and test measure_stock
         """
 
-        stockObj=GetStocksInfo()
-        self.assertTrue(stockObj.measure(mock=MagicMock()))
+        stockObj=GetStocksInfo(mock=MagicMock()) #magic mock for graph_objj
+        self.assertTrue(stockObj.measure(mock=MagicMock())) #magic mock for graph_objj
 
 
 if __name__ == '__main__':

@@ -6,11 +6,11 @@ import yfinance as yf
 
 
 class GetStocksInfo:
-    def __init__(self):
+    def __init__(self,mock=None):
         self.stock_names= apps.ai.config.stock_names
         self.stocks={}
         for stock_name in self.stock_names:
-            self.stocks[stock_name]={'link':'https://finance.yahoo.com/quote/FB?p='+stock_name,'stock_obj':StockObj(stock_name=stock_name)}
+            self.stocks[stock_name]={'link':'https://finance.yahoo.com/quote/FB?p='+stock_name,'stock_obj':StockObj(stock_name=stock_name,mock=mock)}
 
     def measure(self,mock=None):
 

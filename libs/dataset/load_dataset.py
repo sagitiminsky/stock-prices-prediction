@@ -1,26 +1,35 @@
 import numpy as np
+from libs.stocks.queues.queue.queue import Queue
 
 
-def pre_process(norm_queue,split):
-
+def pre_process(queue_obj, split):
     # split train and test data
-    train = list(norm_queue)[:split]
-    test = list(norm_queue)[split:]
 
-    trainX, trainY = load_dataset(train, split)
-    testX, testY = load_dataset(test, split)
+    instance = isinstance(queue_obj, Queue)
 
-    trainX = trainX[:, :, np.newaxis]
-    testX = testX[:, :, np.newaxis]
+    if instance:  # is Queue
+        train = np.array(list(queue_obj._norm_queue)[:split])
+        test = np.array(list(queue_obj._norm_queue)[split:])
 
-    return (trainX,trainY,testX,testY)
+    else:  # is QueueObejct
+        dataset = queue_obj.get_vstacked_queues() #returned ndarray
+        train = dataset[:, :split]
+        test = dataset[:, split:]
+
+    trainX, trainY = load_dataset(train, split, instance)
+    testX, testY = load_dataset(test, split, instance)
+
+    return (trainX, trainY, testX, testY)
 
 
-def load_dataset(dataset,dataset_window):
-    dataX, dataY = [], []
-    first_values=int(dataset_window*0.7)
-    last_values=-int(dataset_window*0.3)
-    a = dataset[:first_values]
-    dataX.append(a)
-    dataY.append(dataset[last_values:])
-    return np.array(dataX), np.array(dataY)
+def load_dataset(dataset, dataset_window, instance):
+    first_values = int(dataset_window * 0.7)
+    last_values = -int(dataset_window * 0.3)
+    if instance:
+        dataX = dataset[:first_values]
+        dataY = dataset[last_values:]
+    else:
+        dataX = dataset[:, :first_values]
+        dataY = dataset[:, last_values:]
+
+    return dataX, dataY
