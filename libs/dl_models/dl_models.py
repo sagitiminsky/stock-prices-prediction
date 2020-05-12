@@ -14,8 +14,7 @@ class DLModels:
         if self.stock_names == None or len(self.stock_names) == 0:
             raise ('stock names are invalid')
 
-        self.window_size = config.window_size
-        self.split = int(self.window_size * 0.5)
+        self.split = int(config.window_size * 0.5)
 
         self.perceptrons = [
             DLModel(self.perceptron_init(time_scale), config.DL_config['perceptron'], time_scale=time_scale) for
@@ -44,7 +43,7 @@ class DLModels:
                 model.add(Dense(int(self.split * 0.3)))
             else:  # open,low,high,close,volume
                 model.add(Dense(int(self.split * 0.3) * 5))
-                #todo: in this case the output needs to be reshaped to (5,stocks_num)
+                # todo: in this case the output needs to be reshaped to (5,stocks_num)
 
         # MANY2MANY
         else:
@@ -56,7 +55,7 @@ class DLModels:
         model.compile(loss='mse', optimizer='adam')
         return model
 
-    def fit(self, trainX, trainY, testX, testY, callback, i, time_scale_index):
+    def fit(self, trainX, trainY, testX, testY, callback, time_scale_index,stock_monitor):
         epoches = 10
 
         # reshape
@@ -65,23 +64,22 @@ class DLModels:
         trainY = trainY[np.newaxis, :]
         testY = testY[np.newaxis, :]
 
-        if i % config.callback == 0:
-            self.perceptrons[time_scale_index].model.fit(trainX, trainY, epochs=epoches, batch_size=10,
-                                                         validation_data=(testX, testY), verbose=0)
-                                                         # callbacks=[callback.wandb,
-                                                         #            callback.plot_callback(
-                                                         #                self.perceptrons[time_scale_index].model,
-                                                         #                trainX, trainY, testX, testY,
-                                                         #                self.window_size)])
+        self.perceptrons[time_scale_index].model.fit(trainX, trainY, epochs=epoches, batch_size=10,
+                                                     validation_data=(testX, testY), verbose=0)
 
-            ## MODE MODELS HERE
+        ### ADD MORE MODELS HERE
 
-        else:
 
-            self.perceptrons[time_scale_index].model.fit(trainX, trainY, epochs=epoches, batch_size=10,
-                                                         validation_data=(testX, testY), verbose=0)
 
-            ## MORE MODELS HERE
+        self.perceptrons[time_scale_index].model.fit(trainX, trainY, epochs=1, batch_size=10,
+                                                     validation_data=(testX, testY), verbose=0,
+                                                     callbacks=[callback.wandb,
+                                                                callback.plot_callback(
+                                                                    self.perceptrons[time_scale_index].model,
+                                                                    trainX, trainY, testX, testY,
+                                                                    stock_monitor)])
+        ### ADD MORE MODELS HERE TO SEE THEM IN WANDB
+
 
     def save(self):
         for model in self.models:

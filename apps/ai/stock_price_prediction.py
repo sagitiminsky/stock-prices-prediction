@@ -18,35 +18,40 @@ callback = CallBack()
 for i in tqdm(range(config.window_size + 10 ** 2)):
     stocks_obj.measure()
 
-    for time_scale_index, time_scale in enumerate(config.time_scales):
+    # for time_scale_index, time_scale in enumerate(config.time_scales):
 
-        trainX_s, trainY_s, testX_s, testY_s = None, None, None, None
+    #todo: delete this after tests
+    time_scale_index, time_scale=0,'1s'
+    stock_monitor = stocks_obj.stocks[config.stock_names[0]]['stock_obj'].time_scales[time_scale]  # Queue
 
-        for stock_name in stock_names:
+    trainX_s, trainY_s, testX_s, testY_s = None, None, None, None
 
-            batch = stocks_obj.stocks[stock_name]['stock_obj'].time_scales[time_scale]  # Queue or QueueObj
 
-            trainX, trainY, testX, testY = pre_process(batch, dl_models_obj.split)
+    for stock_name in stock_names:
 
-            if trainX_s is None:
-                trainX_s,testX_s,  = trainX,testX
-                trainY_s,testY_s =trainY.T.reshape(-1), testY.T.reshape(-1)
+        batch = stocks_obj.stocks[stock_name]['stock_obj'].time_scales[time_scale]  # Queue or QueueObj
 
-            else:  # vstack for stocks
+        trainX, trainY, testX, testY = pre_process(batch, dl_models_obj.split)
 
-                if time_scale == '1s':
-                    trainX_s = np.vstack((trainX_s, trainX))
-                    testX_s = np.vstack((testX_s, testX))
+        if trainX_s is None:
+            trainX_s,testX_s,  = trainX,testX
+            trainY_s,testY_s =trainY.T.reshape(-1), testY.T.reshape(-1)
 
-                else:  # 1m,2m,5m...
-                    trainX_s = np.stack((trainX_s, trainX), axis=0)
-                    testX_s = np.stack((testX_s, testX), axis=0)
+        else:  # vstack for stocks
 
-                if prediction_type == config.MANY2MANY:
-                    trainY_s = np.vstack((trainY_s, trainY))
-                    testY_s = np.vstack((testY_s, testY))
+            if time_scale == '1s':
+                trainX_s = np.vstack((trainX_s, trainX))
+                testX_s = np.vstack((testX_s, testX))
 
-        dl_models_obj.fit(trainX=trainX_s, trainY=trainY_s, testX=testX_s, testY=testY_s, callback=callback, i=i,
-                          time_scale_index=time_scale_index)
+            else:  # 1m,2m,5m...
+                trainX_s = np.stack((trainX_s, trainX), axis=0)
+                testX_s = np.stack((testX_s, testX), axis=0)
+
+            if prediction_type == config.MANY2MANY:
+                trainY_s = np.vstack((trainY_s, trainY))
+                testY_s = np.vstack((testY_s, testY))
+
+    dl_models_obj.fit(trainX=trainX_s, trainY=trainY_s, testX=testX_s, testY=testY_s, callback=callback,
+                      time_scale_index=time_scale_index,stock_monitor=stock_monitor)
 
 # dl_models_obj.save()

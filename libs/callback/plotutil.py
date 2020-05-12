@@ -1,4 +1,5 @@
 import matplotlib
+
 matplotlib.use('Agg')  # noqa
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
@@ -27,43 +28,36 @@ def fig2data(fig):
     return buf
 
 
-def repeated_predictions(model, data, look_back, steps=100):
-    predictions = []
-    for i in range(steps):
-        input_data = data[np.newaxis, :, np.newaxis]
-        generated = model.predict(input_data)[0]
-        data = np.append(data, generated)[-look_back:]
-        predictions.append(generated)
-    return predictions
-
-
 class PlotCallback(keras.callbacks.Callback):
-    def __init__(self,model, trainX, trainY, testX, testY, look_back):
+    def __init__(self, model, trainX, trainY, testX, testY, stock_monitor):
+        super().__init__()
         self.repeat_predictions = True
-        self.model=model
+        self.model = model
         self.trainX = trainX
         self.trainY = trainY
         self.testX = testX
         self.testY = testY
-        self.look_back = look_back
+        self.stock_monitor = stock_monitor  # from here you can gain access to _max and _min - when batch is Queue this is simple as batch._min
+        # but when stock_monitor is Queue_obj this is harder
 
-    def on_epoch_end(self, epoch, logs):
+    def on_epoch_end(self, epoch, logs=None):
         if self.repeat_predictions:
-            preds = repeated_predictions(
-                self.model, self.trainX[-1, :, 0], self.look_back, self.testX.shape[0])
+            preds = self.model.predict(self.trainX)
         else:
             preds = self.model.predict(self.testX)
 
         # Generate a figure with matplotlib
-        figure = matplotlib.pyplot.figure(figsize=(10, 10))
+        figure = matplotlib.pyplot.figure(figsize=(20, 20))
         plot = figure.add_subplot(111)
 
-        plot.plot(self.trainY)
-        plot.plot(np.append(np.empty_like(self.trainY) * np.nan, self.testY),color='red')
-        plot.plot(np.append(np.empty_like(self.trainY) * np.nan, preds),color='green')
-
+        plot.plot(self.inverse(self.trainY), color='blue')
+        plot.plot(np.append(np.empty_like(self.trainY) * np.nan, self.inverse(self.testY)), color='red')
+        plot.plot(np.append(np.empty_like(self.trainY) * np.nan, self.inverse(preds)), color='green')
 
         data = fig2data(figure)
         matplotlib.pyplot.close(figure)
 
         wandb.log({"image": wandb.Image(data)}, commit=False)
+
+    def inverse(self, arr):
+        return arr * (self.stock_monitor._max - self.stock_monitor._min) + self.stock_monitor._min

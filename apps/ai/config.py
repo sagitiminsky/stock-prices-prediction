@@ -1,6 +1,6 @@
 ######### STOCK OBJECT #######
 max_window_size = {
-    '1s': 20,
+    '1s': 20, # do not change this 3mo worth in seconds
     '1m': 20,
     '2m': 20,
     '5m': 20,

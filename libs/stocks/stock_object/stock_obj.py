@@ -10,7 +10,7 @@ class StockObj():
     dequeueing in worst-case O(1) time.
     '''
 
-    def __init__(self, stock_name, mock=None):
+    def __init__(self, stock_name,first_price, mock=None,):
         '''
         Initialize this queue to the empty queue.
 
@@ -25,7 +25,7 @@ class StockObj():
         # graphs - scraped
         self.graphs_obj = Graphs_Obj(stock_name=stock_name, mock=mock)
         self.time_scales = {
-            '1s': Queue(init_list=[0] * config.max_window_size['1s'], maxlen=config.max_window_size['1s']),
+            '1s': Queue(init_list=[first_price] * config.max_window_size['1s'], maxlen=config.max_window_size['1s']),
             '1m': QueueObejct(init_dict=self.graphs_obj.graphs['1m'], time_scale='1m'),
             '2m': QueueObejct(init_dict=self.graphs_obj.graphs['2m'], time_scale='2m'),
             '5m': QueueObejct(init_dict=self.graphs_obj.graphs['5m'], time_scale='5m'),
@@ -39,7 +39,6 @@ class StockObj():
             '1mo': QueueObejct(init_dict=self.graphs_obj.graphs['1mo'], time_scale='1mo'),
             '3mo': QueueObejct(init_dict=self.graphs_obj.graphs['3mo'], time_scale='3mo')
         }
-        pass
 
     def enqueue(self, item):
         '''
@@ -81,9 +80,9 @@ class StockObj():
         if self.sec_counter >= config.time_scale2seconds['3mo']: self.sec_counter = 0
 
     def insert(self, time_scale, volume):
-        sec_dict = self.time_scales['1s']
-        return {'open': sec_dict['open'][-config.time_scale2seconds[time_scale]],
-                'low': min(sec_dict['low'][-config.time_scale2seconds[time_scale]:]),
-                'high': max(sec_dict['high'][-config.time_scale2seconds[time_scale]:]),
-                'close': sec_dict['close'][-1],
-                'volume': volume}
+        sec_Queue = self.time_scales['1s']
+        return {'open': list(sec_Queue._queue)[-config.time_scale2seconds[time_scale]],
+                'low': min(list(sec_Queue._queue)[-config.time_scale2seconds[time_scale]:]),
+                'high': max(list(sec_Queue._queue)[-config.time_scale2seconds[time_scale]:]),
+                'close': list(sec_Queue._queue)[-1],
+                'volume': volume._queue}

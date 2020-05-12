@@ -1,7 +1,7 @@
-- check out if perceptron MANY2ONE/MANY2MANY works on real stocks
-- add RNN MANY2ONE/MANY2MANY
-- think about a smarter way to save values in queue - not just 'close' value
-- create 5 model predictions (open,low,high,close, volume) for each time frame (1m,2m,5m,...) for a given window_size - save 1 model, vector of five elements.
+- check out if perceptron MANY2MANY works on real stocks
+- iniit 1s with 1m data, and not with const
+- add volume from beautiful soup and not from yahoo finance - becuase yfinance is unstable
+- make plotutil (callback) work with all time_scales and not just 1s
 - find optimal window_size (hyper parameter) - train the same model with various window_sizes and pick the one the reaches the minimal validation loss for each time frame (1m,2m,5m,...)
 - create platform that adds a prediction to the stock prices
 - add storage service to store the models - already created train model API
