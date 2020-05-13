@@ -8,7 +8,7 @@ class Graphs_Obj:
         self.stock_name=stock_name
         self.graphs={}
         for time_scale in config.time_scales[1:]:
-            self.graphs[time_scale]=self.get_quotes(stock_name,time_scale,mock)
+            self.graphs[time_scale]=self.get_quotes(time_scale,mock)
 
 
     def get_quotes(self,time_scale,mock=None):

@@ -29,11 +29,18 @@ class GetStocksInfo:
 
     def get_cur_price(self, stock_name, mock):
         if mock == None:
-            r = requests.get(f'https://finance.yahoo.com/quote/{stock_name}?p=')
-            soup = BeautifulSoup(r.text, "lxml")
-            return float(
-                soup.find_all('div', {'class': 'My(6px) Pos(r) smartphone_Mt(6px)'})[0].find('span').text),\
-                   int(soup.find_all('td', {'class': "Ta(end) Fw(600) Lh(14px)"})[6].find('span').text.replace(',', ''))
+            tries=100
+            for n in range(tries):
+                try:
+                    r = requests.get(f'https://finance.yahoo.com/quote/{stock_name}?p=')
+                    soup = BeautifulSoup(r.text, "lxml")
+                    return float(
+                        soup.find_all('div', {'class': 'My(6px) Pos(r) smartphone_Mt(6px)'})[0].find('span').text),\
+                           int(soup.find_all('td', {'class': "Ta(end) Fw(600) Lh(14px)"})[6].find('span').text.replace(',', ''))
+                except ConnectionError:
+                    print(f"Connection Dropped, retry number: {n}")
+
+            raise ConnectionError(f"Connection Lost - tried {tries} times - bye bye ")
 
         else:
             return mock

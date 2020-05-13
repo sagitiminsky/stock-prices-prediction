@@ -11,7 +11,7 @@ window_size = config.window_size
 stock_names = config.stock_names
 
 stocks_obj = GetStocksInfo()
-dl_models_obj = DLModels()
+dl_models_obj = DLModels(prediction_type=config.prediction_type)
 callback = CallBack()
 
 for i in tqdm(range(config.window_size + 10 ** 2)):

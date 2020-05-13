@@ -6,10 +6,10 @@ import apps.ai.config as config
 
 
 class DLModels:
-    def __init__(self):
+    def __init__(self, prediction_type):
 
-        self.prediction_type = config.prediction_type
-        self.stock_names = config.DL_config['stock_names'] if 'stock_names' in config.DL_config else None
+        self.prediction_type = prediction_type
+        self.stock_names = config.stock_names
 
         if self.stock_names == None or len(self.stock_names) == 0:
             raise ('stock names are invalid')
@@ -27,7 +27,6 @@ class DLModels:
 
         # model
         model = Sequential(name="Perceptron_stock_prediction_of_" + time_scale)
-        batch_size = 3
 
         # input layer
         if time_scale == '1s':
@@ -71,13 +70,14 @@ class DLModels:
 
         ### ADD MORE MODELS HERE
 
-        self.perceptrons[time_scale_index].model.fit(trainX, trainY, epochs=1, batch_size=10,
-                                                     validation_data=(testX, testY), verbose=0,
-                                                     callbacks=[callback.wandb,
-                                                                callback.plot_callback(
-                                                                    self.perceptrons[time_scale_index].model,
-                                                                    trainX, trainY, testX, testY,
-                                                                    stock_monitor)])
+        if time_scale_index == 0 and self.prediction_type == config.MANY2ONE:  # todo: do for all time_scales and for MANY2MANY as well
+            self.perceptrons[time_scale_index].model.fit(trainX, trainY, epochs=1, batch_size=10,
+                                                         validation_data=(testX, testY), verbose=0,
+                                                         callbacks=[callback.wandb,
+                                                                    callback.plot_callback(
+                                                                        self.perceptrons[time_scale_index].model,
+                                                                        trainX, trainY, testX, testY,
+                                                                        stock_monitor)])
         ### ADD MORE MODELS HERE TO SEE THEM IN WANDB
 
     def save(self):
