@@ -8,9 +8,9 @@ from tqdm import tqdm
 
 prediction_type = config.prediction_type
 window_size = config.window_size
-stock_names = config.stock_names if config.sin == False else config.signals_names
+stock_names = config.stock_names
 
-stocks_obj = GetStocksInfo() if config.sin == False else SignalGenerator()
+stocks_obj = GetStocksInfo()
 dl_models_obj = DLModels()
 callback = CallBack()
 
@@ -19,12 +19,11 @@ for i in tqdm(range(config.window_size + 10 ** 2)):
 
     # for time_scale_index, time_scale in enumerate(config.time_scales):
 
-    #todo: delete this after tests
-    time_scale_index, time_scale=0,'1s'
+    # todo: delete this after tests. stock_monitor is for callback - to plot graphs for 1s
+    time_scale_index, time_scale = 0, '1s'
     stock_monitor = stocks_obj.stocks[config.stock_names[0]]['stock_obj'].time_scales[time_scale]  # Queue
 
     trainX_s, trainY_s, testX_s, testY_s = None, None, None, None
-
 
     for stock_name in stock_names:
 
@@ -33,8 +32,8 @@ for i in tqdm(range(config.window_size + 10 ** 2)):
         trainX, trainY, testX, testY = pre_process(batch, dl_models_obj.split)
 
         if trainX_s is None:
-            trainX_s,testX_s,  = trainX,testX
-            trainY_s,testY_s =trainY.T.reshape(-1), testY.T.reshape(-1)
+            trainX_s, testX_s, = trainX, testX
+            trainY_s, testY_s = trainY.T.reshape(-1), testY.T.reshape(-1)
 
         else:  # vstack for stocks
 
@@ -51,6 +50,6 @@ for i in tqdm(range(config.window_size + 10 ** 2)):
                 testY_s = np.vstack((testY_s, testY))
 
     dl_models_obj.fit(trainX=trainX_s, trainY=trainY_s, testX=testX_s, testY=testY_s, callback=callback,
-                      time_scale_index=time_scale_index,stock_monitor=stock_monitor)
+                      time_scale_index=time_scale_index, stock_monitor=stock_monitor)
 
 # dl_models_obj.save()

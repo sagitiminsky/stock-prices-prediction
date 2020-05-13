@@ -1,4 +1,5 @@
 - check out if perceptron MANY2MANY works on real stocks
+- create tests for sin,cos including 1s,1m,2m,5m (open,close,high,low,volume)
 -  add test to dl_models MANY2MANY
 - make call to beautiful soup every 1s, in the rest of the time - train
 - make plotutil (callback) work with all time_scales and not just 1s
