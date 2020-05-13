@@ -20,15 +20,22 @@ class Queue():
         '''
 
         #filter out None values
+
+
         init_list_ex_None=[i for i in init_list if i!=None]
         self._queue = deque(init_list_ex_None,maxlen=maxlen)
 
+        if self._queue!=deque([],maxlen=maxlen):
+            self._max=max(init_list_ex_None)
+            self._min = min(init_list_ex_None)
+            self._norm_queue = self.normalize(init_list=init_list_ex_None, max=self._max, min=self._min, maxlen=maxlen)
+        else:
+            self._max=None
+            self._min=None
+            self._norm_queue=deque([],maxlen=maxlen)
 
-        self._max=max(init_list_ex_None)
-        self._min = min(init_list_ex_None)
 
 
-        self._norm_queue = self.normalize(init_list=init_list_ex_None,max=self._max,min=self._min,maxlen=maxlen)
 
 
     def enqueue(self, item):

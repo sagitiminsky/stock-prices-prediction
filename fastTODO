@@ -1,10 +1,9 @@
 - check out if perceptron MANY2MANY works on real stocks
-- iniit 1s with 1m data, and not with const
-- add volume from beautiful soup and not from yahoo finance - becuase yfinance is unstable
+-  add test to dl_models MANY2MANY
+- make call to beautiful soup every 1s, in the rest of the time - train
 - make plotutil (callback) work with all time_scales and not just 1s
 - find optimal window_size (hyper parameter) - train the same model with various window_sizes and pick the one the reaches the minimal validation loss for each time frame (1m,2m,5m,...)
 - create platform that adds a prediction to the stock prices
 - add storage service to store the models - already created train model API
 - create third party test for callback_test(wandb,neptune) and graphs(request.get())
-- create dataset_test.pybuild_nodes_small.sh
-run_nodes_small.sh
+

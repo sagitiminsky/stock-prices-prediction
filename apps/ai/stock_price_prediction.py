@@ -11,7 +11,6 @@ window_size = config.window_size
 stock_names = config.stock_names if config.sin == False else config.signals_names
 
 stocks_obj = GetStocksInfo() if config.sin == False else SignalGenerator()
-
 dl_models_obj = DLModels()
 callback = CallBack()
 
