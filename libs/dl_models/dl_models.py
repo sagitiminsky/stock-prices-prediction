@@ -42,20 +42,22 @@ class DLModels:
             if time_scale == '1s':
                 model.add(Dense(int(self.split * 0.3)))
             else:  # open,low,high,close,volume
-                model.add(Dense(int(self.split * 0.3) * 5))
-                # todo: in this case the output needs to be reshaped to (5,stocks_num)
+                model.add(Dense(5 * int(self.split * 0.3)))
+                # todo: in this case the output needs to be reshaped to (5,<prediction size>)
 
         # MANY2MANY
         else:
             if time_scale == '1s':
-                model.add(Dense((stocks_num, int(self.split * 0.3))))
+                model.add(Dense(int(self.split * 0.3) * stocks_num))
+                # todo: in this case the output needs to be reshaped to (stocks_num,<prediction size>,)
             else:  # open,low,high,close,volume
-                model.add(Dense((stocks_num, 5, int(self.split * 0.3))))
+                model.add(Dense(5 * int(self.split * 0.3) * stocks_num))
+                # todo: in this case the output needs to be reshaped to (5,<prediction size>,stocks_num)
 
         model.compile(loss='mse', optimizer='adam')
         return model
 
-    def fit(self, trainX, trainY, testX, testY, callback, time_scale_index,stock_monitor):
+    def fit(self, trainX, trainY, testX, testY, callback, time_scale_index, stock_monitor):
         epoches = 10
 
         # reshape
@@ -69,8 +71,6 @@ class DLModels:
 
         ### ADD MORE MODELS HERE
 
-
-
         self.perceptrons[time_scale_index].model.fit(trainX, trainY, epochs=1, batch_size=10,
                                                      validation_data=(testX, testY), verbose=0,
                                                      callbacks=[callback.wandb,
@@ -79,7 +79,6 @@ class DLModels:
                                                                     trainX, trainY, testX, testY,
                                                                     stock_monitor)])
         ### ADD MORE MODELS HERE TO SEE THEM IN WANDB
-
 
     def save(self):
         for model in self.models:

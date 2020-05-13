@@ -11,7 +11,7 @@ class Graphs_Obj:
             self.graphs[time_scale]=self.get_quotes(stock_name,time_scale,mock)
 
 
-    def get_quotes(self,stock_name,time_scale,mock=None):
+    def get_quotes(self,time_scale,mock=None):
         TWO_MONTH= config.TWO_MONTH
         A_WEEK= config.A_WEEK
 

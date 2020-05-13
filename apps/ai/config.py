@@ -32,7 +32,7 @@ MANY2ONE = True
 MANY2MANY = False
 stock_names = ['FB', 'WMT']
 window_size = max_window_size['1s']
-prediction_type = MANY2ONE
+prediction_type = MANY2MANY
 callback = 10
 sin = False
 

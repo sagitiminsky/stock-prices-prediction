@@ -33,10 +33,11 @@ for i in tqdm(range(config.window_size + 10 ** 2)):
 
         if trainX_s is None:
             trainX_s, testX_s, = trainX, testX
+
+            # This will be the output layer in case prediction_type=MANY2ONE
             trainY_s, testY_s = trainY.T.reshape(-1), testY.T.reshape(-1)
 
-        else:  # vstack for stocks
-
+        else:  # stacking stocks
             if time_scale == '1s':
                 trainX_s = np.vstack((trainX_s, trainX))
                 testX_s = np.vstack((testX_s, testX))
@@ -45,9 +46,14 @@ for i in tqdm(range(config.window_size + 10 ** 2)):
                 trainX_s = np.stack((trainX_s, trainX), axis=0)
                 testX_s = np.stack((testX_s, testX), axis=0)
 
+            # only output layer changes if prediction_type=MANY2MANY
             if prediction_type == config.MANY2MANY:
-                trainY_s = np.vstack((trainY_s, trainY))
-                testY_s = np.vstack((testY_s, testY))
+                if time_scale == '1s':
+                    trainY_s = np.hstack((trainY_s, trainY))
+                    testY_s = np.hstack((testY_s, testY))
+                else:
+                    trainY_s, testY_s = np.hstack((trainY_s, trainY.T.reshape(-1))), np.hstack(
+                        (testY_s, testY.T.reshape(-1)))
 
     dl_models_obj.fit(trainX=trainX_s, trainY=trainY_s, testX=testX_s, testY=testY_s, callback=callback,
                       time_scale_index=time_scale_index, stock_monitor=stock_monitor)
