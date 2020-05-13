@@ -2,6 +2,8 @@ from libs.stocks.stock_object.stock_obj import StockObj
 import requests
 from bs4 import BeautifulSoup
 import apps
+import threading
+
 
 
 class GetStocksInfo:
@@ -12,13 +14,18 @@ class GetStocksInfo:
             self.stocks[stock_name] = {'link': f'https://finance.yahoo.com/quote/{stock_name}?p=',
                                        'stock_obj': StockObj(stock_name=stock_name, mock=mock)}
 
-    def measure(self, mock=None):
-        if mock == None:
-            for stock_name in self.stocks:
-                value, volume = self.get_cur_price(stock_name, mock)
+    def measure_sch(self):
 
-                stock_object = self.stocks[stock_name]['stock_obj']
-                stock_object.enqueue({'value': value, 'volume': volume})
+        threading.Timer(1.0, self.measure_sch).start()
+        for stock_name in self.stocks:
+            value, volume = self.get_cur_price(stock_name)
+
+            stock_object = self.stocks[stock_name]['stock_obj']
+            stock_object.enqueue({'value': value, 'volume': volume})
+
+    def measure(self,mock=None):
+        if mock == None:
+            self.measure_sch()
 
         else:  # unittest
             for stock_name in self.stocks:
@@ -27,7 +34,9 @@ class GetStocksInfo:
 
             return True
 
-    def get_cur_price(self, stock_name, mock):
+
+
+    def get_cur_price(self, stock_name, mock=None):
         if mock == None:
             tries=100
             for n in range(tries):

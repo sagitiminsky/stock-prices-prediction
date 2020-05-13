@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6c2ad31-683a-4c7a-9a53-59289a453324" name="Default Changelist" comment="">
+    <list default="true" id="e6c2ad31-683a-4c7a-9a53-59289a453324" name="Default Changelist" comment="- create thread for value and volume&#10;- add timing that each reading of value and volume are done each minure">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ai/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ai/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/ai/stock_price_prediction.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ai/stock_price_prediction.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastTODO" beforeDir="false" afterPath="$PROJECT_DIR$/fastTODO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/dl_models/dl_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/dl_models/dl_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/dl_models/dl_models_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/dl_models/dl_models_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/stocks/get_stock_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/stocks/get_stock_info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/stocks/graphs/graphs.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/stocks/graphs/graphs.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -348,14 +346,7 @@
       <workItem from="1587967853672" duration="83041000" />
       <workItem from="1588520209921" duration="104783000" />
       <workItem from="1589305563158" duration="18955000" />
-      <workItem from="1589373318928" duration="6970000" />
-    </task>
-    <task id="LOCAL-00003" summary="create price stock reader">
-      <created>1586965754685</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1586965754685</updated>
+      <workItem from="1589373318928" duration="11560000" />
     </task>
     <task id="LOCAL-00004" summary="create price stock reader">
       <created>1586969159285</created>
@@ -693,7 +684,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589373551241</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="all tests pass">
+      <created>1589381488206</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1589381488206</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -713,7 +711,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create normalization between 0 and 1 for stock prices" />
     <MESSAGE value="split to train and test data" />
     <MESSAGE value="add perceptron model" />
     <MESSAGE value="create stock_rnn_test" />
@@ -738,7 +735,8 @@
     <MESSAGE value="created tests for dl_models_test" />
     <MESSAGE value="delete signal_generator for later developments" />
     <MESSAGE value="MANY2MANY fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="MANY2MANY fix" />
+    <MESSAGE value="all tests pass" />
+    <option name="LAST_COMMIT_MESSAGE" value="all tests pass" />
   </component>
   <component name="WindowStateProjectService">
     <state x="278" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588833028841">
@@ -761,11 +759,11 @@
       <screen x="0" y="23" width="1629" height="1027" />
     </state>
     <state x="560" y="399" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1629.1027@0.23.1629.1027" timestamp="1588769647952" />
-    <state x="407" y="139" key="CommitChangelistDialog2" timestamp="1589381482271">
+    <state x="407" y="139" key="CommitChangelistDialog2" timestamp="1589387936744">
       <screen x="0" y="23" width="1625" height="1027" />
     </state>
     <state x="467" y="152" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1588434276992" />
-    <state x="407" y="139" key="CommitChangelistDialog2/0.23.1625.1027@0.23.1625.1027" timestamp="1589381482271" />
+    <state x="407" y="139" key="CommitChangelistDialog2/0.23.1625.1027@0.23.1625.1027" timestamp="1589387936744" />
     <state x="407" y="139" key="CommitChangelistDialog2/0.23.1627.1027@0.23.1627.1027" timestamp="1588183588261" />
     <state x="408" y="139" key="CommitChangelistDialog2/0.23.1629.1027@0.23.1629.1027" timestamp="1588773037533" />
     <state x="408" y="139" key="CommitChangelistDialog2/0.23.1630.1027@0.23.1630.1027" timestamp="1589290393611" />
@@ -773,43 +771,44 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="669" height="466" key="DebuggerActiveHint/0.0.1680.1050@0.0.1680.1050" timestamp="1587827098913" />
-    <state x="100" y="123" width="1425" height="827" key="DiffContextDialog" timestamp="1589266949343">
-      <screen x="0" y="23" width="1632" height="1027" />
+    <state x="100" y="123" width="1425" height="827" key="DiffContextDialog" timestamp="1589387911203">
+      <screen x="0" y="23" width="1625" height="1027" />
     </state>
+    <state x="100" y="123" key="DiffContextDialog/0.23.1625.1027@0.23.1625.1027" timestamp="1589387911203" />
     <state x="100" y="123" width="1425" height="827" key="DiffContextDialog/0.23.1632.1027@0.23.1632.1027" timestamp="1589266949343" />
-    <state width="1583" height="354" key="GridCell.Tab.0.bottom" timestamp="1589380781742">
+    <state width="1583" height="251" key="GridCell.Tab.0.bottom" timestamp="1589384121742">
       <screen x="0" y="23" width="1625" height="1027" />
     </state>
     <state width="1638" height="241" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1588432730110" />
-    <state width="1583" height="354" key="GridCell.Tab.0.bottom/0.23.1625.1027@0.23.1625.1027" timestamp="1589380781742" />
+    <state width="1583" height="251" key="GridCell.Tab.0.bottom/0.23.1625.1027@0.23.1625.1027" timestamp="1589384121742" />
     <state width="1583" height="247" key="GridCell.Tab.0.bottom/0.23.1627.1027@0.23.1627.1027" timestamp="1588862607379" />
     <state width="1583" height="354" key="GridCell.Tab.0.bottom/0.23.1629.1027@0.23.1629.1027" timestamp="1589182820424" />
     <state width="1583" height="354" key="GridCell.Tab.0.bottom/0.23.1630.1027@0.23.1630.1027" timestamp="1589304428488" />
     <state width="1583" height="354" key="GridCell.Tab.0.bottom/0.23.1632.1027@0.23.1632.1027" timestamp="1589269691347" />
-    <state width="1583" height="354" key="GridCell.Tab.0.center" timestamp="1589380781741">
+    <state width="1583" height="251" key="GridCell.Tab.0.center" timestamp="1589384121740">
       <screen x="0" y="23" width="1625" height="1027" />
     </state>
     <state width="1638" height="241" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1588432730109" />
-    <state width="1583" height="354" key="GridCell.Tab.0.center/0.23.1625.1027@0.23.1625.1027" timestamp="1589380781741" />
+    <state width="1583" height="251" key="GridCell.Tab.0.center/0.23.1625.1027@0.23.1625.1027" timestamp="1589384121740" />
     <state width="1583" height="247" key="GridCell.Tab.0.center/0.23.1627.1027@0.23.1627.1027" timestamp="1588862607378" />
     <state width="1583" height="354" key="GridCell.Tab.0.center/0.23.1629.1027@0.23.1629.1027" timestamp="1589182820423" />
     <state width="1583" height="354" key="GridCell.Tab.0.center/0.23.1630.1027@0.23.1630.1027" timestamp="1589304428487" />
     <state width="1583" height="354" key="GridCell.Tab.0.center/0.23.1632.1027@0.23.1632.1027" timestamp="1589269691346" />
-    <state width="1583" height="354" key="GridCell.Tab.0.left" timestamp="1589380781741">
+    <state width="1583" height="251" key="GridCell.Tab.0.left" timestamp="1589384121740">
       <screen x="0" y="23" width="1625" height="1027" />
     </state>
     <state width="1638" height="241" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1588432730108" />
     <state width="1583" height="302" key="GridCell.Tab.0.left/0.0.1680.1050@0.23.1627.1027" timestamp="1588846579637" />
-    <state width="1583" height="354" key="GridCell.Tab.0.left/0.23.1625.1027@0.23.1625.1027" timestamp="1589380781741" />
+    <state width="1583" height="251" key="GridCell.Tab.0.left/0.23.1625.1027@0.23.1625.1027" timestamp="1589384121740" />
     <state width="1583" height="247" key="GridCell.Tab.0.left/0.23.1627.1027@0.23.1627.1027" timestamp="1588862607377" />
     <state width="1583" height="354" key="GridCell.Tab.0.left/0.23.1629.1027@0.23.1629.1027" timestamp="1589182820420" />
     <state width="1583" height="354" key="GridCell.Tab.0.left/0.23.1630.1027@0.23.1630.1027" timestamp="1589304428487" />
     <state width="1583" height="354" key="GridCell.Tab.0.left/0.23.1632.1027@0.23.1632.1027" timestamp="1589269691345" />
-    <state width="1583" height="354" key="GridCell.Tab.0.right" timestamp="1589380781742">
+    <state width="1583" height="251" key="GridCell.Tab.0.right" timestamp="1589384121741">
       <screen x="0" y="23" width="1625" height="1027" />
     </state>
     <state width="1638" height="241" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1588432730109" />
-    <state width="1583" height="354" key="GridCell.Tab.0.right/0.23.1625.1027@0.23.1625.1027" timestamp="1589380781742" />
+    <state width="1583" height="251" key="GridCell.Tab.0.right/0.23.1625.1027@0.23.1625.1027" timestamp="1589384121741" />
     <state width="1583" height="247" key="GridCell.Tab.0.right/0.23.1627.1027@0.23.1627.1027" timestamp="1588862607379" />
     <state width="1583" height="354" key="GridCell.Tab.0.right/0.23.1629.1027@0.23.1629.1027" timestamp="1589182820424" />
     <state width="1583" height="354" key="GridCell.Tab.0.right/0.23.1630.1027@0.23.1630.1027" timestamp="1589304428488" />
@@ -854,11 +853,11 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="234" height="457" key="HiddenNamespacesPopup/0.0.1680.1050@0.0.1680.1050" timestamp="1588415312522" />
-    <state x="293" y="186" key="SettingsEditor" timestamp="1589360154205">
+    <state x="293" y="186" key="SettingsEditor" timestamp="1589382095542">
       <screen x="0" y="23" width="1625" height="1027" />
     </state>
     <state x="332" y="155" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1588422174871" />
-    <state x="293" y="186" key="SettingsEditor/0.23.1625.1027@0.23.1625.1027" timestamp="1589360154205" />
+    <state x="293" y="186" key="SettingsEditor/0.23.1625.1027@0.23.1625.1027" timestamp="1589382095542" />
     <state x="322" y="175" key="SettingsEditor/0.23.1627.1027@0.23.1627.1027" timestamp="1588265641300" />
     <state x="322" y="175" key="SettingsEditor/0.23.1629.1027@0.23.1629.1027" timestamp="1588774077338" />
     <state x="413" y="276" key="Vcs.Push.Dialog.v2" timestamp="1589305647277">
@@ -880,9 +879,10 @@
       <screen x="0" y="23" width="1632" height="1027" />
     </state>
     <state x="100" y="123" width="1425" height="827" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1632.1027@0.23.1632.1027" timestamp="1589266949344" />
-    <state x="602" y="460" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589289197412">
-      <screen x="0" y="23" width="1630" height="1027" />
+    <state x="600" y="460" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589387879281">
+      <screen x="0" y="23" width="1625" height="1027" />
     </state>
+    <state x="600" y="460" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1625.1027@0.23.1625.1027" timestamp="1589387879281" />
     <state x="602" y="460" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1630.1027@0.23.1630.1027" timestamp="1589289197412" />
     <state x="479" y="293" width="667" height="486" key="find.popup" timestamp="1589363919205">
       <screen x="0" y="23" width="1625" height="1027" />
@@ -942,6 +942,6 @@
     <SUITE FILE_PATH="coverage/stocks_price_prediction$dl_models_test.coverage" NAME="dl_models_test Coverage Results" MODIFIED="1587893039699" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />
     <SUITE FILE_PATH="coverage/stocks_RNN$stock_rnn.coverage" NAME="stock_price_prediction Coverage Results" MODIFIED="1587828659435" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/stocks_RNN$callback_test.coverage" NAME="callback_test Coverage Results" MODIFIED="1587824925115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/stocks_price_prediction$stock_price_prediction.coverage" NAME="stock_price_prediction Coverage Results" MODIFIED="1589380493221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/stocks_price_prediction$stock_price_prediction.coverage" NAME="stock_price_prediction Coverage Results" MODIFIED="1589384121726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

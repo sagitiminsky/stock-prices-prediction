@@ -5,6 +5,7 @@ from libs.callback.callback import CallBack
 from libs.signal_generator.signal_generator import SignalGenerator
 import apps.ai.config as config
 from tqdm import tqdm
+import threading
 
 prediction_type = config.prediction_type
 window_size = config.window_size
@@ -14,9 +15,12 @@ stocks_obj = GetStocksInfo()
 dl_models_obj = DLModels(prediction_type=config.prediction_type)
 callback = CallBack()
 
-for i in tqdm(range(config.window_size + 10 ** 2)):
-    stocks_obj.measure()
+def measuer(): stocks_obj.measure()
 
+x = threading.Thread(target=measuer)
+x.start()
+
+for i in tqdm(range(config.window_size + 10 ** 2)):
     # for time_scale_index, time_scale in enumerate(config.time_scales):
 
     # todo: delete this after tests. stock_monitor is for callback - to plot graphs for 1s
