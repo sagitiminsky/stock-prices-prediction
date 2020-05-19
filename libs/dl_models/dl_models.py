@@ -56,8 +56,8 @@ class DLModels:
         model.compile(loss='mse', optimizer='adam')
         return model
 
-    def fit(self, trainX, trainY, testX, testY, callback, time_scale_index, stock_monitor):
-        epoches = 10
+    def fit(self, trainX, trainY, testX, testY, callback, time_scale_index, stock_monitor,i):
+        epoches = 100
 
         # reshape
         trainX = trainX[np.newaxis, :, :]
@@ -70,7 +70,7 @@ class DLModels:
 
         ### ADD MORE MODELS HERE
 
-        if time_scale_index == 0 and self.prediction_type == config.MANY2ONE:  # todo: do for all time_scales and for MANY2MANY as well
+        if time_scale_index == 0 and self.prediction_type == config.MANY2ONE and i%100==0:  # todo: do for all time_scales and for MANY2MANY as well
             self.perceptrons[time_scale_index].model.fit(trainX, trainY, epochs=1, batch_size=10,
                                                          validation_data=(testX, testY), verbose=0,
                                                          callbacks=[callback.wandb,

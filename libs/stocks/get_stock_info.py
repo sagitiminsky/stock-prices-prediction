@@ -3,16 +3,17 @@ import requests
 from bs4 import BeautifulSoup
 import apps
 import threading
+import apps.ai.config as config
 
 
 
 class GetStocksInfo:
     def __init__(self, mock=None):
-        self.stock_names = apps.ai.config.stock_names
+        self.stock_names = config.stock_names
         self.stocks = {}
         for stock_name in self.stock_names:
             self.stocks[stock_name] = {'link': f'https://finance.yahoo.com/quote/{stock_name}?p=',
-                                       'stock_obj': StockObj(stock_name=stock_name, mock=mock)}
+                                       'stock_obj': StockObj(stock_name=stock_name, mock=mock,sin=False)}
 
     def measure_sch(self):
 

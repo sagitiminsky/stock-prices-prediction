@@ -1,8 +1,8 @@
 ######### STOCK OBJECT #######
 max_window_size = {
-    '1s': 900, # 15 minutes
-    '1m': 60, # an hour
-    '2m': 30, # an hour
+    '1s': 900,  # 15 minutes
+    '1m': 60,  # an hour
+    '2m': 30,  # an hour
     '5m': 12,  # an hour
     '15m': 32,  # a day
     '30m': 16,  # a day
@@ -31,10 +31,10 @@ time_scale2seconds = {
 MANY2ONE = True
 MANY2MANY = False
 stock_names = ['FB', 'WMT']
+signal_names = ['sin', 'cos']
 window_size = max_window_size['1s']
 prediction_type = MANY2ONE
 callback = 10
-sin = False
 
 DL_config = {'prediction_type': prediction_type,
              'stock_names': stock_names,
