@@ -1,6 +1,6 @@
 from libs.stocks.graphs.graphs import Graphs_Obj
 from libs.stocks.queues.queue.queue import Queue
-from libs.stocks.queues.queue_obj.queue_obj import QueueObejct
+from libs.stocks.queues.candle.candle import Candle
 import apps.ai.config as config
 import numpy as np
 
@@ -31,16 +31,16 @@ class StockObj():
             self.time_scales = {
                 # initialize 1s with 1m closing values
                 '1s': Queue(init_list=self.graphs_obj.graphs['1m']['close'], maxlen=config.max_window_size['1s']),
-                '1m': QueueObejct(init_dict=self.graphs_obj.graphs['1m'], time_scale='1m'),
-                '2m': QueueObejct(init_dict=self.graphs_obj.graphs['2m'], time_scale='2m'),
-                '5m': QueueObejct(init_dict=self.graphs_obj.graphs['5m'], time_scale='5m'),
-                '15m': QueueObejct(init_dict=self.graphs_obj.graphs['15m'], time_scale='15m'),
-                '30m': QueueObejct(init_dict=self.graphs_obj.graphs['30m'], time_scale='30m'),
-                '1h': QueueObejct(init_dict=self.graphs_obj.graphs['1h'], time_scale='1h'),
-                '1d': QueueObejct(init_dict=self.graphs_obj.graphs['1d'], time_scale='1d'),
-                '5d': QueueObejct(init_dict=self.graphs_obj.graphs['5d'], time_scale='5d'),
-                '1mo': QueueObejct(init_dict=self.graphs_obj.graphs['1mo'], time_scale='1mo'),
-                '3mo': QueueObejct(init_dict=self.graphs_obj.graphs['3mo'], time_scale='3mo')
+                '1m': Candle(init_dict=self.graphs_obj.graphs['1m'], time_scale='1m'),
+                '2m': Candle(init_dict=self.graphs_obj.graphs['2m'], time_scale='2m'),
+                '5m': Candle(init_dict=self.graphs_obj.graphs['5m'], time_scale='5m'),
+                '15m': Candle(init_dict=self.graphs_obj.graphs['15m'], time_scale='15m'),
+                '30m': Candle(init_dict=self.graphs_obj.graphs['30m'], time_scale='30m'),
+                '1h': Candle(init_dict=self.graphs_obj.graphs['1h'], time_scale='1h'),
+                '1d': Candle(init_dict=self.graphs_obj.graphs['1d'], time_scale='1d'),
+                '5d': Candle(init_dict=self.graphs_obj.graphs['5d'], time_scale='5d'),
+                '1mo': Candle(init_dict=self.graphs_obj.graphs['1mo'], time_scale='1mo'),
+                '3mo': Candle(init_dict=self.graphs_obj.graphs['3mo'], time_scale='3mo')
             }
 
         else:
@@ -48,16 +48,16 @@ class StockObj():
             self.time_scales = {
                 # initialize 1s with 1m closing values
                 '1s': Queue(init_list=self.apply_trig_func(func=stock_name,arr=np.linspace(0, 2 * np.pi, config.max_window_size['1s'])), maxlen=config.max_window_size['1s']),
-                '1m': QueueObejct(init_dict=self.sin_wave_candle_generator(signal_name=stock_name,time_scale='1m'), time_scale='1m'),
-                '2m': QueueObejct(init_dict=self.sin_wave_candle_generator(signal_name=stock_name,time_scale='2m'), time_scale='2m'),
-                '5m': QueueObejct(init_dict=self.sin_wave_candle_generator(signal_name=stock_name,time_scale='5m'), time_scale='5m'),
-                '15m': QueueObejct(init_dict=self.sin_wave_candle_generator(signal_name=stock_name,time_scale='15m'), time_scale='15m'),
-                '30m': QueueObejct(init_dict=self.sin_wave_candle_generator(signal_name=stock_name,time_scale='30m'), time_scale='30m'),
-                '1h': QueueObejct(init_dict=self.sin_wave_candle_generator(signal_name=stock_name,time_scale='1h'), time_scale='1h'),
-                '1d': QueueObejct(init_dict=self.sin_wave_candle_generator(signal_name=stock_name,time_scale='1d'), time_scale='1d'),
-                '5d': QueueObejct(init_dict=self.sin_wave_candle_generator(signal_name=stock_name,time_scale='5d'), time_scale='5d'),
-                '1mo': QueueObejct(init_dict=self.sin_wave_candle_generator(signal_name=stock_name,time_scale='1mo'), time_scale='1mo'),
-                '3mo': QueueObejct(init_dict=self.sin_wave_candle_generator(signal_name=stock_name,time_scale='3mo'), time_scale='3mo')
+                '1m': Candle(init_dict=self.sin_wave_candle_generator(signal_name=stock_name,time_scale='1m'), time_scale='1m'),
+                '2m': Candle(init_dict=self.sin_wave_candle_generator(signal_name=stock_name,time_scale='2m'), time_scale='2m'),
+                '5m': Candle(init_dict=self.sin_wave_candle_generator(signal_name=stock_name,time_scale='5m'), time_scale='5m'),
+                '15m': Candle(init_dict=self.sin_wave_candle_generator(signal_name=stock_name,time_scale='15m'), time_scale='15m'),
+                '30m': Candle(init_dict=self.sin_wave_candle_generator(signal_name=stock_name,time_scale='30m'), time_scale='30m'),
+                '1h': Candle(init_dict=self.sin_wave_candle_generator(signal_name=stock_name,time_scale='1h'), time_scale='1h'),
+                '1d': Candle(init_dict=self.sin_wave_candle_generator(signal_name=stock_name,time_scale='1d'), time_scale='1d'),
+                '5d': Candle(init_dict=self.sin_wave_candle_generator(signal_name=stock_name,time_scale='5d'), time_scale='5d'),
+                '1mo': Candle(init_dict=self.sin_wave_candle_generator(signal_name=stock_name,time_scale='1mo'), time_scale='1mo'),
+                '3mo': Candle(init_dict=self.sin_wave_candle_generator(signal_name=stock_name,time_scale='3mo'), time_scale='3mo')
             }
 
     def sin_wave_candle_generator(self,signal_name,time_scale):
@@ -112,6 +112,7 @@ class StockObj():
         if self.sec_counter >= config.time_scale2seconds['3mo']: self.sec_counter = 0
 
     def insert(self,volume,live_by,interval2live_by):
+
         live_by_Queue = self.time_scales[live_by]
 
         if live_by=='1s':   #Queue instance

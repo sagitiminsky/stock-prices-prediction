@@ -71,7 +71,7 @@ class StockRnnUnitTests(unittest.TestCase):
                 trainX, trainY, testX, testY = self._other_test_MANY2ONE
 
             dl_models.fit(trainX=trainX, trainY=trainY, testX=testX, testY=testY, callback=Mock(),
-                          time_scale_index=time_scale_index, stock_monitor=Mock())
+                          time_scale_index=time_scale_index, stock_monitor=Mock(),i=-1)
         # dl_models.save()
 
     def test_fit_many_2_many(self):
@@ -84,7 +84,7 @@ class StockRnnUnitTests(unittest.TestCase):
                 trainX, trainY, testX, testY = self._other_test_MANY2MANY
 
             dl_models.fit(trainX=trainX, trainY=trainY, testX=testX, testY=testY, callback=Mock(),
-                          time_scale_index=time_scale_index, stock_monitor=Mock())
+                          time_scale_index=time_scale_index, stock_monitor=Mock(),i=-1)
         # dl_models.save()
 
 

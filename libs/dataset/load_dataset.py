@@ -11,7 +11,7 @@ def pre_process(queue_obj, split):
         train = np.array(list(queue_obj._norm_queue)[:split])
         test = np.array(list(queue_obj._norm_queue)[split:])
 
-    else:  # is QueueObejct
+    else:  # is Candle
         dataset = queue_obj.get_vstacked_queues() #returned ndarray
         train = dataset[:, :split]
         test = dataset[:, split:]

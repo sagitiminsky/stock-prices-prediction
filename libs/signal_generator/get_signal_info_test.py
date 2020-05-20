@@ -1,10 +1,15 @@
 import unittest
+from libs.signal_generator.get_signal_info import GetSignalInfo
 
 class StockRnnUnitTests(unittest.TestCase):
     def setUp(self):
         pass
 
-    #todo: write new tests that include all time scales 1s,1m,2m,5m,... and open,close,high,low,volume with sin and cos
+    def test_get_signal_info(self):
+        self.assertTrue(GetSignalInfo())
+    def test_measure(self):
+        g=GetSignalInfo()
+        g.measure()
 
 
 if __name__ == '__main__':

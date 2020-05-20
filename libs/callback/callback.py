@@ -8,8 +8,8 @@ class CallBack:
         self.wandb=WandbCallback()
         self.neptun=None
 
-    def plot_callback(self,model, trainX, trainY, testX, testY,stock_monitor):
-        return PlotCallback(model, trainX, trainY, testX, testY,stock_monitor)
+    def plot_callback(self,model, trainX, trainY, testX, testY,stock_monitor,time_scale):
+        return PlotCallback(model, trainX, trainY, testX, testY,stock_monitor,time_scale)
 
 
 # The init() function called this way assumes that

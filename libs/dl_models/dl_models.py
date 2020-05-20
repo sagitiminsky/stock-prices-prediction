@@ -14,8 +14,6 @@ class DLModels:
         if self.stock_names == None or len(self.stock_names) == 0:
             raise ('stock names are invalid')
 
-        self.split = int(config.window_size * 0.5)
-
         self.perceptrons = [
             DLModel(self.perceptron_init(time_scale), config.DL_config['perceptron'], time_scale=time_scale) for
             time_scale in config.time_scales]
@@ -30,33 +28,33 @@ class DLModels:
 
         # input layer
         if time_scale == '1s':
-            model.add(Flatten(input_shape=(stocks_num, int(self.split * 0.7))))
+            model.add(Flatten(input_shape=(stocks_num, int(int(config.max_window_size[time_scale] * 0.5) * 0.7))))
         else:  # open,low,high,close,volume
-            model.add(Flatten(input_shape=(stocks_num, 5, int(self.split * 0.7))))
+            model.add(Flatten(input_shape=(stocks_num, 5, int(int(config.max_window_size[time_scale] * 0.5) * 0.7))))
 
         # output layer
 
         # MANY2ONE
         if self.prediction_type == config.MANY2ONE:
             if time_scale == '1s':
-                model.add(Dense(int(self.split * 0.3)))
+                model.add(Dense(int(int(config.max_window_size[time_scale] * 0.5) * 0.3)))
             else:  # open,low,high,close,volume
-                model.add(Dense(5 * int(self.split * 0.3)))
+                model.add(Dense(5 * int(int(config.max_window_size[time_scale] * 0.5) * 0.3)))
                 # todo: in this case the output needs to be reshaped to (5,<prediction size>)
 
         # MANY2MANY
         else:
             if time_scale == '1s':
-                model.add(Dense(int(self.split * 0.3) * stocks_num))
+                model.add(Dense(int(int(config.max_window_size[time_scale] * 0.5) * 0.3) * stocks_num))
                 # todo: in this case the output needs to be reshaped to (stocks_num,<prediction size>,)
             else:  # open,low,high,close,volume
-                model.add(Dense(5 * int(self.split * 0.3) * stocks_num))
+                model.add(Dense(5 * int(int(config.max_window_size[time_scale] * 0.5) * 0.3) * stocks_num))
                 # todo: in this case the output needs to be reshaped to (5,<prediction size>,stocks_num)
 
         model.compile(loss='mse', optimizer='adam')
         return model
 
-    def fit(self, trainX, trainY, testX, testY, callback, time_scale_index, stock_monitor,i):
+    def fit(self, trainX, trainY, testX, testY, callback, time_scale_index, time_scale, stock_monitor, i):
         epoches = 100
 
         # reshape
@@ -70,14 +68,14 @@ class DLModels:
 
         ### ADD MORE MODELS HERE
 
-        if time_scale_index == 0 and self.prediction_type == config.MANY2ONE and i%100==0:  # todo: do for all time_scales and for MANY2MANY as well
+        if self.prediction_type == config.MANY2ONE and i % 1 == 0:  # todo:  MANY2MANY as well
             self.perceptrons[time_scale_index].model.fit(trainX, trainY, epochs=1, batch_size=10,
                                                          validation_data=(testX, testY), verbose=0,
                                                          callbacks=[callback.wandb,
                                                                     callback.plot_callback(
                                                                         self.perceptrons[time_scale_index].model,
                                                                         trainX, trainY, testX, testY,
-                                                                        stock_monitor)])
+                                                                        stock_monitor, time_scale)])
         ### ADD MORE MODELS HERE TO SEE THEM IN WANDB
 
     def save(self):
