@@ -1,5 +1,6 @@
 V- create signal generator for for sin,cos including 1s,1m,2m,5m (open,close,high,low,volume)
 V- create tests for sin,cos including 1s,1m,2m,5m (open,close,high,low,volume)
+- schedual the plotutil. seconds needs to be sent every second, 1m every minute and so on
 - make plotutil (callback) work with all time_scales and not just 1s, as well on MANY2MANY
 - need to concat trainX,trainY and prediction is testY GT is testX
 - implement MANY2SOME

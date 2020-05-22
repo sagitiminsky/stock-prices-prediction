@@ -68,7 +68,7 @@ class DLModels:
 
         ### ADD MORE MODELS HERE
 
-        if self.prediction_type == config.MANY2ONE and i % 1 == 0:  # todo:  MANY2MANY as well
+        if self.prediction_type == config.MANY2ONE and i % 100 == 0:  # todo:  MANY2MANY as well
             self.perceptrons[time_scale_index].model.fit(trainX, trainY, epochs=1, batch_size=10,
                                                          validation_data=(testX, testY), verbose=0,
                                                          callbacks=[callback.wandb,

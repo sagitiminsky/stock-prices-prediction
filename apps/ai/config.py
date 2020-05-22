@@ -1,16 +1,16 @@
 ######### STOCK OBJECT #######
 max_window_size = {
-    '1s': 900,  # 15 minutes
-    '1m': 60,  # an hour
-    '2m': 30,  # an hour
-    '5m': 12,  # an hour
-    '15m': 32,  # a day
-    '30m': 16,  # a day
-    '1h': 8,  # 8 a day
-    '1d': 30,  # a month
-    '5d': 4,  # a month
-    '1mo': 6,  # half a year
-    '3mo': 4,  # a year
+    '1s': 900,  # 15 minutes at least (this means 900)
+    '1m': 100,
+    '2m': 100,
+    '5m': 100,
+    '15m': 100,
+    '30m': 100,
+    '1h': 100,
+    '1d': 100,
+    '5d': 100,
+    '1mo': 100,
+    '3mo': 100,
 }
 time_scale2seconds = {
     '1s': 1,

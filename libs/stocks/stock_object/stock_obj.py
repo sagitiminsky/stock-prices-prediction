@@ -115,16 +115,16 @@ class StockObj():
 
         live_by_Queue = self.time_scales[live_by]
 
-        if live_by=='1s':   #Queue instance
+        if live_by=='1s':   #Queue
             return {'open': list(live_by_Queue._queue)[-interval2live_by],
                     'low': min(list(live_by_Queue._queue)[-interval2live_by:]),
                     'high': max(list(live_by_Queue._queue)[-interval2live_by:]),
                     'close': list(live_by_Queue._queue)[-1],
                     'volume': volume}
 
-        else:               #Queue_obj instance
-            return {'open': list(live_by_Queue.open._queue)[-interval2live_by],
-                    'low': min(list(live_by_Queue.low._queue)[-interval2live_by:]),
-                    'high': max(list(live_by_Queue.high._queue)[-interval2live_by:]),
-                    'close': list(live_by_Queue.close._queue)[-1],
+        else:               #Candle
+            return {'open': list(live_by_Queue.candle['open']._queue)[-interval2live_by],
+                    'low': min(list(live_by_Queue.candle['low']._queue)[-interval2live_by:]),
+                    'high': max(list(live_by_Queue.candle['high']._queue)[-interval2live_by:]),
+                    'close': list(live_by_Queue.candle['close']._queue)[-1],
                     'volume': volume}

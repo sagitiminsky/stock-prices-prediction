@@ -42,6 +42,9 @@ class Candle():
         self.candle['volume'].enqueue(item['volume'])
 
     def get_vstacked_queues(self):
-        return np.vstack((np.array(list(self.candle['open']._norm_queue)), np.array(list(self.candle['low']._norm_queue)),
-                          np.array(list(self.candle['high']._norm_queue)), np.array(list(self.candle['close']._norm_queue)),
-                          np.array(list(self.candle['volume']._norm_queue))))
+        return np.vstack((
+            np.array(list(self.candle['high']._norm_queue)),
+            np.array(list(self.candle['close']._norm_queue)),
+            np.array(list(self.candle['open']._norm_queue)),
+            np.array(list(self.candle['low']._norm_queue)),
+            np.array(list(self.candle['volume']._norm_queue))))
