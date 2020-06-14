@@ -95,7 +95,7 @@ class PlotCallback(keras.callbacks.Callback):
 
             arr = np.array([])
             if state == 'pre':
-                colors = {'neg': 'pink', 'pos': 'lightgreen'}
+                colors = {'neg': 'black', 'pos': 'gray'}
 
                 for i, val in enumerate(stats):
                     if arr.size==0:
@@ -106,31 +106,43 @@ class PlotCallback(keras.callbacks.Callback):
                         arr=np.vstack((arr,self.inverse_queue(
                             np.append(np.append(self.trainX[0][0][i], self.trainY[0][i::5]), self.testX[0][0][i]),
                             mode=val)))
+                pre=arr
 
 
+            elif state == "GT":
+                colors = {'neg': 'pink', 'pos': 'lightgreen'}
 
-            # elif state == "GT":
-            #     colors = {'neg': 'black', 'pos': 'gray'}
-            #
-            #     for i,val in enumerate(stats):
-            #         arr=np.append(arr,self.inverse_queue(self.testY[0][i::5], mode=val))
-            #
-            #
+                for i,val in enumerate(stats):
+                    if arr.size==0:
+                        arr=self.inverse_queue(self.testY[0][i::5], mode=val)
+                    else:
+                        arr = np.vstack((arr, self.inverse_queue(self.testY[0][i::5], mode=val)))
+
+                arr=np.hstack((np.empty_like(pre)*np.nan,arr))
+                gt=np.hstack((np.empty_like(pre)*np.nan,arr))
+
+
             # else:  # predict
             #     colors = {'neg': 'red', 'pos': 'green'}
             #
             #     for i,val in enumerate(stats):
-            #         arr=np.append(arr,self.inverse_queue(self.model.predict(self.testX[0][0][0])[i::5]),mode=val)
+            #         if arr.size==0:
+            #             arr = self.inverse_queue(self.model.predict(self.testX)[i::5],mode=val)
+            #         else:
+            #             arr=np.vstack(arr,self.inverse_queue(self.model.predict(self.testX)[i::5]),mode=val)
+            #
+            #     arr=np.hstack((np.empty_like(gt)*np.nan,arr))
+
 
 
             all_data = arr.T
 
-
-
             # rectangular box plot
             bplot1 = ax1.boxplot(all_data,
                                  vert=True,  # vertical box alignment
-                                 patch_artist=True)  # fill with color
+                                 patch_artist=True)   # fill with color
+
+
             ax1.set_title(f'{self.stock_name}')
 
             for candle, patch in zip(arr, bplot1['boxes']):
