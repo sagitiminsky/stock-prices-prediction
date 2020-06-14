@@ -1,7 +1,7 @@
 ######### STOCK OBJECT #######
 max_window_size = {
     '1s': 900,  # 15 minutes at least (this means 900)
-    '1m': 100,
+    '1m': 100,   # has to be same value for all (less then 100)
     '2m': 100,
     '5m': 100,
     '15m': 100,
@@ -10,7 +10,7 @@ max_window_size = {
     '1d': 100,
     '5d': 100,
     '1mo': 100,
-    '3mo': 100,
+    '3mo': 20
 }
 time_scale2seconds = {
     '1s': 1,
@@ -30,6 +30,7 @@ time_scale2seconds = {
 # export PYTHONPATH=$PYTHON_PATH:/Users/sagit/Desktop/stocks_price_prediction
 MANY2ONE = True
 MANY2MANY = False
+TEST=True
 stock_names = ['FB', 'WMT']
 signal_names = ['sin', 'cos']
 window_size = max_window_size['1s']

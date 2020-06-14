@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from tensorflow import keras
 import numpy as np
 import wandb
-import libs.callback.candle_example as candle_chart
+import apps.ai.config as config
 
 
 def fig2data(fig):
@@ -42,36 +42,35 @@ class PlotCallback(keras.callbacks.Callback):
         self.figure_size = (20, 20)
 
     def on_epoch_end(self, epoch, logs=None):
-        if self.repeat_predictions:
-            preds = self.model.predict(self.trainX)
-        else:
-            preds = self.model.predict(self.testX)
-
         # Generate a figure with matplotlib
         if self.time_scale == '1s':
             figure = matplotlib.pyplot.figure(figsize=self.figure_size)
             plot = figure.add_subplot(111)
 
-            plot.plot(self.inverse_queue(self.trainY), color='blue')
-            plot.plot(np.append(np.empty_like(self.trainY) * np.nan, self.inverse_queue(self.testY)), color='red')
-            plot.plot(np.append(np.empty_like(self.trainY) * np.nan, self.inverse_queue(preds)), color='green')
+            if config.prediction_type == config.MANY2ONE:
+                plot.plot(self.inverse_queue(self.trainX[0][0]), color='blue')
+                plot.plot(np.append(np.empty_like(self.trainX[0][0]) * np.nan, self.inverse_queue(self.trainY[0])),
+                          color='blue')
+                plot.plot(np.append(np.empty_like(np.append(self.trainX[0][0], self.trainY[0])) * np.nan,
+                                    self.inverse_queue(self.testX[0][0])), color='blue')
+                plot.plot(np.append(
+                    np.empty_like(np.append(np.append(self.trainX[0][0], self.trainY[0]), self.testX[0][0])) * np.nan,
+                    self.inverse_queue(self.testY[0])), color='red')
+                plot.plot(np.append(
+                    np.empty_like(np.append(np.append(self.trainX[0][0], self.trainY[0]), self.testX[0][0])) * np.nan,
+                    self.inverse_queue(self.model.predict(self.testX))), color='green')
 
             data = fig2data(figure)
             matplotlib.pyplot.close(figure)
 
             _1s_loss = 1.56
-
             wandb.log({f"1s-loss-{_1s_loss}": wandb.Image(data)}, commit=False, sync=True)
 
         else:
-            high = self.inverse_queue(self.trainX[0][0][0], mode='high')
-            close = self.inverse_queue(self.trainX[0][0][1], mode='close')
-            open = self.inverse_queue(self.trainX[0][0][2], mode='open')
-            low = self.inverse_queue(self.trainX[0][0][3], mode='low')
-            volume = self.inverse_queue(self.trainX[0][0][4], mode='volume')
-
-            figure = candle_chart.plt_4_candle_chart(self.stock_name, np.array([low, open, close, high]),
-                                                     figure_size=self.figure_size)
+            if config.prediction_type == config.MANY2ONE:
+                figure = self.get_candle_chart()
+            else:
+                pass
 
             data = fig2data(figure)
             matplotlib.pyplot.close(figure)
@@ -86,3 +85,67 @@ class PlotCallback(keras.callbacks.Callback):
         else:  # Candle
             return arr * (self.stock_monitor.candle[mode]._max - self.stock_monitor.candle[mode]._min) + \
                    self.stock_monitor.candle[mode]._min
+
+    def get_candle_chart(self):
+
+        states = ['pre', 'GT', 'predict']
+        stats=['low', 'open', 'close', 'high']   # todo: add volume
+        fig, ax1 = plt.subplots(figsize=self.figure_size)
+        for state in states:
+
+            arr = np.array([])
+            if state == 'pre':
+                colors = {'neg': 'pink', 'pos': 'lightgreen'}
+
+                for i, val in enumerate(stats):
+                    if arr.size==0:
+                        arr=self.inverse_queue(
+                            np.append(np.append(self.trainX[0][0][i], self.trainY[0][i::5]), self.testX[0][0][i]),
+                            mode=val)
+                    else:
+                        arr=np.vstack((arr,self.inverse_queue(
+                            np.append(np.append(self.trainX[0][0][i], self.trainY[0][i::5]), self.testX[0][0][i]),
+                            mode=val)))
+
+
+
+            # elif state == "GT":
+            #     colors = {'neg': 'black', 'pos': 'gray'}
+            #
+            #     for i,val in enumerate(stats):
+            #         arr=np.append(arr,self.inverse_queue(self.testY[0][i::5], mode=val))
+            #
+            #
+            # else:  # predict
+            #     colors = {'neg': 'red', 'pos': 'green'}
+            #
+            #     for i,val in enumerate(stats):
+            #         arr=np.append(arr,self.inverse_queue(self.model.predict(self.testX[0][0][0])[i::5]),mode=val)
+
+
+            all_data = arr.T
+
+
+
+            # rectangular box plot
+            bplot1 = ax1.boxplot(all_data,
+                                 vert=True,  # vertical box alignment
+                                 patch_artist=True)  # fill with color
+            ax1.set_title(f'{self.stock_name}')
+
+            for candle, patch in zip(arr, bplot1['boxes']):
+                open = candle[1]
+            close = candle[2]
+            if open <= close:
+                patch.set_facecolor(colors['pos'])
+            else:
+                patch.set_facecolor(colors['neg'])
+
+        # adding horizontal grid lines
+        for ax in [ax1]:
+            ax.yaxis.grid(True)
+        ax.set_xlabel('sample number')
+        ax.set_ylabel('Price')
+
+
+        return fig
