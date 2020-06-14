@@ -40,6 +40,7 @@ class PlotCallback(keras.callbacks.Callback):
         self.time_scale = time_scale
         self.stock_name = 'APPL'
         self.figure_size = (20, 20)
+        self.colors={'neg': {'pre':'black','gt':'pink','predict':'red'}, 'pos': {'pre':'gray','gt':'lightgreen','predict':'green'}}
 
     def on_epoch_end(self, epoch, logs=None):
         # Generate a figure with matplotlib
@@ -91,67 +92,55 @@ class PlotCallback(keras.callbacks.Callback):
         states = ['pre', 'GT', 'predict']
         stats=['low', 'open', 'close', 'high']   # todo: add volume
         fig, ax1 = plt.subplots(figsize=self.figure_size)
-        for state in states:
+        ax1.set_title(f'{self.stock_name}')
 
-            arr = np.array([])
-            if state == 'pre':
-                colors = {'neg': 'black', 'pos': 'gray'}
+        arr = np.array([])
 
-                for i, val in enumerate(stats):
-                    if arr.size==0:
-                        arr=self.inverse_queue(
-                            np.append(np.append(self.trainX[0][0][i], self.trainY[0][i::5]), self.testX[0][0][i]),
-                            mode=val)
-                    else:
-                        arr=np.vstack((arr,self.inverse_queue(
-                            np.append(np.append(self.trainX[0][0][i], self.trainY[0][i::5]), self.testX[0][0][i]),
-                            mode=val)))
-                pre=arr
-
-
-            elif state == "GT":
-                colors = {'neg': 'pink', 'pos': 'lightgreen'}
-
-                for i,val in enumerate(stats):
-                    if arr.size==0:
-                        arr=self.inverse_queue(self.testY[0][i::5], mode=val)
-                    else:
-                        arr = np.vstack((arr, self.inverse_queue(self.testY[0][i::5], mode=val)))
-
-                arr=np.hstack((np.empty_like(pre)*np.nan,arr))
-                gt=np.hstack((np.empty_like(pre)*np.nan,arr))
-
-
-            # else:  # predict
-            #     colors = {'neg': 'red', 'pos': 'green'}
-            #
-            #     for i,val in enumerate(stats):
-            #         if arr.size==0:
-            #             arr = self.inverse_queue(self.model.predict(self.testX)[i::5],mode=val)
-            #         else:
-            #             arr=np.vstack(arr,self.inverse_queue(self.model.predict(self.testX)[i::5]),mode=val)
-            #
-            #     arr=np.hstack((np.empty_like(gt)*np.nan,arr))
-
-
-
-            all_data = arr.T
-
-            # rectangular box plot
-            bplot1 = ax1.boxplot(all_data,
-                                 vert=True,  # vertical box alignment
-                                 patch_artist=True)   # fill with color
-
-
-            ax1.set_title(f'{self.stock_name}')
-
-            for candle, patch in zip(arr, bplot1['boxes']):
-                open = candle[1]
-            close = candle[2]
-            if open <= close:
-                patch.set_facecolor(colors['pos'])
+        for i, val in enumerate(stats):
+            if arr.size==0:
+                arr=self.inverse_queue(
+                    np.append(np.append(self.trainX[0][0][i], self.trainY[0][i::5]), self.testX[0][0][i]),
+                    mode=val)
             else:
-                patch.set_facecolor(colors['neg'])
+                arr=np.vstack((arr,self.inverse_queue(
+                    np.append(np.append(self.trainX[0][0][i], self.trainY[0][i::5]), self.testX[0][0][i]),
+                    mode=val)))
+
+        pre_counter=i
+        pre=arr
+
+        arr = np.array([])
+        for i,val in enumerate(stats):
+            if arr.size==0:
+                arr=self.inverse_queue(self.testY[0][i::5], mode=val)
+            else:
+                arr = np.vstack((arr, self.inverse_queue(self.testY[0][i::5], mode=val)))
+
+        gt_counter = i
+        gt=arr
+
+
+        known_data = np.hstack((pre,gt))
+
+        # rectangular box plot
+        bplot1 = ax1.boxplot(known_data,
+                             vert=True,  # vertical box alignment
+                             patch_artist=True)   # fill with color
+
+        self.add_candles(known_data,bplot1,pre_counter,gt_counter)
+
+
+        #predict
+        arr = np.array([])
+        for i,val in enumerate(stats):
+            if arr.size==0:
+                arr = self.inverse_queue(self.model.predict(self.testX)[i::5],mode=val)
+            else:
+                arr=np.vstack(arr,self.inverse_queue(self.model.predict(self.testX)[i::5]),mode=val)
+
+        arr=np.hstack((np.empty_like(np.hstack((pre,gt)))*np.nan,arr))
+
+        self.add_candles(arr, bplot1, pre_counter, gt_counter)
 
         # adding horizontal grid lines
         for ax in [ax1]:
@@ -161,3 +150,28 @@ class PlotCallback(keras.callbacks.Callback):
 
 
         return fig
+
+    def color(self,state,i,pre_counter,gt_counter):
+        if state:
+            if i<pre_counter:
+                return self.colors['pos']['pre']
+            elif pre_counter<=i<gt_counter:
+                return self.colors['pos']['gt']
+            else:
+                return self.colors['pos']['predict']
+        else:
+            if i<pre_counter:
+                return self.colors['neg']['pre']
+            elif pre_counter<=i<gt_counter:
+                return self.colors['neg']['gt']
+            else:
+                return self.colors['neg']['predict']
+
+    def add_candles(self,arr,bplot1,pre_counter,gt_counter):
+        for i,(candle, patch) in enumerate(zip(arr, bplot1['boxes'])):
+            open = candle[1]
+            close = candle[2]
+            if open <= close:
+                patch.set_facecolor(self.color(True,i,pre_counter,gt_counter))
+            else:
+                patch.set_facecolor(self.color(False,i,pre_counter,gt_counter))
