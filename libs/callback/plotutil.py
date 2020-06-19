@@ -42,8 +42,13 @@ class PlotCallback(keras.callbacks.Callback):
         self.figure_size = (20, 20)
         self.colors={'neg': {'pre':'black','gt':'pink','predict':'red'}, 'pos': {'pre':'gray','gt':'lightgreen','predict':'green'}}
 
+
+    def format_decimal_points(self,number):
+        return "{0:.2f}".format(number)
+
     def on_epoch_end(self, epoch, logs=None):
         # Generate a figure with matplotlib
+
         if self.time_scale == '1s':
             figure = matplotlib.pyplot.figure(figsize=self.figure_size)
             plot = figure.add_subplot(111)
@@ -64,8 +69,7 @@ class PlotCallback(keras.callbacks.Callback):
             data = fig2data(figure)
             matplotlib.pyplot.close(figure)
 
-            _1s_loss = 1.56
-            wandb.log({f"1s-loss-{_1s_loss}": wandb.Image(data)}, commit=False, sync=True)
+            wandb.log({f"{self.time_scale}/loss-{self.format_decimal_points(logs['loss'])}-val_loss-{self.format_decimal_points(logs['val_loss'])}": wandb.Image(data)}, commit=False, sync=True)
 
         else:
             if config.prediction_type == config.MANY2ONE:
@@ -78,14 +82,13 @@ class PlotCallback(keras.callbacks.Callback):
 
             _1s_loss = 1.56
 
-            wandb.log({f"{self.time_scale}-loss-{_1s_loss}": wandb.Image(data)}, commit=False, sync=True)
+            wandb.log({f"{self.time_scale}/loss-{self.format_decimal_points(logs['loss'])}-val_loss-{self.format_decimal_points(logs['val_loss'])}": wandb.Image(data)}, commit=False, sync=True)
 
     def inverse_queue(self, arr, mode=None):
         if self.time_scale == '1s':  # Queue
             return arr * (self.stock_monitor._max - self.stock_monitor._min) + self.stock_monitor._min
         else:  # Candle
-            return arr * (self.stock_monitor.candle[mode]._max - self.stock_monitor.candle[mode]._min) + \
-                   self.stock_monitor.candle[mode]._min
+            return arr * (self.stock_monitor.candle[mode]._max - self.stock_monitor.candle[mode]._min) + self.stock_monitor.candle[mode]._min
 
     def get_candle_chart(self):
 
@@ -123,7 +126,7 @@ class PlotCallback(keras.callbacks.Callback):
         known_data = np.hstack((pre,gt))
 
         # rectangular box plot
-        bplot1 = ax1.boxplot(known_data,
+        bplot1 = ax1.boxplot(known_data.T,
                              vert=True,  # vertical box alignment
                              patch_artist=True)   # fill with color
 
@@ -134,11 +137,11 @@ class PlotCallback(keras.callbacks.Callback):
         arr = np.array([])
         for i,val in enumerate(stats):
             if arr.size==0:
-                arr = self.inverse_queue(self.model.predict(self.testX)[i::5],mode=val)
+                arr = self.inverse_queue(self.model.predict(self.testX)[0][i::5],mode=val)
             else:
-                arr=np.vstack(arr,self.inverse_queue(self.model.predict(self.testX)[i::5]),mode=val)
+                arr=np.vstack((arr,self.inverse_queue(self.model.predict(self.testX)[0][i::5],mode=val)))
 
-        arr=np.hstack((np.empty_like(np.hstack((pre,gt)))*np.nan,arr))
+        arr=np.hstack((np.empty_like(pre)*np.nan,arr))
 
         self.add_candles(arr, bplot1, pre_counter, gt_counter)
 
@@ -155,14 +158,14 @@ class PlotCallback(keras.callbacks.Callback):
         if state:
             if i<pre_counter:
                 return self.colors['pos']['pre']
-            elif pre_counter<=i<gt_counter:
+            elif pre_counter<=i<pre_counter+gt_counter:
                 return self.colors['pos']['gt']
             else:
                 return self.colors['pos']['predict']
         else:
             if i<pre_counter:
                 return self.colors['neg']['pre']
-            elif pre_counter<=i<gt_counter:
+            elif pre_counter<=i<pre_counter+gt_counter:
                 return self.colors['neg']['gt']
             else:
                 return self.colors['neg']['predict']

@@ -14,7 +14,7 @@ class DLModels:
         if self.stock_names == None or len(self.stock_names) == 0:
             raise ('stock names are invalid')
 
-        self.perceptrons = [Perceptron(time_scale) for time_scale in config.time_scales]
+        self.perceptrons = [Perceptron(time_scale,prediction_type) for time_scale in config.time_scales]
 
 
 
@@ -29,15 +29,11 @@ class DLModels:
                                                                     stock_monitor, time_scale)])
 
     def fit(self, trainX, trainY, testX, testY, callback, time_scale_index, time_scale, stock_monitor, i):
-        epoches = 100
+        epoches = 5
 
         self.perceptrons[time_scale_index].model.fit(trainX, trainY, epochs=epoches, batch_size=10,
                                                      validation_data=(testX, testY), verbose=0)
 
-        if self.prediction_type == config.MANY2ONE and i%10==0 :
+        if i!=-1 and self.prediction_type == config.MANY2ONE and i%100==0 : #when i is -1 this is test mode
             threading.Timer(1.0, self.send2wandb,[time_scale_index,i,trainX,trainY,testX,testY,callback,stock_monitor,time_scale]).start()
 
-    def save(self):
-        for time_scale_model in self.perceptrons:
-            time_scale_model.export_model()
-            time_scale_model.export_onnx_model()

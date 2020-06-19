@@ -1,3 +1,5 @@
+#export PYTHONPATH=$PYTHON_PATH:/Users/sagit/Desktop/stock_price_prediction
+
 ######### STOCK OBJECT #######
 max_window_size = {
     '1s': 900,  # 15 minutes at least (this means 900)
@@ -10,7 +12,7 @@ max_window_size = {
     '1d': 100,
     '5d': 100,
     '1mo': 100,
-    '3mo': 20
+    '3mo': 35
 }
 time_scale2seconds = {
     '1s': 1,
