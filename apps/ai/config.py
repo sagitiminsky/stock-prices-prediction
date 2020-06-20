@@ -45,9 +45,6 @@ DL_config = {'prediction_type': prediction_type,
                             'version': 'v_1',
                             'path2onnx_model': 'libs/dl_models/models_lib/perceptron/onnx'}}
 
-####### SIGNAL GENERATOR ########
-signals_names = ['sin', 'cos']
-delta = 0.1
 
 ######## GRAPHS #############
 time_scales = ['1s', '1m', '2m', '5m', '15m', '30m', '1h', '1d', '5d', '1mo', '3mo']

@@ -35,5 +35,5 @@ class DLModels:
                                                      validation_data=(testX, testY), verbose=0)
 
         if i!=-1 and self.prediction_type == config.MANY2ONE and i%100==0 : #when i is -1 this is test mode
-            threading.Timer(1.0, self.send2wandb,[time_scale_index,i,trainX,trainY,testX,testY,callback,stock_monitor,time_scale]).start()
+            self.send2wandb(time_scale_index,i,trainX,trainY,testX,testY,callback,stock_monitor,time_scale)
 
