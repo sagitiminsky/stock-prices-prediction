@@ -13,7 +13,7 @@ def get_dataset(prediction_type,time_scale):
 
     trainX_1s = np.array([[0] * ins_number] * number_of_stocks)
 
-    trainX_other = np.array([[[[0] * 5] * number_of_stocks ]] * ins_number)
+    trainX_other = np.array([[[0] * 5] * number_of_stocks ] * ins_number)
 
     trainY_1s_MANY2ONE = np.array([0] * outs_number)
 
@@ -27,7 +27,7 @@ def get_dataset(prediction_type,time_scale):
 
     testX_1s = np.array([[0] * ins_number] * number_of_stocks)
 
-    testX_other = np.array([[[[0] * 5] * number_of_stocks]] * ins_number)
+    testX_other = np.array([[[0] * 5] * number_of_stocks] * ins_number)
 
     testY_1s_MANY2ONE = np.array([0] * outs_number)
 
@@ -59,12 +59,12 @@ class StockRnnUnitTests(unittest.TestCase):
         for time_scale_index,time_scale in enumerate(config.time_scales):
             trainX, trainY, testX, testY = get_dataset(config.MANY2ONE,time_scale)
 
-            if time_scale=='1s':
-                # reshape
-                trainX = trainX[np.newaxis, :, :]
-                testX = testX[np.newaxis, :, :]
-                trainY = trainY[np.newaxis, :]
-                testY = testY[np.newaxis, :]
+
+            # reshape
+            trainX = trainX[np.newaxis, :, :]
+            testX = testX[np.newaxis, :, :]
+            trainY = trainY[np.newaxis, :]
+            testY = testY[np.newaxis, :]
 
             dl_models.fit(trainX=trainX, trainY=trainY, testX=testX, testY=testY, callback=Mock(),
                           time_scale_index=time_scale_index, stock_monitor=Mock(), i=-1,

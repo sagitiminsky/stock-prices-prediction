@@ -15,9 +15,9 @@ class Perceptron:
         if time_scale == '1s': # <number of stocks> x <training size>
             self.model.add(Flatten(input_shape=(number_of_stocks, int(int(config.max_window_size[time_scale] * 0.5) * 0.7)),
                                    name=f'time_scale_{time_scale}'))
-        else:  # open,low,high,close,volume | <numebr of stocks> x 5 x <training size>
+        else:  # low,open,close,high,volume | <numebr of stocks> x 5 x <training size>
             self.model.add(
-                Flatten(input_shape=(number_of_stocks, 5, int(int(config.max_window_size[time_scale] * 0.5) * 0.7)),
+                Flatten(input_shape=(int(int(config.max_window_size[time_scale] * 0.5) * 0.7),number_of_stocks, 5 ),
                         name=f'time_scale_{time_scale}'))
 
         # output layer
@@ -27,7 +27,7 @@ class Perceptron:
             if time_scale == '1s': # 1 x <prediction size>
                 self.model.add(Dense(int(int(config.max_window_size[time_scale] * 0.5) * 0.3),
                                      name=f'time_scale_{time_scale}_output'))
-            else:  # open,low,high,close,volume | 5 x <prediction size>
+            else:  # low,open,close,high,volume | 5 x <prediction size>
                 self.model.add(Dense(5 * int(int(config.max_window_size[time_scale] * 0.5) * 0.3),
                                      name=f'time_scale_{time_scale}_output'))
 
@@ -38,7 +38,7 @@ class Perceptron:
                 self.model.add(Dense(number_of_stocks * int(int(config.max_window_size[time_scale] * 0.5) * 0.3),
                                      name=f'time_scale_{time_scale}_output'))
 
-            else:  # open,low,high,close,volume | <number of stocks> x 5 x <prediction size>
+            else:  # low,open,close,high,volume | <number of stocks> x 5 x <prediction size>
                 self.model.add(Dense(number_of_stocks * 5 * int(int(config.max_window_size[time_scale] * 0.5) * 0.3),
                                      name=f'time_scale_{time_scale}_output'))
 

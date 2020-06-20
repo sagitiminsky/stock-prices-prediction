@@ -1,12 +1,12 @@
-V- create signal generator for for sin,cos including 1s,1m,2m,5m (open,close,high,low,volume)
-V- create tests for sin,cos including 1s,1m,2m,5m (open,close,high,low,volume)
-V- schedual the plotutil. seconds needs to be sent every second, 1m every minute and so on
+V - create signal generator for for sin,cos including 1s,1m,2m,5m (open,close,high,low,volume)
+V - create tests for sin,cos including 1s,1m,2m,5m (open,close,high,low,volume)
+V - create ONE2ONE using the already implement MANY2ONE and MANY2MANY
+- schedual the plotutil. seconds needs to be sent every second, 1m every minute and so on
 - make plotutil (callback) work with all time_scales and not just 1s, but also for other (MANY2One) and as well on MANY2MANY for 1s and others
-- need to concat trainX,trainY and prediction is testY GT is testX - so that GT data will be shown on graph in wandb
+- need to concat trainX,trainY and prediction is testY GT is testX - so that GT data will be shown on graph in wandb for 1m,2m,5m ect...
 - think of a way to manage different models (graph mayble) so that the best model will replace worse models
 - build helm chart
 - implement MANY2SOME
-- create ONE2ONE using the already implement MANY2ONE and MANY2MANY
 - fix the insertion data into queues so it will be on more accurate data (not only max on the live_by queue but also on smaller queues)
 - the stock exchange works five days a way and 8 hours a day - maybe we need to change the constants
 - find optimal window_size (hyper parameter) - train the same model with various window_sizes and pick the one the reaches the minimal validation loss for each time frame (1m,2m,5m,...)

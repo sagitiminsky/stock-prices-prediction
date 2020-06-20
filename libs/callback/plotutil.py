@@ -102,11 +102,11 @@ class PlotCallback(keras.callbacks.Callback):
         for i, val in enumerate(stats):
             if arr.size==0:
                 arr=self.inverse_queue(
-                    np.append(np.append(self.trainX[0][0][i], self.trainY[0][i::5]), self.testX[0][0][i]),
+                    np.append(np.append(self.trainX[0][i][0], self.trainY[0][i*5:5*(i+1)]), self.testX[0][i][0]),
                     mode=val)
             else:
                 arr=np.vstack((arr,self.inverse_queue(
-                    np.append(np.append(self.trainX[0][0][i], self.trainY[0][i::5]), self.testX[0][0][i]),
+                    np.append(np.append(self.trainX[0][i][0], self.trainY[0][i*5:5*(i+1)]), self.testX[0][i][0]),
                     mode=val)))
 
         pre_counter=i
@@ -115,9 +115,9 @@ class PlotCallback(keras.callbacks.Callback):
         arr = np.array([])
         for i,val in enumerate(stats):
             if arr.size==0:
-                arr=self.inverse_queue(self.testY[0][i::5], mode=val)
+                arr=self.inverse_queue(self.testY[0][i*5:5*(i+1)], mode=val)
             else:
-                arr = np.vstack((arr, self.inverse_queue(self.testY[0][i::5], mode=val)))
+                arr = np.vstack((arr, self.inverse_queue(self.testY[0][i*5:5*(i+1)], mode=val)))
 
         gt_counter = i
         gt=arr
@@ -137,9 +137,9 @@ class PlotCallback(keras.callbacks.Callback):
         arr = np.array([])
         for i,val in enumerate(stats):
             if arr.size==0:
-                arr = self.inverse_queue(self.model.predict(self.testX)[0][i::5],mode=val)
+                arr = self.inverse_queue(self.model.predict(self.testX)[0][i*5:5*(i+1)],mode=val)
             else:
-                arr=np.vstack((arr,self.inverse_queue(self.model.predict(self.testX)[0][i::5],mode=val)))
+                arr=np.vstack((arr,self.inverse_queue(self.model.predict(self.testX)[0][i*5:5*(i+1)],mode=val)))
 
         arr=np.hstack((np.empty_like(pre)*np.nan,arr))
 

@@ -47,8 +47,8 @@ def stack_dataset(trainX_s,testX_s,trainY_s,testY_s,trainX,testX,trainY,testY,ti
             testX_s = np.vstack((testX_s, testX))
 
         else:  # 1m,2m,5m...
-            trainX_s = np.stack((trainX_s, trainX), axis=0)
-            testX_s = np.stack((testX_s, testX), axis=0)
+            trainX_s = np.stack((trainX_s, trainX), axis=1).T
+            testX_s = np.stack((testX_s, testX), axis=1).T
 
         # only output layer changes if prediction_type=MANY2MANY
         if config.prediction_type == config.MANY2MANY:
