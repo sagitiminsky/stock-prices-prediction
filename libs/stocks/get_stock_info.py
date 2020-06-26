@@ -16,13 +16,12 @@ class GetStocksInfo:
                                        'stock_obj': StockObj(stock_name=stock_name, mock=mock,sin=False)}
 
     def measure_sch(self):
-
-        threading.Timer(1.0, self.measure_sch).start()
         for stock_name in self.stocks:
             value, volume = self.get_cur_price(stock_name)
 
             stock_object = self.stocks[stock_name]['stock_obj']
             stock_object.enqueue({'value': value, 'volume': volume})
+
 
     def measure(self,mock=None):
         if mock == None:

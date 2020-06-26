@@ -69,7 +69,7 @@ class PlotCallback(keras.callbacks.Callback):
             data = fig2data(figure)
             matplotlib.pyplot.close(figure)
 
-            wandb.log({f"{self.time_scale}/loss-{self.format_decimal_points(logs['loss'])}-val_loss-{self.format_decimal_points(logs['val_loss'])}": wandb.Image(data)}, commit=False, sync=False)
+            wandb.log({f"{self.time_scale}/loss-{self.format_decimal_points(logs['loss'])}-val_loss-{self.format_decimal_points(logs['val_loss'])}": wandb.Image(data)}, commit=False, sync=True)
 
         else:
             if config.prediction_type == config.MANY2ONE:
@@ -82,7 +82,7 @@ class PlotCallback(keras.callbacks.Callback):
 
             _1s_loss = 1.56
 
-            wandb.log({f"{self.time_scale}/loss-{self.format_decimal_points(logs['loss'])}-val_loss-{self.format_decimal_points(logs['val_loss'])}": wandb.Image(data)}, commit=False, sync=False)
+            wandb.log({f"{self.time_scale}/loss-{self.format_decimal_points(logs['loss'])}-val_loss-{self.format_decimal_points(logs['val_loss'])}": wandb.Image(data)}, commit=False, sync=True)
 
     def inverse_queue(self, arr, mode=None):
         if self.time_scale == '1s':  # Queue

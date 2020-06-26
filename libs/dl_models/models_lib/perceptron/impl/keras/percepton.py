@@ -1,15 +1,18 @@
 import apps.ai.config as config
 from keras.models import Sequential
 from keras.layers import Dense, Flatten
+from libs.dl_models.dl_model import DLModel
 
 
-class Perceptron:
+class Perceptron(DLModel):
     def __init__(self, time_scale, prediction_type):
 
         number_of_stocks = len(config.signal_names) if config.TEST else len(config.stock_names)
 
         # model
         self.model = Sequential(name="Perceptron_stock_prediction_of_" + time_scale)
+
+        super().__init__(self.model,config.DL_config,time_scale)
 
         # input layer
         if time_scale == '1s': # <number of stocks> x <training size>
