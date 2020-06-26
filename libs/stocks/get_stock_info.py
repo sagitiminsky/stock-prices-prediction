@@ -23,6 +23,7 @@ class GetStocksInfo:
             stock_object.enqueue({'value': value, 'volume': volume})
 
 
+
     def measure(self,mock=None):
         if mock == None:
             self.measure_sch()

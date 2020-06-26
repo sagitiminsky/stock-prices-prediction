@@ -27,9 +27,8 @@ class DLModels:
                                                               trainX, trainY, testX, testY,
                                                               stock_monitor, time_scale)])
 
-    def fit(self, time_scale,trainX,trainY,testX,testY,stock_monitor):
+    def fit(self, time_scale,trainX,trainY,testX,testY):
         epoches = 5
         self.perceptrons[time_scale].model.fit(trainX, trainY, epochs=epoches, batch_size=10,
                                                validation_data=(testX, testY), verbose=0)
 
-        self.send2wandb(time_scale,trainX,trainY,testX,testY,stock_monitor)

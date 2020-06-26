@@ -6,7 +6,7 @@ from libs.callback.callback import CallBack
 from libs.threading.threading import CustomTimer
 import apps.ai.config as config
 from tqdm import tqdm
-
+import threading
 
 prediction_type = config.prediction_type
 window_size = config.window_size
@@ -14,15 +14,14 @@ stock_names = config.signal_names if config.TEST else config.stock_names
 
 stocks_obj = GetSignalInfo() if config.TEST else GetStocksInfo()
 callback = CallBack()
-dl_models_obj = DLModels(config.prediction_type,callback)
-
+dl_models_obj = DLModels(config.prediction_type, callback)
+s = {}
 
 for i in tqdm(range(config.window_size + 10 ** 3)):
 
     m = CustomTimer(config.time_scale2seconds['1s'], stocks_obj.measure)
     m.start()
     m.join()
-
 
     for time_scale_index, time_scale in enumerate(config.time_scales):
 
@@ -46,7 +45,9 @@ for i in tqdm(range(config.window_size + 10 ** 3)):
         testY_s = testY_s[np.newaxis, :]
         stock_monitor=stock_monitor
 
-        dl_models_obj.fit(time_scale,trainX_s,trainY_s,testX_s,testY_s,stock_monitor)
+        dl_models_obj.fit(time_scale, trainX_s, trainY_s, testX_s, testY_s)
+
+        threading.Timer(config.time_scale2seconds[time_scale], dl_models_obj.send2wandb,
+                        [time_scale, trainX_s, trainY_s, testX_s, testY_s, stock_monitor]).start()
 
 # dl_models_obj.save()
-
