@@ -3,17 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e6c2ad31-683a-4c7a-9a53-59289a453324" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/ai/stock_price_prediction.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ai/stock_price_prediction.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastTODO" beforeDir="false" afterPath="$PROJECT_DIR$/fastTODO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/dataset/perceptron/load_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/dataset/perceptron/dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/dataset/perceptron/load_dataset_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/dataset/perceptron/dataset_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/dl_models/dl_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/dl_models/dl_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/dl_models/dl_models_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/dl_models/dl_models_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/dl_models/models_lib/perceptron/impl/keras/percepton.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/dl_models/models_lib/perceptron/impl/keras/percepton.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/signal_generator/get_signal_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/signal_generator/get_signal_info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/stocks/get_stock_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/stocks/get_stock_info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/stocks/stock_object/stock_obj.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/stocks/stock_object/stock_obj.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/threading/threading.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/threading/threading.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,14 +251,7 @@
       <workItem from="1592236216620" duration="598000" />
       <workItem from="1592465254007" duration="16172000" />
       <workItem from="1592919384176" duration="585000" />
-      <workItem from="1593022718552" duration="26554000" />
-    </task>
-    <task id="LOCAL-00017" summary="add perceptron model">
-      <created>1587640111703</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1587640111703</updated>
+      <workItem from="1593022718552" duration="27823000" />
     </task>
     <task id="LOCAL-00018" summary="add perceptron model">
       <created>1587640296296</created>
@@ -606,7 +589,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593189431999</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="done!&#10;schedual the plotutil. seconds needs to be sent every second, 1m every minute and so on">
+      <created>1593258168581</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1593258168581</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -722,7 +712,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create web-platform root folder" />
     <MESSAGE value="create graphs_test" />
     <MESSAGE value="create db and UI" />
     <MESSAGE value="try to create modal to send requset to populate database" />
@@ -747,7 +736,8 @@
     <MESSAGE value="done for tests for signals and stocks" />
     <MESSAGE value="measurement for stock price are done each second" />
     <MESSAGE value="bug in:&#10;schedual the plotutil. seconds needs to be sent every second, 1m every minute and so on" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug in:&#10;schedual the plotutil. seconds needs to be sent every second, 1m every minute and so on" />
+    <MESSAGE value="done!&#10;schedual the plotutil. seconds needs to be sent every second, 1m every minute and so on" />
+    <option name="LAST_COMMIT_MESSAGE" value="done!&#10;schedual the plotutil. seconds needs to be sent every second, 1m every minute and so on" />
   </component>
   <component name="WindowStateProjectService">
     <state x="319" y="203" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593172521324">
@@ -779,7 +769,7 @@
       <screen x="0" y="23" width="1629" height="1027" />
     </state>
     <state x="560" y="399" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1629.1027@0.23.1629.1027" timestamp="1588769647952" />
-    <state x="2147" y="142" key="CommitChangelistDialog2" timestamp="1593189428656">
+    <state x="2147" y="142" key="CommitChangelistDialog2" timestamp="1593258164339">
       <screen x="1680" y="23" width="1866" height="1057" />
     </state>
     <state x="467" y="152" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1588434276992" />
@@ -788,7 +778,7 @@
     <state x="408" y="139" key="CommitChangelistDialog2/0.23.1629.1027@0.23.1629.1027" timestamp="1588773037533" />
     <state x="408" y="139" key="CommitChangelistDialog2/0.23.1630.1027@0.23.1630.1027" timestamp="1589290393611" />
     <state x="468" y="142" key="CommitChangelistDialog2/0.23.1872.1057@0.23.1872.1057" timestamp="1592687835888" />
-    <state x="2147" y="142" key="CommitChangelistDialog2/1680.23.1866.1057/0.23.1680.1027@1680.23.1866.1057" timestamp="1593189428656" />
+    <state x="2147" y="142" key="CommitChangelistDialog2/1680.23.1866.1057/0.23.1680.1027@1680.23.1866.1057" timestamp="1593258164339" />
     <state x="2148" y="142" key="CommitChangelistDialog2/1680.23.1868.1057/0.23.1680.1027@1680.23.1868.1057" timestamp="1589885535807" />
     <state x="2148" y="142" key="CommitChangelistDialog2/1680.23.1871.1057/0.23.1680.1027@1680.23.1871.1057" timestamp="1592139043008" />
     <state x="2149" y="142" key="CommitChangelistDialog2/1680.23.1875.1057/0.23.1680.1027@1680.23.1875.1057" timestamp="1591883303622" />
@@ -968,7 +958,7 @@
     <state x="322" y="175" key="SettingsEditor/0.23.1627.1027@0.23.1627.1027" timestamp="1588265641300" />
     <state x="322" y="175" key="SettingsEditor/0.23.1629.1027@0.23.1629.1027" timestamp="1588774077338" />
     <state x="2289" y="23" key="SettingsEditor/1680.23.1866.1057/0.23.1680.1027@1680.23.1866.1057" timestamp="1593256387770" />
-    <state x="2154" y="283" key="Vcs.Push.Dialog.v2" timestamp="1593186445705">
+    <state x="2154" y="283" key="Vcs.Push.Dialog.v2" timestamp="1593258170156">
       <screen x="1680" y="23" width="1866" height="1057" />
     </state>
     <state x="426" y="259" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1588431249127" />
@@ -977,7 +967,7 @@
     <state x="414" y="276" key="Vcs.Push.Dialog.v2/0.23.1629.1027@0.23.1629.1027" timestamp="1588156405982" />
     <state x="413" y="276" key="Vcs.Push.Dialog.v2/0.23.1630.1027@0.23.1630.1027" timestamp="1588434514614" />
     <state x="475" y="283" key="Vcs.Push.Dialog.v2/0.23.1872.1057@0.23.1872.1057" timestamp="1592687841595" />
-    <state x="2154" y="283" key="Vcs.Push.Dialog.v2/1680.23.1866.1057/0.23.1680.1027@1680.23.1866.1057" timestamp="1593186445705" />
+    <state x="2154" y="283" key="Vcs.Push.Dialog.v2/1680.23.1866.1057/0.23.1680.1027@1680.23.1866.1057" timestamp="1593258170156" />
     <state x="2155" y="283" key="Vcs.Push.Dialog.v2/1680.23.1871.1057/0.23.1680.1027@1680.23.1871.1057" timestamp="1592124540424" />
     <state x="2156" y="283" key="Vcs.Push.Dialog.v2/1680.23.1875.1057/0.23.1680.1027@1680.23.1875.1057" timestamp="1591883309936" />
     <state x="2341" y="292" key="VcsDiffUtil.ChangesDialog" timestamp="1592120695544">
