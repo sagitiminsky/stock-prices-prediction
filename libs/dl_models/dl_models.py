@@ -4,7 +4,7 @@ import threading
 
 
 class DLModels:
-    def __init__(self, prediction_type, callback):
+    def __init__(self, prediction_type, callback=None):
 
         self.prediction_type = prediction_type
         self.stock_names = config.stock_names

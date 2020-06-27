@@ -2,6 +2,7 @@ V - create signal generator for for sin,cos including 1s,1m,2m,5m (open,close,hi
 V - create tests for sin,cos including 1s,1m,2m,5m (open,close,high,low,volume)
 V - create ONE2ONE using the already implement MANY2ONE and MANY2MANY
 - schedual the plotutil. seconds needs to be sent every second, 1m every minute and so on
+- fix bug with cicle in test mode
 - make plotutil (callback) work with all time_scales and not just 1s, but also for other (MANY2One) and as well on MANY2MANY for 1s and others
 - need to concat trainX,trainY and prediction is testY GT is testX - so that GT data will be shown on graph in wandb for 1m,2m,5m ect...
 - think of a way to manage different models (graph mayble) so that the best model will replace worse models

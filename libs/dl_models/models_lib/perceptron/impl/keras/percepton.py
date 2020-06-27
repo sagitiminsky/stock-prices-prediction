@@ -1,6 +1,6 @@
 import apps.ai.config as config
-from keras.models import Sequential
-from keras.layers import Dense, Flatten
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Flatten
 from libs.dl_models.dl_model import DLModel
 
 

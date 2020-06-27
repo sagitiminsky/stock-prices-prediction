@@ -60,6 +60,9 @@ class StockObj():
                 '3mo': Candle(init_dict=self.sin_wave_candle_generator(signal_name=stock_name,time_scale='3mo'), time_scale='3mo')
             }
 
+    def __str__(self):
+        return str(self.time_scales['1s']._queue)
+
     def sin_wave_candle_generator(self,signal_name,time_scale):
         return {
             'open':self.apply_trig_func(func=signal_name,arr=np.linspace(0, 2 * np.pi,config.max_window_size[time_scale])+1),
