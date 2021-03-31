@@ -6,7 +6,7 @@ pytest==5.4.1
 onnxruntime==1.2.0
 keras2onnx==1.6.1
 bs4==0.0.1
-lxml==4.5.0
+lxml==4.6.3
 Pillow==7.1.2
 numpy
 
