@@ -1,5 +1,5 @@
 matplotlib==3.2.1
-tensorflow==2.1.0
+tensorflow==2.11.1
 wandb==0.8.33
 Keras==2.3.1
 pytest==5.4.1
